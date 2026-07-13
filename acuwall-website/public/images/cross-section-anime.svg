@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 700" width="900" height="700">
+  <!-- Gradient background (anime style) -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Shine effects -->
+    <filter id="shine">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+    </filter>
+    
+    <!-- Shadow -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="3" dy="3" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <rect width="900" height="700" fill="url(#bgGradient)"/>
+  
+  <!-- Title with manga style -->
+  <g filter="url(#shadow)">
+    <text x="450" y="60" font-family="'Arial Black', Arial, sans-serif" font-size="36" font-weight="900" text-anchor="middle" fill="#0F172A" stroke="#FF3000" stroke-width="2">
+      ACUWALL PANEL KERESZTMETSZET
+    </text>
+  </g>
+  
+  <!-- Main panel structure -->
+  <g transform="translate(180, 150)">
+    
+    <!-- Left Fabeton Layer (anime style with thick borders) -->
+    <rect x="0" y="0" width="100" height="350" fill="#A67C52" stroke="#2D1B0E" stroke-width="5" rx="8"/>
+    
+    <!-- Shine effect on fabeton -->
+    <ellipse cx="30" cy="80" rx="15" ry="40" fill="#D4A574" opacity="0.6"/>
+    
+    <!-- Wood grain manga lines -->
+    <g stroke="#2D1B0E" stroke-width="3" opacity="0.4">
+      <line x1="20" y1="50" x2="80" y2="50"/>
+      <line x1="15" y1="100" x2="85" y2="100"/>
+      <line x1="20" y1="150" x2="80" y2="150"/>
+      <line x1="15" y1="200" x2="85" y2="200"/>
+      <line x1="20" y1="250" x2="80" y2="250"/>
+      <line x1="15" y1="300" x2="85" y2="300"/>
+    </g>
+    
+    <!-- Concrete Core (anime style) -->
+    <rect x="100" y="0" width="280" height="350" fill="#8B95A5" stroke="#2D1B0E" stroke-width="5" rx="8"/>
+    
+    <!-- Shine effect on concrete -->
+    <ellipse cx="240" cy="100" rx="40" ry="80" fill="#B8C5D6" opacity="0.5"/>
+    
+    <!-- Concrete texture (manga dots) -->
+    <g fill="#4A5568" opacity="0.3">
+      <circle cx="150" cy="60" r="6"/>
+      <circle cx="220" cy="90" r="7"/>
+      <circle cx="310" cy="70" r="5"/>
+      <circle cx="180" cy="140" r="6"/>
+      <circle cx="260" cy="170" r="7"/>
+      <circle cx="330" cy="150" r="5"/>
+      <circle cx="160" cy="230" r="6"/>
+      <circle cx="240" cy="260" r="7"/>
+      <circle cx="320" cy="240" r="6"/>
+      <circle cx="190" cy="300" r="5"/>
+    </g>
+    
+    <!-- Right Fabeton Layer (anime style) -->
+    <rect x="380" y="0" width="100" height="350" fill="#A67C52" stroke="#2D1B0E" stroke-width="5" rx="8"/>
+    
+    <!-- Shine effect -->
+    <ellipse cx="450" cy="120" rx="15" ry="40" fill="#D4A574" opacity="0.6"/>
+    
+    <!-- Wood grain lines -->
+    <g stroke="#2D1B0E" stroke-width="3" opacity="0.4">
+      <line x1="400" y1="50" x2="460" y2="50"/>
+      <line x1="395" y1="100" x2="465" y2="100"/>
+      <line x1="400" y1="150" x2="460" y2="150"/>
+      <line x1="395" y1="200" x2="465" y2="200"/>
+      <line x1="400" y1="250" x2="460" y2="250"/>
+      <line x1="395" y1="300" x2="465" y2="300"/>
+    </g>
+    
+    <!-- Labels with manga speech bubble style -->
+    <!-- Left Fabeton label -->
+    <g transform="translate(50, -80)">
+      <ellipse cx="0" cy="0" rx="80" ry="35" fill="#FF3000" stroke="#0F172A" stroke-width="3"/>
+      <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">
+        FA-KOMPOZIT
+      </text>
+      <text x="0" y="8" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+        (Fabeton)
+      </text>
+      <polygon points="0,30 10,45 -10,45" fill="#FF3000" stroke="#0F172A" stroke-width="2"/>
+    </g>
+    
+    <!-- Concrete label -->
+    <g transform="translate(240, -80)">
+      <ellipse cx="0" cy="0" rx="90" ry="35" fill="#FF3000" stroke="#0F172A" stroke-width="3"/>
+      <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">
+        VASBETON MAG
+      </text>
+      <text x="0" y="8" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+        (Szerkezet)
+      </text>
+      <polygon points="0,30 10,45 -10,45" fill="#FF3000" stroke="#0F172A" stroke-width="2"/>
+    </g>
+    
+    <!-- Right Fabeton label -->
+    <g transform="translate(430, -80)">
+      <ellipse cx="0" cy="0" rx="80" ry="35" fill="#FF3000" stroke="#0F172A" stroke-width="3"/>
+      <text x="0" y="-8" font-family="Arial, sans-serif" font-size="13" font-weight="bold" text-anchor="middle" fill="white">
+        FA-KOMPOZIT
+      </text>
+      <text x="0" y="8" font-family="Arial, sans-serif" font-size="11" font-weight="bold" text-anchor="middle" fill="white">
+        (Fabeton)
+      </text>
+      <polygon points="0,30 10,45 -10,45" fill="#FF3000" stroke="#0F172A" stroke-width="2"/>
+    </g>
+    
+    <!-- Measurement arrows (manga style with thick lines) -->
+    <!-- Left layer -->
+    <g>
+      <line x1="10" y1="380" x2="90" y2="380" stroke="#FF3000" stroke-width="4"/>
+      <polygon points="10,380 20,375 20,385" fill="#FF3000"/>
+      <polygon points="90,380 80,375 80,385" fill="#FF3000"/>
+      <rect x="35" y="390" width="30" height="28" fill="white" stroke="#FF3000" stroke-width="3" rx="5"/>
+      <text x="50" y="409" font-family="'Arial Black', Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle" fill="#FF3000">
+        8cm
+      </text>
+    </g>
+    
+    <!-- Center layer -->
+    <g>
+      <line x1="110" y1="380" x2="370" y2="380" stroke="#FF3000" stroke-width="4"/>
+      <polygon points="110,380 120,375 120,385" fill="#FF3000"/>
+      <polygon points="370,380 360,375 360,385" fill="#FF3000"/>
+      <rect x="220" y="390" width="40" height="28" fill="white" stroke="#FF3000" stroke-width="3" rx="5"/>
+      <text x="240" y="409" font-family="'Arial Black', Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle" fill="#FF3000">
+        24cm
+      </text>
+    </g>
+    
+    <!-- Right layer -->
+    <g>
+      <line x1="390" y1="380" x2="470" y2="380" stroke="#FF3000" stroke-width="4"/>
+      <polygon points="390,380 400,375 400,385" fill="#FF3000"/>
+      <polygon points="470,380 460,375 460,385" fill="#FF3000"/>
+      <rect x="415" y="390" width="30" height="28" fill="white" stroke="#FF3000" stroke-width="3" rx="5"/>
+      <text x="430" y="409" font-family="'Arial Black', Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle" fill="#FF3000">
+        8cm
+      </text>
+    </g>
+    
+    <!-- Total width (manga style bold) -->
+    <g>
+      <line x1="0" y1="440" x2="480" y2="440" stroke="#0F172A" stroke-width="5"/>
+      <polygon points="0,440 15,433 15,447" fill="#0F172A"/>
+      <polygon points="480,440 465,433 465,447" fill="#0F172A"/>
+      <rect x="210" y="450" width="60" height="35" fill="#FF3000" stroke="#0F172A" stroke-width="4" rx="8"/>
+      <text x="240" y="467" font-family="'Arial Black', Arial, sans-serif" font-size="14" font-weight="900" text-anchor="middle" fill="white">
+        TELJES
+      </text>
+      <text x="240" y="480" font-family="'Arial Black', Arial, sans-serif" font-size="16" font-weight="900" text-anchor="middle" fill="white">
+        40cm
+      </text>
+    </g>
+    
+    <!-- Height measurement -->
+    <g>
+      <line x1="510" y1="20" x2="510" y2="330" stroke="#0F172A" stroke-width="5"/>
+      <polygon points="510,20 503,35 517,35" fill="#0F172A"/>
+      <polygon points="510,330 503,315 517,315" fill="#0F172A"/>
+      <rect x="520" y="160" width="45" height="30" fill="#FF3000" stroke="#0F172A" stroke-width="4" rx="8"/>
+      <text x="542" y="182" font-family="'Arial Black', Arial, sans-serif" font-size="18" font-weight="900" text-anchor="middle" fill="white">
+        50cm
+      </text>
+    </g>
+    
+    <!-- Anime speed lines for emphasis -->
+    <g stroke="#0F172A" stroke-width="2" opacity="0.1">
+      <line x1="-20" y1="175" x2="500" y2="175"/>
+      <line x1="-30" y1="185" x2="510" y2="185"/>
+      <line x1="-20" y1="165" x2="500" y2="165"/>
+    </g>
+  </g>
+  
+  <!-- Legend (manga style) -->
+  <g transform="translate(80, 580)">
+    <rect x="-10" y="-10" width="740" height="90" fill="white" stroke="#0F172A" stroke-width="4" rx="12"/>
+    
+    <text x="10" y="15" font-family="'Arial Black', Arial, sans-serif" font-size="18" font-weight="900" fill="#0F172A">
+      JELÖLÉSEK:
+    </text>
+    
+    <rect x="10" y="30" width="45" height="30" fill="#A67C52" stroke="#2D1B0E" stroke-width="3" rx="5"/>
+    <text x="65" y="50" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">
+      Hangelnyelő fa-kompozit (fabeton) réteg
+    </text>
+    
+    <rect x="400" y="30" width="45" height="30" fill="#8B95A5" stroke="#2D1B0E" stroke-width="3" rx="5"/>
+    <text x="455" y="50" font-family="Arial, sans-serif" font-size="15" font-weight="bold" fill="#0F172A">
+      Szerkezeti vasbeton mag
+    </text>
+  </g>
+  
+  <!-- Manga-style accent corner -->
+  <polygon points="850,50 900,50 900,100" fill="#FF3000" opacity="0.3"/>
+  <polygon points="50,650 100,700 50,700" fill="#FF3000" opacity="0.3"/>
+</svg>

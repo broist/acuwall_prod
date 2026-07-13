@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AcuWall Logó Tervek - Preview</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+            color: white;
+            padding: 40px 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            color: #FF3000;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .logo-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-card:hover {
+            border-color: #FF3000;
+            box-shadow: 0 8px 32px rgba(255, 48, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        
+        .logo-card h2 {
+            color: #FF3000;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        
+        .logo-card p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        .logo-preview {
+            background: #1E293B;
+            border-radius: 12px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo-preview img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .instructions {
+            background: rgba(255, 48, 0, 0.1);
+            border: 2px solid #FF3000;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .instructions h3 {
+            color: #FF3000;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        
+        .instructions p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 AcuWall Logó Tervek - Válassz!</h1>
+        
+        <div class="logo-grid">
+            <!-- Design 1 -->
+            <div class="logo-card">
+                <h2>Terv #1: Minimalist Sound Waves</h2>
+                <p><strong>Stílus:</strong> Minimalista, elegáns<br>
+                <strong>Ikon:</strong> Egyszerű hanghullám vonalak<br>
+                <strong>Szöveg:</strong> Modern, könnyű tipográfia<br>
+                <strong>Érzés:</strong> Tiszta, professzionális</p>
+                <div class="logo-preview">
+                    <img src="/images/logo-design-1.svg" alt="Logo Design 1">
+                </div>
+            </div>
+            
+            <!-- Design 2 -->
+            <div class="logo-card">
+                <h2>Terv #2: Shield Protection</h2>
+                <p><strong>Stílus:</strong> Védelem, biztonság<br>
+                <strong>Ikon:</strong> Pajzs hanghullámokkal<br>
+                <strong>Szöveg:</strong> Vastag, erős betűtípus<br>
+                <strong>Érzés:</strong> Megbízható, masszív</p>
+                <div class="logo-preview">
+                    <img src="/images/logo-design-2.svg" alt="Logo Design 2">
+                </div>
+            </div>
+            
+            <!-- Design 3 -->
+            <div class="logo-card">
+                <h2>Terv #3: Wall Panels</h2>
+                <p><strong>Stílus:</strong> Építészeti, strukturális<br>
+                <strong>Ikon:</strong> Egymásra rétegezett falpanelek<br>
+                <strong>Szöveg:</strong> Elegáns, tiszta tipográfia<br>
+                <strong>Érzés:</strong> Modern, építészeti</p>
+                <div class="logo-preview">
+                    <img src="/images/logo-design-3.svg" alt="Logo Design 3">
+                </div>
+            </div>
+            
+            <!-- Design 4 -->
+            <div class="logo-card">
+                <h2>Terv #4: Hexagon Tech</h2>
+                <p><strong>Stílus:</strong> Technológiai, modern<br>
+                <strong>Ikon:</strong> Hexagon minta (méhsejt)<br>
+                <strong>Szöveg:</strong> Erős, tech tipográfia<br>
+                <strong>Érzés:</strong> High-tech, innovatív</p>
+                <div class="logo-preview">
+                    <img src="/images/logo-design-4.svg" alt="Logo Design 4">
+                </div>
+            </div>
+            
+            <!-- Design 5 -->
+            <div class="logo-card">
+                <h2>Terv #5: Simple & Bold</h2>
+                <p><strong>Stílus:</strong> Egyszerű, korporatív<br>
+                <strong>Ikon:</strong> "A" monogram négyzetben<br>
+                <strong>Szöveg:</strong> Tiszta, professzionális<br>
+                <strong>Érzés:</strong> Klasszikus, megbízható</p>
+                <div class="logo-preview">
+                    <img src="/images/logo-design-5.svg" alt="Logo Design 5">
+                </div>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📌 Hogyan nézd meg a logókat?</h3>
+            <p>
+                Nyisd meg ezt a fájlt böngészőben: <code>/app/acuwall-website/public/logo-preview.html</code><br><br>
+                Vagy add ki ezt a parancsot a szerveren:<br>
+                <code>cd ~/acuwall_v2/acuwall-website && git pull origin main</code><br><br>
+                Majd nyisd meg: <code>http://your-server:3000/logo-preview.html</code><br><br>
+                <strong>Szólj melyik tetszik! (1, 2, 3, 4 vagy 5)</strong>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

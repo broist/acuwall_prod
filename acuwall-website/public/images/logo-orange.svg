@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- AcuWall Logo -->
+  <defs>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF3000;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF4D26;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Text: AcuWall -->
+  <text x="100" y="40" font-family="'Arial Black', Arial, sans-serif" font-size="32" font-weight="900" text-anchor="middle" fill="url(#orangeGradient)" letter-spacing="2">
+    AcuWall
+  </text>
+  
+  <!-- Accent line below -->
+  <rect x="40" y="48" width="120" height="3" fill="#FF3000" rx="1.5"/>
+</svg>

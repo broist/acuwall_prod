@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #0D1B2E;
+  --color-primary-deep: #0A1424;
+  --color-surface: #122238;
+  --color-accent: #F05A28;
+  --color-light-gray: #9BACC3;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Anchored sections land below the fixed header */
+[id] {
+  scroll-margin-top: 92px;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica', sans-serif;
+  background-color: var(--color-primary);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-primary-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2B3B54;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3A4D6B;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* Section eyebrow: — LABEL */
+.eyebrow {
+  @apply inline-flex items-center gap-3 text-accent text-xs md:text-sm font-semibold uppercase;
+  letter-spacing: 0.28em;
+}
+
+.eyebrow::before {
+  content: '';
+  @apply inline-block h-px w-8 bg-accent;
+}
+
+.eyebrow-centered {
+  @apply justify-center;
+}
+
+/* Premium glass effect */
+.glass {
+  background: rgba(13, 27, 46, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Card */
+.card {
+  @apply bg-surface/80 border border-white/[0.07] rounded-2xl;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:border-accent/30 hover:bg-surface hover:-translate-y-1 hover:shadow-xl hover:shadow-black/30;
+}
+
+/* Icon tile */
+.icon-tile {
+  @apply inline-flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10 border border-accent/25 text-accent flex-shrink-0;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #9BACC3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Accent gradient */
+.accent-gradient {
+  background: linear-gradient(135deg, #F05A28 0%, #FF6B3A 100%);
+}
+
+/* Grid pattern background */
+.grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-accent text-white font-semibold px-8 py-4 rounded-xl transition-all duration-300 hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5;
+}
+
+.btn-secondary {
+  @apply bg-white/[0.04] border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all duration-300 hover:bg-white/10 hover:border-white/30;
+}
+
+/* Section spacing */
+.section-spacing {
+  @apply py-20 md:py-28 lg:py-32;
+}
+
+/* Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* Input styles */
+input, textarea, select {
+  @apply bg-primary-deep/70 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-medium-gray focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-all duration-300;
+}
+
+input:focus, textarea:focus, select:focus {
+  background: rgba(10, 20, 36, 0.9);
+}
+
+select option {
+  background: var(--color-primary-deep);
+  color: white;
+}
+
+/* Label styles */
+label {
+  @apply text-white/85 text-sm font-medium mb-2 block;
+}

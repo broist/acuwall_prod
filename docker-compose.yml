@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  acuwall-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: acuwall-website
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - RESEND_API_KEY=${RESEND_API_KEY}
+      - LEAD_WEBHOOK_URL=${LEAD_WEBHOOK_URL}
+      - LEAD_WEBHOOK_SECRET=${LEAD_WEBHOOK_SECRET}
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
