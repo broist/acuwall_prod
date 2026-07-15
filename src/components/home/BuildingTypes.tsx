@@ -8,23 +8,20 @@ const types = [
   {
     title: "Garázsok és tárolók",
     subtitle: "A leggyorsabb belépő — pár hét alatt",
-    image:
-      "https://images.pexels.com/photos/28384143/pexels-photo-28384143.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
-    alt: "Antracit panelburkolatú garázs szekcionált kapuval",
+    image: "/images/epulettipusok/garazs-tarolo.jpg",
+    alt: "Antracit könnyűszerkezetes garázs szekcionált kapuval",
   },
   {
     title: "Műhelyek és csarnokok",
     subtitle: "Gyártás vagy tárolás — megfelelő méretre szabva",
-    image:
-      "https://images.pexels.com/photos/36006588/pexels-photo-36006588.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
-    alt: "Modern szendvicspanel burkolatú acélcsarnok ipari kapuval",
+    image: "/images/epulettipusok/csarnok.jpg",
+    alt: "Antracit szendvicspanel burkolatú acélcsarnok ipari kapuval",
   },
   {
     title: "Irodaházak",
     subtitle: "Energiatakarékos iroda — hamarabbi beköltözés",
-    image:
-      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
-    alt: "Acél-üveg szerkezetű modern iroda",
+    image: "/images/epulettipusok/irodahaz.jpg",
+    alt: "Könnyűszerkezetes irodaház panel- és faburkolattal",
   },
   {
     title: "Nyaralók",
@@ -93,7 +90,7 @@ export default function BuildingTypes() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, delay: (index % 3) * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden aspect-[4/3] border border-white/[0.07] block"
+              className="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/[0.07] block"
               data-testid={`building-type-${index}`}
             >
               <Image
