@@ -9,7 +9,7 @@ export default function CTA() {
     <section className="relative py-28 md:py-36 overflow-hidden" data-testid="cta-section">
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2000&q=75"
+          src="https://images.pexels.com/photos/17180778/pexels-photo-17180778.jpeg?auto=compress&cs=tinysrgb&w=2000"
           alt=""
           fill
           className="object-cover"
@@ -26,9 +26,10 @@ export default function CTA() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight mb-7"
+          className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold leading-tight tracking-tight mb-7 max-w-5xl mx-auto"
         >
-          Kezdjük el az <span className="text-accent">Ön épületét, jó?</span>
+          Szerintünk itt az ideje elkezdeni átemelni a valóságba{" "}
+          <span className="text-accent">az Ön terveit is!</span>
         </motion.h2>
 
         <motion.p

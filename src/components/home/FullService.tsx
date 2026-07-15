@@ -50,7 +50,7 @@ const services = [
     items: [
       "Anyagbeszerzés teljesítménynyilatkozatokkal",
       "Alapozás és terep-előkészítés",
-      "Acélváz és panel szerelés",
+      "Acélváz, tetőszerkezet és falburkolás",
       "Elektromos és gépészeti szerelés",
       "Belsőépítészeti kivitelezések",
       "Dokumentált átadás hibalistával",
@@ -92,7 +92,8 @@ export default function FullService() {
             rendben van. Ha kell, mi készítjük el a terveket, a statikai
             számítást és a 3D modellt is, mielőtt bármit építenénk — így már az
             elején látja, mit fog kapni. Ha pedig már rendelkezik ezen
-            anyagokkal, akkor tervei alapján ugyanúgy megépítjük.
+            anyagokkal, akkor tervei alapján a kivitelezést szintén véghez
+            visszük.
           </motion.p>
         </div>
 

@@ -16,8 +16,8 @@ export function LogoMark({ className = "h-10 w-10" }: { className?: string }) {
     >
       <defs>
         <linearGradient id="acuwall-flame" x1="8" y1="6" x2="40" y2="42" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#FF7A45" />
-          <stop offset="1" stopColor="#E84E15" />
+          <stop stopColor="#FF6236" />
+          <stop offset="1" stopColor="#D42B06" />
         </linearGradient>
       </defs>
       {/* Tető */}

@@ -29,7 +29,7 @@ const steps = [
     title: "Megépítjük",
     label: "Kivitelezés",
     description:
-      "Beszerzés, alapozás, váz, panel, szakmunkák — Ön közben fotókon követi a haladást.",
+      "Beszerzés, alapozás, váz, homlokzat, szakmunkák — Ön közben végig követi a haladást.",
   },
   {
     number: "05",

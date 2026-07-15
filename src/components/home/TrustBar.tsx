@@ -5,7 +5,7 @@ import { CheckCircle2 } from "lucide-react";
 
 const items = [
   {
-    title: "Alapozástól kulcsátadásig",
+    title: "Tervezéstől kulcsátadásig",
     subtitle: "egyetlen kivitelezővel",
   },
   {
@@ -13,8 +13,8 @@ const items = [
     subtitle: "egy szerződésben",
   },
   {
-    title: "Végig látja, hol tart",
-    subtitle: "a projektje",
+    title: "Végig nyomon követheti",
+    subtitle: "projektjét",
   },
 ];
 

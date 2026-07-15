@@ -8,7 +8,7 @@
   --color-primary: #0D1B2E;
   --color-primary-deep: #0A1424;
   --color-surface: #122238;
-  --color-accent: #F05A28;
+  --color-accent: #E8380D;
   --color-light-gray: #9BACC3;
 }
 
@@ -106,7 +106,7 @@ body {
 
 /* Accent gradient */
 .accent-gradient {
-  background: linear-gradient(135deg, #F05A28 0%, #FF6B3A 100%);
+  background: linear-gradient(135deg, #FF5227 0%, #D42B06 100%);
 }
 
 /* Grid pattern background */

@@ -209,7 +209,7 @@ export async function POST(request: NextRequest) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 640px; margin: 0 auto; padding: 20px; }
-            .header { background-color: #F05A28; color: white; padding: 22px; text-align: center; }
+            .header { background-color: #E8380D; color: white; padding: 22px; text-align: center; }
             .content { background-color: #f9f9f9; padding: 24px; }
             .field { margin-bottom: 14px; }
             .label { font-weight: bold; color: #0D1B2E; display: inline-block; min-width: 190px; }
@@ -250,7 +250,7 @@ export async function POST(request: NextRequest) {
           <style>
             body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
             .container { max-width: 640px; margin: 0 auto; padding: 20px; }
-            .header { background-color: #F05A28; color: white; padding: 30px; text-align: center; }
+            .header { background-color: #E8380D; color: white; padding: 30px; text-align: center; }
             .content { background-color: #f9f9f9; padding: 30px; }
             .footer { text-align: center; padding: 20px; color: #999; font-size: 12px; }
           </style>

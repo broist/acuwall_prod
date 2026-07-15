@@ -13,9 +13,9 @@ import {
 const reasons = [
   {
     icon: KeyRound,
-    title: "Egy kézben, az ötlettől a kulcsig",
+    title: "Egy kézben, az ötlettől a kulcsátadásig",
     description:
-      "Tervek, statika, 3D és kivitelezés. Egy partner, egy szerződés – nem kell több céget összehangolnia.",
+      "A tervezéstől a kivitelezésig egy partner, egy szerződés – nem kell több céget összehangolnia.",
   },
   {
     icon: ShieldCheck,
@@ -39,7 +39,7 @@ const reasons = [
     icon: Camera,
     title: "Mindent dokumentálunk",
     description:
-      "Folyamatosan, fotókkal vagy személyesen követheti a haladást. Az átadásnál tételesen átnézzük, mi készült el.",
+      "Folyamatosan követheti a haladást. Az átadásnál tételesen átnézzük, mi készült el.",
   },
   {
     icon: PhoneCall,
@@ -60,7 +60,7 @@ export default function WhyUs() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            Miért AcuWall
+            Miért az AcuWall?
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -69,8 +69,8 @@ export default function WhyUs() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight"
           >
-            Miért bízhatja ránk tervét{" "}
-            <span className="text-accent">nyugodtan?</span>
+            Miért bízhatja ránk nyugodtan{" "}
+            <span className="text-accent">a tervét?</span>
           </motion.h2>
         </div>
 

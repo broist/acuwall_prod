@@ -6,9 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",
   description:
-    "Az AcuWall könnyűszerkezetes épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, statika, 3D modell, alapozás, acélváz, panel, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
+    "Az AcuWall acél könnyűszerkezetes épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, alapozás, acélváz, falburkolás, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
   keywords:
-    "könnyűszerkezetes épület, szendvicspanel, generálkivitelezés, kulcsrakész garázs, tároló, műhely, csarnok, irodaház, nyaraló, családi ház, acélváz, országos kivitelezés",
+    "könnyűszerkezetes épület, acél könnyűszerkezet, generálkivitelezés, kulcsrakész garázs, tároló, műhely, csarnok, irodaház, nyaraló, családi ház, acélváz, országos kivitelezés",
   authors: [{ name: "AcuWall" }],
   openGraph: {
     title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",

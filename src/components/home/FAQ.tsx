@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Mit jelent a „kulcsrakész” kifejezés?",
     answer:
-      "Azt, hogy az épületet használatra készen adjuk át: alapozás, acélváz, panel, gépészet, elektromos szerelés és belsőépítészet után. Nem félkész szerkezetet kap, hanem kész épületet.",
+      "Azt, hogy az épületet használatra készen adjuk át: alapozás, acélváz, homlokzat, gépészet, elektromos szerelés és belsőépítészet után. Nem félkész szerkezetet kap, hanem kész épületet.",
   },
   {
     question: "Mennyibe kerül?",

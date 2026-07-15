@@ -8,7 +8,7 @@ const pillars = [
   {
     icon: FileSignature,
     title: "Egy szerződés",
-    description: "Tervek, statika, 3D és kivitelezés egyetlen írásos megállapodásban.",
+    description: "A tervezéstől a kivitelezésig egyetlen írásos megállapodásban.",
   },
   {
     icon: ReceiptText,
@@ -60,12 +60,12 @@ export default function Introduction() {
                 egészért. Nálunk pont ez nem fordulhat elő: amit elvállalunk, azt
                 végig is visszük. Nem kell külön tervezőt, statikust,
                 szerkezetépítőt, belsőépítészt, villanyszerelőt és gépészt
-                összehangolnia — ez a mi dolgunk, egyetlen szerződésben.
+                összehangolnia — ez a mi dolgunk.
               </p>
               <p>
-                Ha csak egy elképzeléssel jön, abból indulunk. Megtervezzük,
-                kiszámoljuk, megmutatjuk 3D-ben, és előre, érthetően leírjuk, mit
-                építünk és mennyiért. Onnantól Ön végig látja, hol tart a munka:
+                Ha csak egy elképzeléssel jön, abból indulunk. Megtervezzük, és
+                előre, érthetően leírjuk, mit építünk. Onnantól Ön végig látja,
+                hol tart a munka:
                 rögzített tartalom, ütemezett fizetés, és nyomon követhető
                 haladás. Így marad nyugodt az, ami máshol idegőrlő szokott lenni.
               </p>
@@ -100,8 +100,8 @@ export default function Introduction() {
           >
             <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-white/[0.07]">
               <Image
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=85"
-                alt="Acél könnyűszerkezetes ház alaprajza tervezés közben"
+                src="https://images.pexels.com/photos/4792498/pexels-photo-4792498.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop"
+                alt="Családi ház alaprajza az asztalon"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

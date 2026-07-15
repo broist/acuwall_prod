@@ -25,8 +25,8 @@ export default function Hero() {
     >
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <Image
-          src="https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=2200&q=85"
-          alt="Könnyűszerkezetes, panelburkolatú nyaraló természetes környezetben"
+          src="https://images.pexels.com/photos/17180778/pexels-photo-17180778.jpeg?auto=compress&cs=tinysrgb&w=2200"
+          alt="Acél könnyűszerkezetes ház természetes környezetben"
           fill
           className="object-cover"
           priority
@@ -49,7 +49,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             className="eyebrow eyebrow-centered mb-7"
           >
-            Könnyűszerkezetes szendvicspanel generálkivitelezés
+            Acél könnyűszerkezetes generálkivitelezés
           </motion.span>
 
           <motion.h1
@@ -71,9 +71,10 @@ export default function Hero() {
             data-testid="hero-subtitle"
           >
             Garázstól és műhelytől az irodaházig, nyaralótól a családi házig.
-            Megtervezzük, kiszámoljuk a statikát, megmutatjuk 3D-ben, és fel is
-            építjük — alapozás, acélváz, panel, gépészet, elektromos szerelés,
-            belsőépítészet, átadás. Önnek elég csak egy partner.
+            Megtervezzük és fel is építjük — alapozás, lábazat, aljzat, acélváz,
+            acél tetőszerkezet, falburkolás, nyílászárók, gépészet, elektromos
+            szerelés, befejező munkák. Önnek elég csak{" "}
+            <strong className="text-accent font-bold">egy partner</strong>.
           </motion.p>
 
           <motion.div
@@ -89,13 +90,6 @@ export default function Hero() {
             >
               Ajánlatot kérek
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a
-              href="#szolgaltatasok"
-              className="btn-secondary inline-flex items-center justify-center gap-2"
-              data-testid="hero-cta-services"
-            >
-              Szolgáltatások
             </a>
           </motion.div>
         </div>

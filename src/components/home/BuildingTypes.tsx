@@ -9,43 +9,43 @@ const types = [
     title: "Garázsok és tárolók",
     subtitle: "A leggyorsabb belépő — pár hét alatt",
     image:
-      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?auto=format&fit=crop&w=1200&q=80",
-    alt: "Modern garázsépület behajtóval",
+      "https://images.pexels.com/photos/12444968/pexels-photo-12444968.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
+    alt: "Könnyűszerkezetes tárolóegységek panelburkolattal",
   },
   {
     title: "Műhelyek és csarnokok",
     subtitle: "Gyártás vagy tárolás — megfelelő méretre szabva",
     image:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
-    alt: "Ipari csarnok belső tere polcrendszerrel",
+      "https://images.pexels.com/photos/12069525/pexels-photo-12069525.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
+    alt: "Acélszerkezetes ipari csarnok panelburkolattal",
   },
   {
     title: "Irodaházak",
     subtitle: "Energiatakarékos iroda — hamarabbi beköltözés",
     image:
-      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80",
-    alt: "Modern irodaépület belső tere",
+      "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+    alt: "Acél-üveg szerkezetű modern iroda",
   },
   {
     title: "Nyaralók",
     subtitle: "Vízparti pihenőhely — letisztult formában",
     image:
-      "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80",
-    alt: "Vízparti nyaraló hegyekkel körülvéve",
+      "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=80",
+    alt: "Fémlemez fedésű könnyűszerkezetes nyaraló naplementében",
   },
   {
     title: "Lakóházak",
     subtitle: "Otthon kulcsrakészen — 300 m²-ig egyszerűbb út",
     image:
-      "https://images.unsplash.com/photo-1605146769289-440113cc3d00?auto=format&fit=crop&w=1200&q=80",
-    alt: "Kulcsrakész családi házak gondozott előkerttel",
+      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+    alt: "Panelburkolatú modern családi ház",
   },
   {
     title: "Saját fejlesztések",
     subtitle: "Befektetés — telek, ház, kert",
     image:
-      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
-    alt: "Modern ház medencével — befektetési fejlesztés",
+      "https://images.pexels.com/photos/12932834/pexels-photo-12932834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
+    alt: "Modern könnyűszerkezetes ház természetközeli telken",
   },
 ];
 
