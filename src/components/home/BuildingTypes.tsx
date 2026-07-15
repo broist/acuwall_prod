@@ -9,15 +9,15 @@ const types = [
     title: "Garázsok és tárolók",
     subtitle: "A leggyorsabb belépő — pár hét alatt",
     image:
-      "https://images.pexels.com/photos/12444968/pexels-photo-12444968.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
-    alt: "Könnyűszerkezetes tárolóegységek panelburkolattal",
+      "https://images.pexels.com/photos/28384143/pexels-photo-28384143.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
+    alt: "Antracit panelburkolatú garázs szekcionált kapuval",
   },
   {
     title: "Műhelyek és csarnokok",
     subtitle: "Gyártás vagy tárolás — megfelelő méretre szabva",
     image:
-      "https://images.pexels.com/photos/12069525/pexels-photo-12069525.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
-    alt: "Acélszerkezetes ipari csarnok panelburkolattal",
+      "https://images.pexels.com/photos/36006588/pexels-photo-36006588.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
+    alt: "Modern szendvicspanel burkolatú acélcsarnok ipari kapuval",
   },
   {
     title: "Irodaházak",
