@@ -39,8 +39,7 @@ export default function Footer() {
             {/* Kiemelt mottó-sáv */}
             <div className="border-l-4 border-accent bg-accent/10 rounded-r-xl px-5 py-4 mb-8 max-w-md">
               <p className="text-accent font-semibold italic leading-relaxed">
-                „Az ötlettől a kulcsátadásig. Egy felelős. Egy szerződés. Egy
-                kész épület.”
+                „Építsünk együtt”
               </p>
             </div>
 

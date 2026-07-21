@@ -67,7 +67,7 @@ export default function Logo({
           Acu<span className="text-accent">Wall</span>
         </span>
         <span className={`block text-[11px] font-medium italic ${taglineClassName}`}>
-          Az ötlettől a kulcsátadásig
+          Építsünk együtt
         </span>
       </span>
     </Link>

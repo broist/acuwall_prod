@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",
     description:
-      "Az ötlettől a kulcsátadásig. Egy felelős. Egy szerződés. Egy kész épület.",
+      "Építsünk együtt. Acél könnyűszerkezetes épületek kulcsrakészen, egy felelőssel.",
     locale: "hu_HU",
     type: "website",
   },

@@ -276,7 +276,7 @@ export async function POST(request: NextRequest) {
               <p style="margin-top: 30px;">Üdvözlettel,<br><strong>AcuWall csapata</strong></p>
             </div>
             <div class="footer">
-              <p>AcuWall — Az ötlettől a kulcsátadásig. Egy felelős. Egy szerződés. Egy kész épület.</p>
+              <p>AcuWall — Építsünk együtt.</p>
               <p>Email: acuwall@acuwall.hu | Telefon: +36 30 830 5556</p>
             </div>
           </div>
