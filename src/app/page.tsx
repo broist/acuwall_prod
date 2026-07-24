@@ -3,6 +3,7 @@ import TrustBar from "@/components/home/TrustBar";
 import Introduction from "@/components/home/Introduction";
 import WhyUs from "@/components/home/WhyUs";
 import FullService from "@/components/home/FullService";
+import Lean from "@/components/home/Lean";
 import Process from "@/components/home/Process";
 import BuildingTypes from "@/components/home/BuildingTypes";
 import FAQ from "@/components/home/FAQ";
@@ -17,6 +18,7 @@ export default function Home() {
       <Introduction />
       <WhyUs />
       <FullService />
+      <Lean />
       <Process />
       <BuildingTypes />
       <FAQ />

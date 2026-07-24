@@ -8,6 +8,7 @@ import Logo from "./Logo";
 const navItems = [
   { name: "Főoldal", id: "fooldal" },
   { name: "Szolgáltatások", id: "szolgaltatasok" },
+  { name: "LEAN", id: "lean" },
   { name: "Folyamat", id: "folyamat" },
   { name: "Épülettípusok", id: "epulettipusok" },
   { name: "GYIK", id: "gyik" },

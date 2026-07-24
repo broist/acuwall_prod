@@ -7,6 +7,7 @@ import Logo from "./Logo";
 const menuLinks = [
   { name: "Főoldal", href: "#fooldal" },
   { name: "Szolgáltatások", href: "#szolgaltatasok" },
+  { name: "LEAN", href: "#lean" },
   { name: "Folyamat", href: "#folyamat" },
   { name: "Épülettípusok", href: "#epulettipusok" },
   { name: "GYIK", href: "#gyik" },
