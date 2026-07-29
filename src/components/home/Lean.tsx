@@ -10,38 +10,13 @@ import {
   Route,
   ListChecks,
 } from "lucide-react";
+import { useT } from "@/i18n/LanguageProvider";
 
-const pillars = [
-  {
-    icon: ClipboardList,
-    title: "Részletes tervezés",
-    description: "Minden fázis és szakág előre átgondolva, ütemezve.",
-  },
-  {
-    icon: Workflow,
-    title: "Összehangolt munkafolyamatok",
-    description: "Tervezett sorrend, egymásra várás nélkül.",
-  },
-  {
-    icon: Gauge,
-    title: "Folyamatos ellenőrzés",
-    description: "Végigkísért minőség és haladás.",
-  },
-];
-
-const reductions = ["Várakozás", "Hibák", "Anyagveszteség"];
-
-const benefits = [
-  "Átlátható munkafolyamatok",
-  "Részletes és követhető ütemezés",
-  "Szakágak összehangolása",
-  "Kevesebb állásidő és anyagveszteség",
-  "Problémák korai felismerése",
-  "Folyamatos minőségellenőrzés",
-  "Kiszámíthatóbb határidők és költségek",
-];
+const pillarIcons = [ClipboardList, Workflow, Gauge];
 
 export default function Lean() {
+  const t = useT();
+
   return (
     <section
       id="lean"
@@ -63,7 +38,7 @@ export default function Lean() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            LEAN módszertan
+            {t.lean.eyebrow}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -72,8 +47,7 @@ export default function Lean() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
           >
-            Szervezett kivitelezés{" "}
-            <span className="text-accent">LEAN szemléletben.</span>
+            {t.lean.titleBefore} <span className="text-accent">{t.lean.titleAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -82,16 +56,9 @@ export default function Lean() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-light-gray text-base md:text-lg leading-relaxed"
           >
-            Az AcuWall projektjein a nagyberuházásoknál alkalmazott szervezési és
-            folyamatirányítási szemléletet visszük át a könnyűszerkezetes
-            építésbe. Részletes tervezéssel, összehangolt munkafolyamatokkal és
-            folyamatos ellenőrzéssel csökkentjük a várakozást, a hibákat és a
-            felesleges anyagfelhasználást. Így a kivitelezés átláthatóbbá,
-            kiszámíthatóbbá és hatékonyabbá válik —{" "}
-            <span className="text-white font-medium">
-              az ötlettől a kulcsátadásig
-            </span>
-            .
+            {t.lean.leadBefore}{" "}
+            <span className="text-white font-medium">{t.lean.leadHighlight}</span>
+            {t.lean.leadAfter}
           </motion.p>
         </div>
 
@@ -111,44 +78,41 @@ export default function Lean() {
                 <Route size={22} />
               </span>
               <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                Hogyan valósítjuk meg?
+                {t.lean.howTitle}
               </h3>
             </div>
 
             <div className="space-y-5">
-              {pillars.map((pillar) => (
-                <div key={pillar.title} className="flex items-start gap-4">
-                  <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 border border-accent/20 text-accent flex-shrink-0">
-                    <pillar.icon size={18} />
-                  </span>
-                  <div>
-                    <h4 className="text-white font-semibold leading-snug">
-                      {pillar.title}
-                    </h4>
-                    <p className="text-light-gray text-sm leading-relaxed">
-                      {pillar.description}
-                    </p>
+              {t.lean.pillars.map((pillar, index) => {
+                const Icon = pillarIcons[index];
+                return (
+                  <div key={pillar.title} className="flex items-start gap-4">
+                    <span className="mt-0.5 inline-flex h-9 w-9 items-center justify-center rounded-lg bg-accent/10 border border-accent/20 text-accent flex-shrink-0">
+                      <Icon size={18} />
+                    </span>
+                    <div>
+                      <h4 className="text-white font-semibold leading-snug">{pillar.title}</h4>
+                      <p className="text-light-gray text-sm leading-relaxed">
+                        {pillar.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Amit csökkentünk */}
             <div className="mt-auto pt-8">
               <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-light-gray mb-3">
-                Amit csökkentünk
+                {t.lean.reduceLabel}
               </p>
               <div className="flex flex-wrap gap-2.5">
-                {reductions.map((item) => (
+                {t.lean.reductions.map((item) => (
                   <span
                     key={item}
                     className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-primary-deep/60 px-3.5 py-1.5 text-sm text-white/85"
                   >
-                    <ArrowDown
-                      size={14}
-                      className="text-accent"
-                      strokeWidth={2.5}
-                    />
+                    <ArrowDown size={14} className="text-accent" strokeWidth={2.5} />
                     {item}
                   </span>
                 ))}
@@ -172,19 +136,17 @@ export default function Lean() {
                   <ListChecks size={22} />
                 </span>
                 <h3 className="text-xl md:text-2xl font-bold text-white tracking-tight">
-                  Miért a LEAN módszer?
+                  {t.lean.whyTitle}
                 </h3>
               </div>
 
               <ul className="space-y-3.5">
-                {benefits.map((benefit) => (
+                {t.lean.benefits.map((benefit) => (
                   <li key={benefit} className="flex items-start gap-3">
                     <span className="mt-0.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-accent/15 text-accent flex-shrink-0">
                       <Check size={12} strokeWidth={3} />
                     </span>
-                    <span className="text-white/85 text-[15px] leading-snug">
-                      {benefit}
-                    </span>
+                    <span className="text-white/85 text-[15px] leading-snug">{benefit}</span>
                   </li>
                 ))}
               </ul>

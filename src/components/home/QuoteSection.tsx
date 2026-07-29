@@ -14,6 +14,7 @@ import {
   Phone,
   Timer,
 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const initialFormData = {
   name: "",
@@ -28,32 +29,33 @@ const initialFormData = {
   message: "",
 };
 
-const contactItems = [
-  {
-    icon: Mail,
-    label: "E-mail",
-    value: "acuwall@acuwall.hu",
-    href: "mailto:acuwall@acuwall.hu",
-  },
-  {
-    icon: Phone,
-    label: "Telefon",
-    value: "+36 30 830 5556",
-    href: "tel:+36308305556",
-  },
-  {
-    icon: MapPin,
-    label: "Hol dolgozunk",
-    value: "Országos kivitelezés, Magyarország bármely pontján",
-  },
-  {
-    icon: Timer,
-    label: "Válaszidő",
-    value: "Általában 24 órán belül, személyesen válaszolunk",
-  },
-];
+/**
+ * Az option értékek (kódok) nyelvfüggetlenek — a szerver ezek alapján állítja
+ * elő a magyar nyelvű belső értesítőt, így a nyelvváltás nem érinti a feldolgozást.
+ */
+const projectTypeCodes = [
+  "garazs",
+  "muhely",
+  "iroda",
+  "nyaralo",
+  "lakoepulet",
+  "sajat-fejlesztes",
+  "egyeb",
+] as const;
+
+const plotStatusCodes = [
+  "sajat-telek",
+  "vasarlas-alatt",
+  "rendezendo",
+  "nincs-telek",
+] as const;
+
+const needsPlanningCodes = ["igen", "van-terv", "reszben", "nem-tisztazott"] as const;
+
+const timelineCodes = ["azonnal", "1-3-honap", "3-6-honap", "kesobb"] as const;
 
 export default function QuoteSection() {
+  const { t, locale } = useLanguage();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -76,7 +78,7 @@ export default function QuoteSection() {
       const response = await fetch("/api/send-quote", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, locale }),
       });
 
       const data = await response.json();
@@ -84,15 +86,40 @@ export default function QuoteSection() {
       if (data.success) {
         setIsSubmitted(true);
       } else {
-        setError("Hiba történt a küldés során. Kérjük, próbálja újra, vagy hívjon minket telefonon.");
+        setError(t.quote.errorText);
       }
     } catch (err) {
-      setError("Hiba történt a küldés során. Kérjük, próbálja újra, vagy hívjon minket telefonon.");
+      setError(t.quote.errorText);
       console.error("Error submitting form:", err);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const contactItems = [
+    {
+      icon: Mail,
+      label: t.quote.contactLabels.email,
+      value: "acuwall@acuwall.hu",
+      href: "mailto:acuwall@acuwall.hu",
+    },
+    {
+      icon: Phone,
+      label: t.quote.contactLabels.phone,
+      value: "+36 30 830 5556",
+      href: "tel:+36308305556",
+    },
+    {
+      icon: MapPin,
+      label: t.quote.contactLabels.area,
+      value: t.quote.areaValue,
+    },
+    {
+      icon: Timer,
+      label: t.quote.contactLabels.responseTime,
+      value: t.quote.responseTimeValue,
+    },
+  ];
 
   return (
     <section id="ajanlatkeres" className="section-spacing relative" data-testid="quote-section">
@@ -105,7 +132,7 @@ export default function QuoteSection() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            Ajánlatkérés
+            {t.quote.eyebrow}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -114,7 +141,8 @@ export default function QuoteSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
           >
-            Meséljen a <span className="text-accent">tervéről</span> — pár perc az egész.
+            {t.quote.titleBefore} <span className="text-accent">{t.quote.titleAccent}</span>{" "}
+            {t.quote.titleAfter}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -123,9 +151,7 @@ export default function QuoteSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-light-gray text-base md:text-lg leading-relaxed"
           >
-            Töltse ki az alábbi mezőket, hogy lássuk, miben segíthetünk. Ez nem
-            kötelezi Önt semmire, csak az első beszélgetésünk alapja. Jellemzően
-            24 órán belül már válaszolunk is.
+            {t.quote.description}
           </motion.p>
         </div>
 
@@ -141,10 +167,9 @@ export default function QuoteSection() {
             {isSubmitted ? (
               <div className="text-center py-14" data-testid="quote-success-message">
                 <CheckCircle className="mx-auto text-accent mb-6" size={64} />
-                <h3 className="text-2xl font-bold mb-4">Köszönjük, megkaptuk!</h3>
+                <h3 className="text-2xl font-bold mb-4">{t.quote.successTitle}</h3>
                 <p className="text-light-gray mb-8 max-w-md mx-auto leading-relaxed">
-                  A projektadatokat megkaptuk, jellemzően 24 órán belül
-                  személyesen jelentkezünk a megadott elérhetőségeken.
+                  {t.quote.successText}
                 </p>
                 <button
                   onClick={() => {
@@ -155,7 +180,7 @@ export default function QuoteSection() {
                   className="btn-secondary"
                   data-testid="quote-new-request-button"
                 >
-                  Új ajánlatkérés
+                  {t.quote.successButton}
                 </button>
               </div>
             ) : (
@@ -163,7 +188,7 @@ export default function QuoteSection() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="name">
-                      Név <span className="text-accent">*</span>
+                      {t.quote.fields.name.label} <span className="text-accent">*</span>
                     </label>
                     <input
                       type="text"
@@ -172,14 +197,14 @@ export default function QuoteSection() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      placeholder="Pl. Kovács Péter"
+                      placeholder={t.quote.fields.name.placeholder}
                       className="w-full"
                       data-testid="quote-input-name"
                     />
                   </div>
                   <div>
                     <label htmlFor="email">
-                      E-mail <span className="text-accent">*</span>
+                      {t.quote.fields.email.label} <span className="text-accent">*</span>
                     </label>
                     <input
                       type="email"
@@ -188,7 +213,7 @@ export default function QuoteSection() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      placeholder="pelda@email.hu"
+                      placeholder={t.quote.fields.email.placeholder}
                       className="w-full"
                       data-testid="quote-input-email"
                     />
@@ -198,7 +223,7 @@ export default function QuoteSection() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone">
-                      Telefonszám <span className="text-accent">*</span>
+                      {t.quote.fields.phone.label} <span className="text-accent">*</span>
                     </label>
                     <input
                       type="tel"
@@ -207,14 +232,14 @@ export default function QuoteSection() {
                       value={formData.phone}
                       onChange={handleChange}
                       required
-                      placeholder="+36 30 ..."
+                      placeholder={t.quote.fields.phone.placeholder}
                       className="w-full"
                       data-testid="quote-input-phone"
                     />
                   </div>
                   <div>
                     <label htmlFor="location">
-                      Projekt helyszíne (település) <span className="text-accent">*</span>
+                      {t.quote.fields.location.label} <span className="text-accent">*</span>
                     </label>
                     <input
                       type="text"
@@ -223,7 +248,7 @@ export default function QuoteSection() {
                       value={formData.location}
                       onChange={handleChange}
                       required
-                      placeholder="Pl. Gödöllő, Pest megye"
+                      placeholder={t.quote.fields.location.placeholder}
                       className="w-full"
                       data-testid="quote-input-location"
                     />
@@ -232,7 +257,7 @@ export default function QuoteSection() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="projectType">Épület típusa</label>
+                    <label htmlFor="projectType">{t.quote.fields.projectType.label}</label>
                     <select
                       id="projectType"
                       name="projectType"
@@ -241,18 +266,16 @@ export default function QuoteSection() {
                       className="w-full"
                       data-testid="quote-select-project-type"
                     >
-                      <option value="">Válasszon...</option>
-                      <option value="garazs">Garázs / tároló</option>
-                      <option value="muhely">Műhely / csarnok</option>
-                      <option value="iroda">Irodaház</option>
-                      <option value="nyaralo">Nyaraló</option>
-                      <option value="lakoepulet">Lakóház</option>
-                      <option value="sajat-fejlesztes">Saját fejlesztés</option>
-                      <option value="egyeb">Egyéb</option>
+                      <option value="">{t.quote.selectPlaceholder}</option>
+                      {projectTypeCodes.map((code) => (
+                        <option key={code} value={code}>
+                          {t.quote.projectTypeOptions[code]}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="floorArea">Becsült alapterület (m²)</label>
+                    <label htmlFor="floorArea">{t.quote.fields.floorArea.label}</label>
                     <input
                       type="number"
                       id="floorArea"
@@ -260,7 +283,7 @@ export default function QuoteSection() {
                       value={formData.floorArea}
                       onChange={handleChange}
                       min="1"
-                      placeholder="Pl. 120"
+                      placeholder={t.quote.fields.floorArea.placeholder}
                       className="w-full"
                       data-testid="quote-input-floor-area"
                     />
@@ -269,7 +292,7 @@ export default function QuoteSection() {
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="plotStatus">Telek állapota</label>
+                    <label htmlFor="plotStatus">{t.quote.fields.plotStatus.label}</label>
                     <select
                       id="plotStatus"
                       name="plotStatus"
@@ -278,15 +301,16 @@ export default function QuoteSection() {
                       className="w-full"
                       data-testid="quote-select-plot-status"
                     >
-                      <option value="">Válasszon...</option>
-                      <option value="sajat-telek">Saját telek rendelkezésre áll</option>
-                      <option value="vasarlas-alatt">Telekvásárlás folyamatban</option>
-                      <option value="rendezendo">Tereprendezés / bontás várható</option>
-                      <option value="nincs-telek">Még nincs telek</option>
+                      <option value="">{t.quote.selectPlaceholder}</option>
+                      {plotStatusCodes.map((code) => (
+                        <option key={code} value={code}>
+                          {t.quote.plotStatusOptions[code]}
+                        </option>
+                      ))}
                     </select>
                   </div>
                   <div>
-                    <label htmlFor="needsPlanning">Szükséges tervezés / statika?</label>
+                    <label htmlFor="needsPlanning">{t.quote.fields.needsPlanning.label}</label>
                     <select
                       id="needsPlanning"
                       name="needsPlanning"
@@ -295,17 +319,18 @@ export default function QuoteSection() {
                       className="w-full"
                       data-testid="quote-select-planning"
                     >
-                      <option value="">Válasszon...</option>
-                      <option value="igen">Igen, kérek tervezést</option>
-                      <option value="van-terv">Van kész tervem</option>
-                      <option value="reszben">Részben van tervem</option>
-                      <option value="nem-tisztazott">Még nem tudom</option>
+                      <option value="">{t.quote.selectPlaceholder}</option>
+                      {needsPlanningCodes.map((code) => (
+                        <option key={code} value={code}>
+                          {t.quote.needsPlanningOptions[code]}
+                        </option>
+                      ))}
                     </select>
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="timeline">Tervezett indulás</label>
+                  <label htmlFor="timeline">{t.quote.fields.timeline.label}</label>
                   <select
                     id="timeline"
                     name="timeline"
@@ -314,16 +339,17 @@ export default function QuoteSection() {
                     className="w-full"
                     data-testid="quote-select-timeline"
                   >
-                    <option value="">Válasszon...</option>
-                    <option value="azonnal">Azonnal / 1 hónapon belül</option>
-                    <option value="1-3-honap">1-3 hónapon belül</option>
-                    <option value="3-6-honap">3-6 hónapon belül</option>
-                    <option value="kesobb">Később</option>
+                    <option value="">{t.quote.selectPlaceholder}</option>
+                    {timelineCodes.map((code) => (
+                      <option key={code} value={code}>
+                        {t.quote.timelineOptions[code]}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
                 <div>
-                  <label htmlFor="message">Pár szó a projektről (opcionális)</label>
+                  <label htmlFor="message">{t.quote.fields.message.label}</label>
                   <textarea
                     id="message"
                     name="message"
@@ -331,7 +357,7 @@ export default function QuoteSection() {
                     onChange={handleChange}
                     rows={5}
                     className="w-full resize-none"
-                    placeholder="Írjon le mindent, amit fontosnak érez — a többit majd kérdezzük."
+                    placeholder={t.quote.fields.message.placeholder}
                     data-testid="quote-input-message"
                   />
                 </div>
@@ -346,11 +372,9 @@ export default function QuoteSection() {
                     data-testid="quote-checkbox-consent"
                   />
                   <span>
-                    Hozzájárulok, hogy az AcuWall a megadott adatokat az
-                    ajánlatkérésem feldolgozásához kezelje. Az adataival gondosan
-                    bánunk.{" "}
+                    {t.quote.consentBefore}{" "}
                     <Link href="/adatkezeles" className="text-accent hover:underline">
-                      (Adatkezelési tájékoztató)
+                      {t.quote.consentLink}
                     </Link>{" "}
                     <span className="text-accent">*</span>
                   </span>
@@ -371,11 +395,11 @@ export default function QuoteSection() {
                   {isSubmitting ? (
                     <>
                       <Loader2 size={18} className="animate-spin" />
-                      Küldés...
+                      {t.quote.submitting}
                     </>
                   ) : (
                     <>
-                      Elküldöm a projektadatokat
+                      {t.quote.submit}
                       <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                     </>
                   )}
@@ -395,12 +419,9 @@ export default function QuoteSection() {
             data-testid="contact-sidebar"
           >
             <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight">
-              Beszéljünk — kötelezettség nélkül
+              {t.quote.sidebarTitle}
             </h3>
-            <p className="text-light-gray leading-relaxed mb-8">
-              Akár csak egy kérdése van, akár már konkrét elképzelése, szívesen
-              segítünk. Írjon vagy hívjon.
-            </p>
+            <p className="text-light-gray leading-relaxed mb-8">{t.quote.sidebarText}</p>
 
             <div className="space-y-6 mb-8">
               {contactItems.map((item) => (
@@ -429,10 +450,12 @@ export default function QuoteSection() {
                 </span>
                 <span>
                   <span className="block text-light-gray text-[11px] font-semibold uppercase tracking-[0.2em] mb-1">
-                    Nyitvatartás
+                    {t.quote.contactLabels.hours}
                   </span>
-                  <span className="block text-white font-medium">Hétfő – Péntek: 08:00 – 17:00</span>
-                  <span className="block text-light-gray text-sm mt-0.5">Szombat – Vasárnap: zárva</span>
+                  <span className="block text-white font-medium">{t.quote.hoursWeekdays}</span>
+                  <span className="block text-light-gray text-sm mt-0.5">
+                    {t.quote.hoursWeekend}
+                  </span>
                 </span>
               </div>
             </div>
@@ -444,7 +467,7 @@ export default function QuoteSection() {
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="AcuWall — országos kivitelezés Magyarországon"
+                title={t.quote.mapTitle}
               />
               <a
                 href="https://www.google.com/maps?q=Magyarorsz%C3%A1g"
@@ -452,7 +475,7 @@ export default function QuoteSection() {
                 rel="noopener noreferrer"
                 className="absolute top-3 left-3 inline-flex items-center gap-2 bg-primary/90 backdrop-blur px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-primary transition-colors"
               >
-                Megnyitás a Térképen
+                {t.quote.mapOpen}
                 <ExternalLink size={14} />
               </a>
             </div>

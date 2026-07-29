@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
+import { DEFAULT_LOCALE, LOCALE_META, isLocale, type Locale } from "@/i18n/config";
+import { dictionaries } from "@/i18n/dictionaries";
+import { emailCopy } from "@/i18n/emailCopy";
 
 interface QuoteFormData {
   name: string;
@@ -12,6 +15,8 @@ interface QuoteFormData {
   needsPlanning: string;
   timeline: string;
   message: string;
+  /** A látogató által választott nyelv — csak a visszaigazoló levelet befolyásolja */
+  locale?: string;
 }
 
 interface LeadAppendResult {
@@ -61,6 +66,24 @@ function formatValue(value: string | undefined, suffix = "") {
   const label = labelValue(value);
   if (!label) return "-";
   return `${escapeHtml(label)}${suffix}`;
+}
+
+/** Az ügyfélnek küldött levélben a legördülők címkéi a látogató nyelvén jelenjenek meg. */
+function localizedOptionLabel(value: string | undefined, locale: Locale) {
+  if (!value) return "-";
+  const q = dictionaries[locale].quote;
+  const label =
+    q.projectTypeOptions[value as keyof typeof q.projectTypeOptions] ??
+    q.plotStatusOptions[value as keyof typeof q.plotStatusOptions] ??
+    q.needsPlanningOptions[value as keyof typeof q.needsPlanningOptions] ??
+    q.timelineOptions[value as keyof typeof q.timelineOptions] ??
+    value;
+  return escapeHtml(label);
+}
+
+function plainValue(value: string | undefined, suffix = "") {
+  if (!value) return "-";
+  return `${escapeHtml(value)}${suffix}`;
 }
 
 function field(label: string, value: string) {
@@ -171,6 +194,8 @@ async function appendLead(formData: QuoteFormData, leadId: string): Promise<Lead
 export async function POST(request: NextRequest) {
   try {
     const formData: QuoteFormData = await request.json();
+    const locale: Locale = isLocale(formData.locale) ? formData.locale : DEFAULT_LOCALE;
+    const copy = emailCopy[locale];
     const resend = getResendClient();
     const leadId = createLeadId();
     const leadResult = await appendLead(formData, leadId);
@@ -190,6 +215,7 @@ export async function POST(request: NextRequest) {
       field("Telek állapota", formatValue(formData.plotStatus)),
       field("Szükséges tervezés / statika", formatValue(formData.needsPlanning)),
       field("Tervezett indulás", formatValue(formData.timeline)),
+      field("Megkeresés nyelve", escapeHtml(LOCALE_META[locale].nativeName)),
     ];
 
     const messageHtml = formData.message
@@ -258,43 +284,45 @@ export async function POST(request: NextRequest) {
         <body>
           <div class="container">
             <div class="header">
-              <h1>Köszönjük a projektadatokat!</h1>
+              <h1>${copy.heading}</h1>
             </div>
             <div class="content">
-              <p>Kedves ${formatValue(formData.name)}!</p>
-              <p>Köszönjük, hogy az AcuWall kulcsrakész, könnyűszerkezetes épület kivitelezése iránt érdeklődik.</p>
-              <p>Az adatlapot megkaptuk, és munkatársunk <strong>24 órán belül</strong> személyesen felveszi Önnel a kapcsolatot a megadott elérhetőségeken.</p>
-              <p>A projekt röviden:</p>
+              <p>${escapeHtml(copy.greeting(formData.name))}</p>
+              <p>${copy.intro}</p>
+              <p>${copy.received} <strong>${copy.receivedStrong}</strong> ${copy.receivedAfter}</p>
+              <p>${copy.summaryTitle}</p>
               <ul>
-                <li>Helyszín: ${formatValue(formData.location)}</li>
-                <li>Épülettípus: ${formatValue(formData.projectType)}</li>
-                <li>Alapterület: ${formatValue(formData.floorArea, " m²")}</li>
-                <li>Tervezett indulás: ${formatValue(formData.timeline)}</li>
+                <li>${copy.labels.location}: ${plainValue(formData.location)}</li>
+                <li>${copy.labels.buildingType}: ${localizedOptionLabel(formData.projectType, locale)}</li>
+                <li>${copy.labels.floorArea}: ${plainValue(formData.floorArea, " m²")}</li>
+                <li>${copy.labels.timeline}: ${localizedOptionLabel(formData.timeline, locale)}</li>
               </ul>
-              <p>A következő egyeztetésen a műszaki tartalmat, a hatósági utat, a telekállapotot és az ütemezést pontosítjuk.</p>
-              <p>Ha sürgős kérdése van, hívjon minket a <strong>+36 30 830 5556</strong> telefonszámon.</p>
-              <p style="margin-top: 30px;">Üdvözlettel,<br><strong>AcuWall csapata</strong></p>
+              <p>${copy.nextStep}</p>
+              <p>${copy.urgent} <strong>+36 30 830 5556</strong>${copy.urgentAfter}</p>
+              <p style="margin-top: 30px;">${copy.regards}<br><strong>${copy.team}</strong></p>
             </div>
             <div class="footer">
-              <p>AcuWall — Építsünk együtt.</p>
-              <p>Email: acuwall@acuwall.hu | Telefon: +36 30 830 5556</p>
+              <p>${copy.footerMotto}</p>
+              <p>${copy.footerContact}</p>
             </div>
           </div>
         </body>
       </html>
     `;
 
+    const fromAddress = process.env.RESEND_FROM_EMAIL || "AcuWall <onboarding@resend.dev>";
+
     const adminEmail = await resend.emails.send({
-      from: "AcuWall Ajánlatkérés <onboarding@resend.dev>",
+      from: fromAddress,
       to: ["acuwall@acuwall.hu"],
       subject: `Új építési ajánlatkérés - ${formData.name}`,
       html: adminEmailHtml,
     });
 
     const customerEmail = await resend.emails.send({
-      from: "AcuWall <onboarding@resend.dev>",
+      from: fromAddress,
       to: [formData.email],
-      subject: "Ajánlatkérés visszaigazolás - AcuWall",
+      subject: copy.subject,
       html: customerEmailHtml,
     });
 

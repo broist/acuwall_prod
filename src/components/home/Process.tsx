@@ -1,46 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useT } from "@/i18n/LanguageProvider";
 
-const steps = [
-  {
-    number: "01",
-    title: "Beszélgetünk",
-    label: "Kötetlen konzultáció",
-    description:
-      "Elmondja, mire van szüksége: mit, mekkorát, hová. Nem köteleződik semmire.",
-  },
-  {
-    number: "02",
-    title: "Tervek és tartalom",
-    label: "Előkészítés",
-    description:
-      "Ha kell, elkészítjük a terveket, a statikát és a 3D modellt, és tisztázzuk a hatósági utat. Ha már megvannak, a tervei alapján dolgozunk.",
-  },
-  {
-    number: "03",
-    title: "Ajánlat és szerződés",
-    label: "Írásba foglalva",
-    description:
-      "Írásban kapja a tartalmat, az ütemezett fizetést, a felelősségi határokat és a garanciát.",
-  },
-  {
-    number: "04",
-    title: "Megépítjük",
-    label: "Kivitelezés",
-    description:
-      "Beszerzés, alapozás, váz, homlokzat, szakmunkák — Ön közben végig követi a haladást.",
-  },
-  {
-    number: "05",
-    title: "Átadjuk a kulcsot",
-    label: "Átadás és garancia",
-    description:
-      "Közös bejárás, hibalista, dokumentáció és garancia. Innentől az Öné — mi azután is itt vagyunk.",
-  },
-];
+const stepNumbers = ["01", "02", "03", "04", "05"];
 
 export default function Process() {
+  const t = useT();
+
   return (
     <section id="folyamat" className="section-spacing relative bg-primary-deep/40" data-testid="process-section">
       <div className="container-custom">
@@ -52,7 +19,7 @@ export default function Process() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            Folyamat
+            {t.process.eyebrow}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -61,8 +28,8 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
           >
-            Az ötlettől a kulcsátadásig,{" "}
-            <span className="text-accent">lépésről lépésre.</span>
+            {t.process.titleBefore}{" "}
+            <span className="text-accent">{t.process.titleAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -71,8 +38,7 @@ export default function Process() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-light-gray text-base md:text-lg leading-relaxed"
           >
-            Egyszerű, követhető út. Minden lépésnek van gazdája, határideje és
-            írásos nyoma, hogy Ön mindig tudja, hol tartunk.
+            {t.process.description}
           </motion.p>
         </div>
 
@@ -81,19 +47,19 @@ export default function Process() {
           <div className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-12">
-            {steps.map((step, index) => (
+            {t.process.steps.map((step, index) => (
               <motion.div
-                key={step.number}
+                key={step.title}
                 initial={{ opacity: 0, y: 28 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.55, delay: index * 0.1 }}
                 className="text-center relative"
-                data-testid={`process-step-${step.number}`}
+                data-testid={`process-step-${stepNumbers[index]}`}
               >
                 <div className="relative inline-flex mb-6">
                   <span className="accent-gradient inline-flex h-14 w-14 items-center justify-center rounded-full text-white font-bold shadow-lg shadow-accent/30">
-                    {step.number}
+                    {stepNumbers[index]}
                   </span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-1.5">{step.title}</h3>

@@ -2,23 +2,11 @@
 
 import { motion } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
-
-const items = [
-  {
-    title: "Tervezéstől kulcsátadásig",
-    subtitle: "egyetlen kivitelezővel",
-  },
-  {
-    title: "Gépészet, elektromos és belsőépítészeti szerelések",
-    subtitle: "egy szerződésben",
-  },
-  {
-    title: "Végig nyomon követheti",
-    subtitle: "projektjét",
-  },
-];
+import { useT } from "@/i18n/LanguageProvider";
 
 export default function TrustBar() {
+  const items = useT().trustBar;
+
   return (
     <div className="relative z-20 bg-primary-deep/80 border-y border-white/[0.06]" data-testid="trust-bar">
       <div className="container-custom">

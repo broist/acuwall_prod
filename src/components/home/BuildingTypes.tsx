@@ -3,50 +3,21 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Sparkles } from "lucide-react";
+import { useT } from "@/i18n/LanguageProvider";
 
-const types = [
-  {
-    title: "Garázsok és tárolók",
-    subtitle: "A leggyorsabb belépő — pár hét alatt",
-    image: "/images/epulettipusok/garazs-tarolo.jpg",
-    alt: "Antracit könnyűszerkezetes garázs szekcionált kapuval",
-  },
-  {
-    title: "Műhelyek és csarnokok",
-    subtitle: "Gyártás vagy tárolás — megfelelő méretre szabva",
-    image: "/images/epulettipusok/csarnok.jpg",
-    alt: "Antracit szendvicspanel burkolatú acélcsarnok ipari kapuval",
-  },
-  {
-    title: "Irodaházak",
-    subtitle: "Energiatakarékos iroda — hamarabbi beköltözés",
-    image: "/images/epulettipusok/irodahaz.jpg",
-    alt: "Könnyűszerkezetes irodaház panel- és faburkolattal",
-  },
-  {
-    title: "Nyaralók",
-    subtitle: "Vízparti pihenőhely — letisztult formában",
-    image:
-      "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=80",
-    alt: "Fémlemez fedésű könnyűszerkezetes nyaraló naplementében",
-  },
-  {
-    title: "Lakóházak",
-    subtitle: "Otthon kulcsrakészen — 300 m²-ig egyszerűbb út",
-    image:
-      "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
-    alt: "Panelburkolatú modern családi ház",
-  },
-  {
-    title: "Saját fejlesztések",
-    subtitle: "Befektetés — telek, ház, kert",
-    image:
-      "https://images.pexels.com/photos/12932834/pexels-photo-12932834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
-    alt: "Modern könnyűszerkezetes ház természetközeli telken",
-  },
+/** A képek nyelvfüggetlenek — a sorrend a szótár types tömbjével egyezik. */
+const typeImages = [
+  "/images/epulettipusok/garazs-tarolo.jpg",
+  "/images/epulettipusok/csarnok.jpg",
+  "/images/epulettipusok/irodahaz.jpg",
+  "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=80",
+  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+  "https://images.pexels.com/photos/12932834/pexels-photo-12932834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
 ];
 
 export default function BuildingTypes() {
+  const t = useT();
+
   return (
     <section id="epulettipusok" className="section-spacing relative" data-testid="building-types-section">
       <div className="container-custom">
@@ -58,7 +29,7 @@ export default function BuildingTypes() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            Épülettípusok
+            {t.buildingTypes.eyebrow}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -67,7 +38,8 @@ export default function BuildingTypes() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
           >
-            Bármit tervez, <span className="text-accent">megépítjük.</span>
+            {t.buildingTypes.titleBefore}{" "}
+            <span className="text-accent">{t.buildingTypes.titleAccent}</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -76,13 +48,12 @@ export default function BuildingTypes() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-light-gray text-base md:text-lg"
           >
-            A technológia ugyanaz, a méret és a papírmunka változik. Néhány
-            tipikus eset:
+            {t.buildingTypes.description}
           </motion.p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-16">
-          {types.map((type, index) => (
+          {t.buildingTypes.types.map((type, index) => (
             <motion.a
               key={type.title}
               href="#ajanlatkeres"
@@ -94,7 +65,7 @@ export default function BuildingTypes() {
               data-testid={`building-type-${index}`}
             >
               <Image
-                src={type.image}
+                src={typeImages[index]}
                 alt={type.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -123,13 +94,11 @@ export default function BuildingTypes() {
             <Sparkles size={26} />
           </span>
           <h3 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">
-            Fiatal cég vagyunk — <span className="text-accent">és ezt nem szépítjük.</span>
+            {t.buildingTypes.honestyTitleBefore}{" "}
+            <span className="text-accent">{t.buildingTypes.honestyTitleAccent}</span>
           </h3>
           <p className="text-light-gray text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            Most építjük az első projektjeinket — hamarosan itt lesznek. Addig
-            az számít, amit feketén-fehéren vállalunk: írott szerződés,
-            ütemezett fizetés és garancia. Ön nem ígéreteket vásárol, hanem
-            leírt, betartott feltételeket.
+            {t.buildingTypes.honestyText}
           </p>
         </motion.div>
       </div>

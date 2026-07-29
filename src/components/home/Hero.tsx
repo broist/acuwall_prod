@@ -4,8 +4,10 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
+import { useT } from "@/i18n/LanguageProvider";
 
 export default function Hero() {
+  const t = useT();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -26,7 +28,7 @@ export default function Hero() {
       <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
         <Image
           src="https://images.pexels.com/photos/17180778/pexels-photo-17180778.jpeg?auto=compress&cs=tinysrgb&w=2200"
-          alt="Acél könnyűszerkezetes ház természetes környezetben"
+          alt={t.hero.imageAlt}
           fill
           className="object-cover"
           priority
@@ -49,7 +51,7 @@ export default function Hero() {
             transition={{ duration: 0.7 }}
             className="eyebrow eyebrow-centered mb-7"
           >
-            Acél könnyűszerkezetes generálkivitelezés
+            {t.hero.eyebrow}
           </motion.span>
 
           <motion.h1
@@ -59,8 +61,8 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold mb-8 leading-[1.08] tracking-tight"
             data-testid="hero-title"
           >
-            Könnyűszerkezetes épület kulcsrakészen,{" "}
-            <span className="text-accent">egy felelőssel.</span>
+            {t.hero.titleBefore}{" "}
+            <span className="text-accent">{t.hero.titleAccent}</span>
           </motion.h1>
 
           <motion.p
@@ -70,11 +72,9 @@ export default function Hero() {
             className="text-lg md:text-xl text-light-gray max-w-3xl mx-auto mb-10 leading-relaxed"
             data-testid="hero-subtitle"
           >
-            Garázstól és műhelytől az irodaházig, nyaralótól a családi házig.
-            Megtervezzük és fel is építjük — alapozás, lábazat, aljzat, acélváz,
-            acél tetőszerkezet, falburkolás, nyílászárók, gépészet, elektromos
-            szerelés, befejező munkák. Önnek elég csak{" "}
-            <strong className="text-accent font-bold">egy partner</strong>.
+            {t.hero.subtitleBefore}{" "}
+            <strong className="text-accent font-bold">{t.hero.subtitleStrong}</strong>
+            {t.hero.subtitleAfter}
           </motion.p>
 
           <motion.div
@@ -88,7 +88,7 @@ export default function Hero() {
               className="btn-primary inline-flex items-center justify-center gap-2 group"
               data-testid="hero-cta-quote"
             >
-              Ajánlatot kérek
+              {t.hero.cta}
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </motion.div>
@@ -101,9 +101,11 @@ export default function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
-        aria-label="Görgessen lejjebb"
+        aria-label={t.hero.scrollAria}
       >
-        <span className="text-[11px] font-semibold uppercase tracking-[0.35em]">Görgessen</span>
+        <span className="text-[11px] font-semibold uppercase tracking-[0.35em]">
+          {t.hero.scroll}
+        </span>
         <ArrowDown size={16} className="animate-bounce-slow" />
       </motion.a>
     </section>

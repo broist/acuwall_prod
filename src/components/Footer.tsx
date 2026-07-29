@@ -3,25 +3,22 @@
 import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
+import { useT } from "@/i18n/LanguageProvider";
 
-const menuLinks = [
-  { name: "Főoldal", href: "#fooldal" },
-  { name: "Szolgáltatások", href: "#szolgaltatasok" },
-  { name: "LEAN", href: "#lean" },
-  { name: "Folyamat", href: "#folyamat" },
-  { name: "Épülettípusok", href: "#epulettipusok" },
-  { name: "GYIK", href: "#gyik" },
-  { name: "Kapcsolat", href: "#kapcsolat" },
-];
+const menuIds = [
+  "fooldal",
+  "szolgaltatasok",
+  "lean",
+  "folyamat",
+  "epulettipusok",
+  "gyik",
+  "kapcsolat",
+] as const;
 
-const serviceLinks = [
-  { name: "Tervek", href: "#szolgaltatasok" },
-  { name: "Statikai számítás", href: "#szolgaltatasok" },
-  { name: "3D modell", href: "#szolgaltatasok" },
-  { name: "Kulcsrakész kivitelezés", href: "#szolgaltatasok" },
-];
+const serviceLinkKeys = ["plans", "statics", "model", "turnkey"] as const;
 
 export default function Footer() {
+  const t = useT();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -33,15 +30,12 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="text-light-gray text-sm leading-relaxed max-w-md mb-6">
-              Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a
-              kulcsátadásig. Egész Magyarországon.
+              {t.footer.description}
             </p>
 
             {/* Kiemelt mottó-sáv */}
             <div className="border-l-4 border-accent bg-accent/10 rounded-r-xl px-5 py-4 mb-8 max-w-md">
-              <p className="text-accent font-semibold italic leading-relaxed">
-                „Építsünk együtt”
-              </p>
+              <p className="text-accent font-semibold italic leading-relaxed">{t.footer.motto}</p>
             </div>
 
             <div className="flex items-center gap-3">
@@ -49,7 +43,7 @@ export default function Footer() {
                 href="https://www.facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="AcuWall a Facebookon"
+                aria-label={t.footer.facebookAria}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.05] border border-white/10 text-white/70 hover:text-white hover:border-accent/40 hover:bg-accent/10 transition-all duration-300"
               >
                 <Facebook size={19} />
@@ -58,7 +52,7 @@ export default function Footer() {
                 href="https://www.instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="AcuWall az Instagramon"
+                aria-label={t.footer.instagramAria}
                 className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-white/[0.05] border border-white/10 text-white/70 hover:text-white hover:border-accent/40 hover:bg-accent/10 transition-all duration-300"
               >
                 <Instagram size={19} />
@@ -67,15 +61,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-5">Menü</h3>
+            <h3 className="text-white font-bold mb-5">{t.footer.menuHeading}</h3>
             <ul className="space-y-3">
-              {menuLinks.map((link) => (
-                <li key={link.name}>
+              {menuIds.map((id) => (
+                <li key={id}>
                   <a
-                    href={link.href}
+                    href={`#${id}`}
                     className="text-light-gray hover:text-white text-sm transition-colors duration-300"
                   >
-                    {link.name}
+                    {t.nav[id]}
                   </a>
                 </li>
               ))}
@@ -83,15 +77,15 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-5">Szolgáltatások</h3>
+            <h3 className="text-white font-bold mb-5">{t.footer.servicesHeading}</h3>
             <ul className="space-y-3">
-              {serviceLinks.map((link) => (
-                <li key={link.name}>
+              {serviceLinkKeys.map((key) => (
+                <li key={key}>
                   <a
-                    href={link.href}
+                    href="#szolgaltatasok"
                     className="text-light-gray hover:text-white text-sm transition-colors duration-300"
                   >
-                    {link.name}
+                    {t.footer.serviceLinks[key]}
                   </a>
                 </li>
               ))}
@@ -99,7 +93,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-bold mb-5">Kapcsolat</h3>
+            <h3 className="text-white font-bold mb-5">{t.footer.contactHeading}</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-accent flex-shrink-0" />
@@ -121,9 +115,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-accent flex-shrink-0 mt-0.5" />
-                <span className="text-light-gray leading-relaxed">
-                  Országos kivitelezés, Magyarország bármely pontján
-                </span>
+                <span className="text-light-gray leading-relaxed">{t.footer.areaValue}</span>
               </li>
             </ul>
           </div>
@@ -132,9 +124,11 @@ export default function Footer() {
 
       <div className="border-t border-white/[0.06]">
         <div className="container-custom py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-medium-gray">
-          <p>© {currentYear} AcuWall. Minden jog fenntartva.</p>
+          <p>
+            © {currentYear} AcuWall. {t.footer.rights}
+          </p>
           <Link href="/adatkezeles" className="hover:text-white transition-colors">
-            Adatkezelési tájékoztató
+            {t.footer.privacy}
           </Link>
         </div>
       </div>

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useT } from "@/i18n/LanguageProvider";
 
 /*
  * AcuWall embléma: szendvicspanel-rétegekből összeálló ház a kulcslyukkal.
@@ -54,6 +57,8 @@ export default function Logo({
   taglineClassName?: string;
   onClick?: () => void;
 }) {
+  const t = useT();
+
   return (
     <Link
       href="/#fooldal"
@@ -67,7 +72,7 @@ export default function Logo({
           Acu<span className="text-accent">Wall</span>
         </span>
         <span className={`block text-[11px] font-medium italic ${taglineClassName}`}>
-          Építsünk együtt
+          {t.logo.tagline}
         </span>
       </span>
     </Link>

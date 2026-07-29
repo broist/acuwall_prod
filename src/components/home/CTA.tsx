@@ -3,8 +3,11 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
+import { useT } from "@/i18n/LanguageProvider";
 
 export default function CTA() {
+  const t = useT();
+
   return (
     <section className="relative py-28 md:py-36 overflow-hidden" data-testid="cta-section">
       <div className="absolute inset-0">
@@ -28,8 +31,7 @@ export default function CTA() {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold leading-tight tracking-tight mb-7 max-w-5xl mx-auto"
         >
-          Szerintünk itt az ideje elkezdeni átemelni a valóságba{" "}
-          <span className="text-accent">az Ön terveit is!</span>
+          {t.cta.titleBefore} <span className="text-accent">{t.cta.titleAccent}</span>
         </motion.h2>
 
         <motion.p
@@ -39,8 +41,7 @@ export default function CTA() {
           transition={{ duration: 0.6, delay: 0.15 }}
           className="text-light-gray text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Mondja el pár szóban, mit tervez — a tervezéstől a kivitelezésig
-          megoldjuk. Nem köteleződik el semmire.
+          {t.cta.description}
         </motion.p>
 
         <motion.div
@@ -55,7 +56,7 @@ export default function CTA() {
             className="btn-primary inline-flex items-center justify-center gap-2 group"
             data-testid="cta-quote-button"
           >
-            Ajánlatot kérek
+            {t.cta.quote}
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </a>
           <a

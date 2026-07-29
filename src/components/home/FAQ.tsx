@@ -3,50 +3,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
-
-const faqs = [
-  {
-    question: "Mi van, ha nincs tervem?",
-    answer:
-      "Semmi gond — a legtöbben így érkeznek. Elkészítjük a terveket, a statikai számítást és a 3D modellt, Ön pedig a teljes kép ismeretében dönt.",
-  },
-  {
-    question: "Kell engedély egy garázshoz?",
-    answer:
-      "Mérettől és településtől függ. Az engedélyezési utat mi tisztázzuk a helyi hatóságokkal — Önnek ezzel nem kell foglalkoznia.",
-  },
-  {
-    question: "Mit jelent a „kulcsrakész” kifejezés?",
-    answer:
-      "Azt, hogy az épületet használatra készen adjuk át: alapozás, acélváz, homlokzat, gépészet, elektromos szerelés és belsőépítészet után. Nem félkész szerkezetet kap, hanem kész épületet.",
-  },
-  {
-    question: "Mennyibe kerül?",
-    answer:
-      "Minden projekt egyedi, ezért pontos, tételes ajánlatot adunk. Amit leírunk, azt visszük végig — utólag nem kerülnek elő tételek.",
-  },
-  {
-    question: "Mennyi idő?",
-    answer:
-      "A szerkezet és a homlokzat előregyártott, a helyszíni munka jelentős része szerelésből áll. A pontos határidőt az ajánlatban és a szerződésben rögzítjük.",
-  },
-  {
-    question: "Hol vállalunk munkát?",
-    answer: "Országos szinten mindenhol. Bárhol is van a telke, keressen minket.",
-  },
-  {
-    question: "Hogyan fizetek?",
-    answer:
-      "Ütemezetten, a szerződésben rögzített mérföldkövek szerint — mindig csak azért, ami elkészült.",
-  },
-  {
-    question: "Van jótállás?",
-    answer:
-      "Igen. Az átadáshoz hibalista és fotók tartoznak, a garanciát a szerződés rögzíti. Az átadás után sem hagyjuk magára.",
-  },
-];
+import { useT } from "@/i18n/LanguageProvider";
 
 export default function FAQ() {
+  const t = useT();
+  const faqs = t.faq.items;
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
@@ -60,7 +21,7 @@ export default function FAQ() {
             transition={{ duration: 0.5 }}
             className="eyebrow eyebrow-centered mb-6"
           >
-            Gyakori kérdések
+            {t.faq.eyebrow}
           </motion.span>
           <motion.h2
             initial={{ opacity: 0, y: 24 }}
@@ -69,7 +30,8 @@ export default function FAQ() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight"
           >
-            Amit a <span className="text-accent">legtöbben</span> kérdeznek.
+            {t.faq.titleBefore} <span className="text-accent">{t.faq.titleAccent}</span>
+            {t.faq.titleAfter}
           </motion.h2>
         </div>
 

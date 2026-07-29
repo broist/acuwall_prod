@@ -4,20 +4,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useT } from "@/i18n/LanguageProvider";
 
 const navItems = [
-  { name: "Főoldal", id: "fooldal" },
-  { name: "Szolgáltatások", id: "szolgaltatasok" },
-  { name: "LEAN", id: "lean" },
-  { name: "Folyamat", id: "folyamat" },
-  { name: "Épülettípusok", id: "epulettipusok" },
-  { name: "GYIK", id: "gyik" },
-  { name: "Kapcsolat", id: "kapcsolat" },
-];
+  "fooldal",
+  "szolgaltatasok",
+  "lean",
+  "folyamat",
+  "epulettipusok",
+  "gyik",
+  "kapcsolat",
+] as const;
 
 export default function Header() {
+  const t = useT();
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("fooldal");
+  const [activeSection, setActiveSection] = useState<string>("fooldal");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -26,10 +29,10 @@ export default function Header() {
 
       const probe = window.innerHeight * 0.35;
       let current = "fooldal";
-      for (const item of navItems) {
-        const el = document.getElementById(item.id);
+      for (const id of navItems) {
+        const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= probe) {
-          current = item.id;
+          current = id;
         }
       }
       setActiveSection(current);
@@ -50,48 +53,55 @@ export default function Header() {
       data-testid="header"
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-20 gap-4">
           <Logo />
 
-          <nav className="hidden lg:flex items-center gap-7" data-testid="desktop-nav">
-            {navItems.map((item) => (
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7" data-testid="desktop-nav">
+            {navItems.map((id) => (
               <a
-                key={item.id}
-                href={`#${item.id}`}
-                className={`relative text-sm font-medium transition-colors duration-300 py-2 ${
-                  activeSection === item.id ? "text-white" : "text-white/70 hover:text-white"
+                key={id}
+                href={`#${id}`}
+                className={`relative text-sm font-medium transition-colors duration-300 py-2 whitespace-nowrap ${
+                  activeSection === id ? "text-white" : "text-white/70 hover:text-white"
                 }`}
-                data-testid={`nav-${item.id}`}
+                data-testid={`nav-${id}`}
               >
-                {item.name}
+                {t.nav[id]}
                 <span
                   className={`absolute -bottom-0.5 left-0 h-0.5 bg-accent rounded-full transition-all duration-300 ${
-                    activeSection === item.id ? "w-full" : "w-0"
+                    activeSection === id ? "w-full" : "w-0"
                   }`}
                 />
               </a>
             ))}
           </nav>
 
-          <div className="hidden lg:block">
+          <div className="hidden lg:flex items-center gap-4">
             <a
               href="#ajanlatkeres"
-              className="btn-primary !py-3 !px-6 text-sm inline-flex items-center gap-2 group"
+              className="btn-primary !py-3 !px-6 text-sm inline-flex items-center gap-2 group whitespace-nowrap"
               data-testid="header-cta-button"
             >
-              Ajánlatkérés
+              {t.nav.quote}
               <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
+
+            <span className="h-6 w-px bg-white/15" aria-hidden="true" />
+
+            <LanguageSwitcher />
           </div>
 
-          <button
-            className="lg:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="mobile-menu-button"
-            aria-label="Menü"
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-3 lg:hidden">
+            <LanguageSwitcher />
+            <button
+              className="text-white p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="mobile-menu-button"
+              aria-label={t.nav.menuAria}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -105,20 +115,20 @@ export default function Header() {
             data-testid="mobile-menu"
           >
             <nav className="container-custom py-6 space-y-1">
-              {navItems.map((item, index) => (
+              {navItems.map((id, index) => (
                 <motion.div
-                  key={item.id}
+                  key={id}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.06 }}
                 >
                   <a
-                    href={`#${item.id}`}
+                    href={`#${id}`}
                     className="block text-white/80 hover:text-white py-2.5 text-lg font-medium transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    data-testid={`mobile-nav-${item.id}`}
+                    data-testid={`mobile-nav-${id}`}
                   >
-                    {item.name}
+                    {t.nav[id]}
                   </a>
                 </motion.div>
               ))}
@@ -126,7 +136,7 @@ export default function Header() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.35 }}
-                className="pt-4"
+                className="pt-4 space-y-4"
               >
                 <a
                   href="#ajanlatkeres"
@@ -134,9 +144,16 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="mobile-cta-button"
                 >
-                  Ajánlatkérés
+                  {t.nav.quote}
                   <ArrowRight size={16} />
                 </a>
+
+                <div className="pt-2 border-t border-white/10">
+                  <p className="text-light-gray text-[11px] font-semibold uppercase tracking-[0.2em] pt-4 pb-3">
+                    {t.nav.languageAria}
+                  </p>
+                  <LanguageSwitcher variant="full" onSelect={() => setIsMobileMenuOpen(false)} />
+                </div>
               </motion.div>
             </nav>
           </motion.div>
