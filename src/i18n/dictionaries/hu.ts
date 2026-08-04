@@ -158,7 +158,7 @@ export const hu = {
           "Acélváz, tetőszerkezet és falburkolás",
           "Elektromos és gépészeti szerelés",
           "Belsőépítészeti kivitelezések",
-          "Dokumentált átadás hibalistával",
+          "Átadás-átvételi jegyzőkönyv",
         ],
       },
     ],
@@ -236,7 +236,7 @@ export const hu = {
         title: "Átadjuk a kulcsot",
         label: "Átadás és garancia",
         description:
-          "Közös bejárás, hibalista, dokumentáció és garancia. Innentől az Öné — mi azután is itt vagyunk.",
+          "Közös bejárás, átadás-átvételi jegyzőkönyv, dokumentáció és garancia. Innentől az Öné — mi azután is itt vagyunk.",
       },
     ],
   },
@@ -279,10 +279,6 @@ export const hu = {
         alt: "Modern könnyűszerkezetes ház természetközeli telken",
       },
     ],
-    honestyTitleBefore: "Fiatal cég vagyunk —",
-    honestyTitleAccent: "és ezt nem szépítjük.",
-    honestyText:
-      "Most építjük az első projektjeinket — hamarosan itt lesznek. Addig az számít, amit feketén-fehéren vállalunk: írott szerződés, ütemezett fizetés és garancia. Ön nem ígéreteket vásárol, hanem leírt, betartott feltételeket.",
   },
 
   faq: {
@@ -328,7 +324,7 @@ export const hu = {
       {
         question: "Van jótállás?",
         answer:
-          "Igen. Az átadáshoz hibalista és fotók tartoznak, a garanciát a szerződés rögzíti. Az átadás után sem hagyjuk magára.",
+          "Igen. Az átadáshoz átadás-átvételi jegyzőkönyv és fotók tartoznak, a garanciát a szerződés rögzíti. Az átadás után sem hagyjuk magára.",
       },
     ],
   },

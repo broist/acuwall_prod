@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 
 /** A képek nyelvfüggetlenek — a sorrend a szótár types tömbjével egyezik. */
@@ -52,7 +51,7 @@ export default function BuildingTypes() {
           </motion.p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {t.buildingTypes.types.map((type, index) => (
             <motion.a
               key={type.title}
@@ -81,26 +80,6 @@ export default function BuildingTypes() {
           ))}
         </div>
 
-        {/* Őszinteség kártya */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="card max-w-4xl mx-auto p-10 md:p-14 text-center"
-          data-testid="young-company-card"
-        >
-          <span className="icon-tile !h-14 !w-14 !rounded-2xl mb-7">
-            <Sparkles size={26} />
-          </span>
-          <h3 className="text-2xl md:text-3xl font-bold mb-5 tracking-tight">
-            {t.buildingTypes.honestyTitleBefore}{" "}
-            <span className="text-accent">{t.buildingTypes.honestyTitleAccent}</span>
-          </h3>
-          <p className="text-light-gray text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-            {t.buildingTypes.honestyText}
-          </p>
-        </motion.div>
       </div>
     </section>
   );

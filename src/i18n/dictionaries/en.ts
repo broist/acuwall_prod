@@ -160,7 +160,7 @@ export const en: Dictionary = {
           "Steel frame, roof structure and cladding",
           "Electrical and mechanical installation",
           "Interior fit-out works",
-          "Documented handover with a snag list",
+          "Handover protocol",
         ],
       },
     ],
@@ -238,7 +238,7 @@ export const en: Dictionary = {
         title: "We hand over the keys",
         label: "Handover and warranty",
         description:
-          "Joint inspection, snag list, documentation and warranty. From then on it is yours — and we are still here afterwards.",
+          "Joint inspection, handover protocol, documentation and warranty. From then on it is yours — and we are still here afterwards.",
       },
     ],
   },
@@ -281,10 +281,6 @@ export const en: Dictionary = {
         alt: "Modern lightweight steel house on a plot close to nature",
       },
     ],
-    honestyTitleBefore: "We are a young company —",
-    honestyTitleAccent: "and we are not glossing over it.",
-    honestyText:
-      "We are building our first projects right now — they will be here soon. Until then what counts is what we commit to in black and white: a written contract, scheduled payments and a warranty. You are not buying promises, but terms that are written down and kept.",
   },
 
   faq: {
@@ -330,7 +326,7 @@ export const en: Dictionary = {
       {
         question: "Is there a warranty?",
         answer:
-          "Yes. The handover includes a snag list and photos, and the warranty is set out in the contract. We won't leave you on your own after handover either.",
+          "Yes. The handover includes a handover protocol and photos, and the warranty is set out in the contract. We won't leave you on your own after handover either.",
       },
     ],
   },

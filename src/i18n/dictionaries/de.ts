@@ -160,7 +160,7 @@ export const de: Dictionary = {
           "Stahlrahmen, Dachkonstruktion und Fassade",
           "Elektro- und Haustechnikinstallation",
           "Innenausbauarbeiten",
-          "Dokumentierte Übergabe mit Mängelliste",
+          "Übergabeprotokoll",
         ],
       },
     ],
@@ -238,7 +238,7 @@ export const de: Dictionary = {
         title: "Wir übergeben den Schlüssel",
         label: "Übergabe und Garantie",
         description:
-          "Gemeinsame Begehung, Mängelliste, Dokumentation und Garantie. Ab dann gehört es Ihnen — und wir sind auch danach für Sie da.",
+          "Gemeinsame Begehung, Übergabeprotokoll, Dokumentation und Garantie. Ab dann gehört es Ihnen — und wir sind auch danach für Sie da.",
       },
     ],
   },
@@ -281,10 +281,6 @@ export const de: Dictionary = {
         alt: "Modernes Haus in Leichtbauweise auf einem naturnahen Grundstück",
       },
     ],
-    honestyTitleBefore: "Wir sind ein junges Unternehmen —",
-    honestyTitleAccent: "und beschönigen das nicht.",
-    honestyText:
-      "Wir realisieren gerade unsere ersten Projekte — sie werden bald hier zu sehen sein. Bis dahin zählt das, was wir schwarz auf weiß zusagen: ein schriftlicher Vertrag, terminierte Zahlungen und Garantie. Sie kaufen keine Versprechen, sondern festgeschriebene und eingehaltene Bedingungen.",
   },
 
   faq: {
@@ -330,7 +326,7 @@ export const de: Dictionary = {
       {
         question: "Gibt es eine Gewährleistung?",
         answer:
-          "Ja. Zur Übergabe gehören eine Mängelliste und Fotos, die Garantie ist im Vertrag festgehalten. Auch nach der Übergabe lassen wir Sie nicht allein.",
+          "Ja. Zur Übergabe gehören ein Übergabeprotokoll und Fotos, die Garantie ist im Vertrag festgehalten. Auch nach der Übergabe lassen wir Sie nicht allein.",
       },
     ],
   },

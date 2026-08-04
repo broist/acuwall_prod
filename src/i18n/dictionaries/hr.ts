@@ -160,7 +160,7 @@ export const hr: Dictionary = {
           "Čelična konstrukcija, krov i fasada",
           "Elektro i strojarske instalacije",
           "Radovi unutarnjeg uređenja",
-          "Zapisnička primopredaja s popisom nedostataka",
+          "Primopredajni zapisnik",
         ],
       },
     ],
@@ -238,7 +238,7 @@ export const hr: Dictionary = {
         title: "Predajemo ključeve",
         label: "Primopredaja i jamstvo",
         description:
-          "Zajednički obilazak, popis nedostataka, dokumentacija i jamstvo. Od tada je vaša — a mi smo tu i nakon toga.",
+          "Zajednički obilazak, primopredajni zapisnik, dokumentacija i jamstvo. Od tada je vaša — a mi smo tu i nakon toga.",
       },
     ],
   },
@@ -281,10 +281,6 @@ export const hr: Dictionary = {
         alt: "Moderna montažna kuća na parceli blizu prirode",
       },
     ],
-    honestyTitleBefore: "Mlada smo tvrtka —",
-    honestyTitleAccent: "i to ne uljepšavamo.",
-    honestyText:
-      "Upravo gradimo svoje prve projekte — uskoro će biti ovdje. Do tada je važno ono što crno na bijelo preuzimamo: pisani ugovor, plaćanje po fazama i jamstvo. Ne kupujete obećanja, nego zapisane i ispunjene uvjete.",
   },
 
   faq: {
@@ -330,7 +326,7 @@ export const hr: Dictionary = {
       {
         question: "Postoji li jamstvo?",
         answer:
-          "Da. Uz primopredaju idu popis nedostataka i fotografije, a jamstvo je utvrđeno ugovorom. Ni nakon primopredaje vas ne ostavljamo same.",
+          "Da. Uz primopredaju idu primopredajni zapisnik i fotografije, a jamstvo je utvrđeno ugovorom. Ni nakon primopredaje vas ne ostavljamo same.",
       },
     ],
   },

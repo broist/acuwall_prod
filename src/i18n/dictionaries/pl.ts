@@ -160,7 +160,7 @@ export const pl: Dictionary = {
           "Konstrukcja stalowa, dach i elewacja",
           "Instalacje elektryczne i sanitarne",
           "Prace wykończeniowe wnętrz",
-          "Protokolarny odbiór z listą usterek",
+          "Protokół zdawczo-odbiorczy",
         ],
       },
     ],
@@ -238,7 +238,7 @@ export const pl: Dictionary = {
         title: "Przekazujemy klucze",
         label: "Odbiór i gwarancja",
         description:
-          "Wspólny przegląd, lista usterek, dokumentacja i gwarancja. Od tej chwili budynek jest Państwa — a my jesteśmy dostępni również później.",
+          "Wspólny przegląd, protokół zdawczo-odbiorczy, dokumentacja i gwarancja. Od tej chwili budynek jest Państwa — a my jesteśmy dostępni również później.",
       },
     ],
   },
@@ -281,10 +281,6 @@ export const pl: Dictionary = {
         alt: "Nowoczesny dom w lekkiej konstrukcji na działce blisko natury",
       },
     ],
-    honestyTitleBefore: "Jesteśmy młodą firmą —",
-    honestyTitleAccent: "i nie owijamy tego w bawełnę.",
-    honestyText:
-      "Właśnie realizujemy nasze pierwsze projekty — wkrótce pojawią się tutaj. Do tego czasu liczy się to, co deklarujemy czarno na białym: pisemna umowa, płatności etapowe i gwarancja. Nie kupują Państwo obietnic, lecz zapisane i dotrzymywane warunki.",
   },
 
   faq: {
@@ -330,7 +326,7 @@ export const pl: Dictionary = {
       {
         question: "Czy jest gwarancja?",
         answer:
-          "Tak. Do odbioru dołączamy listę usterek i zdjęcia, a gwarancję określa umowa. Po przekazaniu również nie zostawiamy Państwa samych.",
+          "Tak. Do odbioru dołączamy protokół zdawczo-odbiorczy i zdjęcia, a gwarancję określa umowa. Po przekazaniu również nie zostawiamy Państwa samych.",
       },
     ],
   },
