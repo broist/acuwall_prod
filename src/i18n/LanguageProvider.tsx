@@ -64,6 +64,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const dictionary = dictionaries[locale];
     const isPrivacyPage = pathname === "/adatkezeles";
 
+    // A hirdetési landing csak magyarul fut, és saját metaadatot állít be
+    // (lásd src/app/ajanlat/layout.tsx) — azt nem írjuk felül.
+    if (pathname === "/ajanlat") {
+      document.documentElement.lang = "hu";
+      return;
+    }
+
     document.documentElement.lang = LOCALE_META[locale].htmlLang;
     document.title = isPrivacyPage ? dictionary.privacy.metaTitle : dictionary.meta.title;
 

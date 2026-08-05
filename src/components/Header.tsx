@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, Menu, X } from "lucide-react";
 import Logo from "./Logo";
@@ -19,6 +20,7 @@ const navItems = [
 
 export default function Header() {
   const t = useT();
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("fooldal");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -42,6 +44,10 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // A hirdetési landing (/ajanlat) szándékosan menü nélkül fut: ott semmi
+  // nem viheti el a figyelmet az űrlapról.
+  if (pathname === "/ajanlat") return null;
 
   return (
     <header

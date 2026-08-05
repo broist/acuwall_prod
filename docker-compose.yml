@@ -13,6 +13,13 @@ services:
       - RESEND_FROM_EMAIL=${RESEND_FROM_EMAIL}
       - LEAD_WEBHOOK_URL=${LEAD_WEBHOOK_URL}
       - LEAD_WEBHOOK_SECRET=${LEAD_WEBHOOK_SECRET}
+      # Hirdetési landing (/ajanlat) — mind opcionális, üresen kikapcsolva
+      - LANDING_GA4_ID=${LANDING_GA4_ID}
+      - LANDING_GOOGLE_ADS_ID=${LANDING_GOOGLE_ADS_ID}
+      - LANDING_GOOGLE_ADS_LABEL=${LANDING_GOOGLE_ADS_LABEL}
+      - LANDING_META_PIXEL_ID=${LANDING_META_PIXEL_ID}
+      - OCTOPUS_LEAD_URL=${OCTOPUS_LEAD_URL}
+      - OCTOPUS_LEAD_TOKEN=${OCTOPUS_LEAD_TOKEN}
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
       interval: 30s

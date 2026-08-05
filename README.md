@@ -114,6 +114,21 @@ acuwall-website/
 └── README.md
 ```
 
+## Hirdetési landing (ajanlat.acuwall.hu)
+
+A `/ajanlat` útvonalon egy külön, lépésenkénti ajánlatkérő fut, hirdetési
+forgalomra. Ugyanebből a konténerből szolgáljuk ki: az `ajanlat.acuwall.hu`
+gyökerét a `next.config.mjs` irányítja a `/ajanlat` oldalra, ezért nincs külön
+telepítés.
+
+- Kód: `src/app/ajanlat/`, `src/components/landing/`, `src/app/api/send-lead/`
+- A fejléc és a lábléc ezen az oldalon nem jelenik meg (`Header.tsx`, `Footer.tsx`)
+- A beküldés ugyanoda fut, mint a weboldal ajánlatkérője, `ACW-LND-` előtagú
+  Lead ID-val és `[Landing]` tárgyjelöléssel, hogy az Octopusban megkülönböztethető
+  legyen
+- Telepítés, nginx konfiguráció és a mérés beállítása: az `AcuWall/weboldal_landing`
+  mappa `README.md` és `MERES.md` fájljai
+
 ## Kapcsolat
 
 - **Email:** acuwall@acuwall.hu
