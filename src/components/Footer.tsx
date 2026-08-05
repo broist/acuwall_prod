@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
 import { useT } from "@/i18n/LanguageProvider";
@@ -20,11 +19,7 @@ const serviceLinkKeys = ["plans", "statics", "model", "turnkey"] as const;
 
 export default function Footer() {
   const t = useT();
-  const pathname = usePathname();
   const currentYear = new Date().getFullYear();
-
-  // A landing saját, rövid láblécet használ (lásd LandingSections).
-  if (pathname === "/ajanlat") return null;
 
   return (
     <footer className="bg-primary-deep border-t border-white/[0.06]" data-testid="footer">

@@ -276,7 +276,13 @@ export default function LandingSections() {
             <a href={CONTACT.phoneHref} className="transition-colors hover:text-white">
               {CONTACT.phoneDisplay}
             </a>
-            <a href="/adatkezeles" className="transition-colors hover:text-white">
+            {/* Új lapon nyílik: a látogató ne veszítse el a félig kitöltött űrlapot. */}
+            <a
+              href="/adatkezeles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
               Adatkezelési tájékoztató
             </a>
           </div>
