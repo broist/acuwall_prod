@@ -42,13 +42,12 @@ export default function AjanlatLandingPage() {
       </header>
 
       <main className="grid-pattern flex-1">
-        <div className="mx-auto w-full max-w-2xl px-4 pb-14 pt-7 sm:px-6 md:pt-10">
-          <h1 className="text-center text-[26px] font-bold leading-[1.15] tracking-tight sm:text-3xl">
+        <div className="mx-auto w-full max-w-2xl px-4 pb-14 pt-4 sm:px-6 sm:pt-6">
+          {/* Egyetlen apró sor: a hirdetésből érkezőnek visszaigazolja, hogy jó
+              helyen jár, de nem tolja lejjebb az űrlapot. */}
+          <h1 className="mb-3.5 text-center text-[17px] font-semibold leading-snug tracking-tight sm:mb-4 sm:text-xl">
             Könnyűszerkezetes épület <span className="text-accent">kulcsrakészen</span>
           </h1>
-          <p className="mx-auto mb-7 mt-3 max-w-md text-center text-[15px] leading-relaxed text-light-gray">
-            Pár kérdés, és 24 órán belül személyesen jelentkezünk.
-          </p>
 
           <LandingWizard />
         </div>
