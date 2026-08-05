@@ -1,24 +1,18 @@
-import { Check } from "lucide-react";
 import { LogoMark } from "@/components/Logo";
 import Analytics from "@/components/landing/Analytics";
-import LandingSections from "@/components/landing/LandingSections";
 import LandingWizard from "@/components/landing/LandingWizard";
 import PhoneCta from "@/components/landing/PhoneCta";
+import { CONTACT } from "@/components/landing/config";
 
 /**
+ * Szándékosan csupasz oldal: fejléc, űrlap, lábléc. Nincs alatta marketing
+ * szekció, mert a hirdetésből érkező látogatónak egyetlen dolga van itt.
+ *
  * A mérőazonosítókat futásidőben olvassuk a környezetből, hogy egy új
  * Google Ads vagy Meta azonosítóhoz elég legyen a konténer újraindítása —
  * nem kell újraépíteni az egész weboldalt.
  */
 export const dynamic = "force-dynamic";
-
-const TRUST_POINTS = [
-  "Tervezéstől a kulcsátadásig, egy szerződésben",
-  "Országos kivitelezés, Magyarország bármely pontján",
-  "Ütemezett fizetés, írásos garancia",
-];
-
-const TRUST_CHIPS = ["Egy felelős", "Országos kivitelezés", "Válasz 24 órán belül"];
 
 export default function AjanlatLandingPage() {
   const trackingIds = {
@@ -29,9 +23,9 @@ export default function AjanlatLandingPage() {
   };
 
   return (
-    <div className="lp-glow">
+    <div className="lp-glow flex min-h-screen flex-col">
       <header className="border-b border-white/[0.06]">
-        <div className="container-custom flex h-16 items-center justify-between gap-4">
+        <div className="mx-auto flex h-16 w-full max-w-2xl items-center justify-between gap-4 px-4 sm:px-6">
           <span className="flex items-center gap-2.5">
             <LogoMark className="h-9 w-9" />
             <span className="leading-tight">
@@ -47,57 +41,38 @@ export default function AjanlatLandingPage() {
         </div>
       </header>
 
-      <section className="grid-pattern pb-14 pt-6 md:pt-12 lg:pb-20 lg:pt-16">
-        <div className="container-custom grid items-start gap-6 lg:grid-cols-[1fr_minmax(0,540px)] lg:gap-14">
-          <div className="lg:pt-4">
-            <span className="eyebrow mb-4 lg:mb-5">Ingyenes ajánlatkérés</span>
-            <h1 className="text-[27px] font-bold leading-[1.12] tracking-tight sm:text-4xl lg:text-[42px]">
-              Könnyűszerkezetes épület <span className="text-accent">kulcsrakészen</span>, egy
-              felelőssel.
-            </h1>
-            <p className="mt-4 max-w-xl text-[15px] leading-relaxed text-light-gray md:text-lg lg:mt-5">
-              Garázstól és műhelytől a lakóházig: megtervezzük és fel is építjük. Mondja el pár
-              kattintásban, mit tervez — <strong className="text-white">24 órán belül</strong>{" "}
-              személyesen válaszolunk.
-            </p>
+      <main className="grid-pattern flex-1">
+        <div className="mx-auto w-full max-w-2xl px-4 pb-14 pt-7 sm:px-6 md:pt-10">
+          <h1 className="text-center text-[26px] font-bold leading-[1.15] tracking-tight sm:text-3xl">
+            Könnyűszerkezetes épület <span className="text-accent">kulcsrakészen</span>
+          </h1>
+          <p className="mx-auto mb-7 mt-3 max-w-md text-center text-[15px] leading-relaxed text-light-gray">
+            Pár kérdés, és 24 órán belül személyesen jelentkezünk.
+          </p>
 
-            <ul className="mt-8 hidden space-y-3.5 lg:block">
-              {TRUST_POINTS.map((point) => (
-                <li key={point} className="flex items-start gap-3">
-                  <span className="mt-0.5 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-accent/15 text-accent">
-                    <Check size={14} strokeWidth={3} />
-                  </span>
-                  <span className="leading-relaxed text-white/85">{point}</span>
-                </li>
-              ))}
-            </ul>
+          <LandingWizard />
+        </div>
+      </main>
 
-            <div className="mt-8 hidden lg:block">
-              <PhoneCta variant="full" />
-            </div>
-          </div>
-
-          <div className="mt-6 lg:mt-0">
-            <LandingWizard />
-
-            {/* Mobilon a bizalmi jelzések az űrlap alá kerülnek, hogy a
-                kérdés minél magasabbra jusson a képernyőn. */}
-            <div className="mt-5 flex flex-wrap justify-center gap-2 lg:hidden">
-              {TRUST_CHIPS.map((chip) => (
-                <span
-                  key={chip}
-                  className="inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/[0.04] px-3 py-1.5 text-xs font-medium text-light-gray"
-                >
-                  <Check size={12} className="text-accent" strokeWidth={3} />
-                  {chip}
-                </span>
-              ))}
-            </div>
+      <footer className="border-t border-white/[0.06] bg-primary-deep">
+        <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-between gap-3 px-4 py-6 text-[13px] text-medium-gray sm:flex-row sm:px-6">
+          <p>© {new Date().getFullYear()} AcuWall</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            <a href={CONTACT.emailHref} className="transition-colors hover:text-white">
+              {CONTACT.email}
+            </a>
+            {/* Új lapon nyílik: a félig kitöltött űrlap ne vesszen el. */}
+            <a
+              href="/adatkezeles"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors hover:text-white"
+            >
+              Adatkezelési tájékoztató
+            </a>
           </div>
         </div>
-      </section>
-
-      <LandingSections />
+      </footer>
 
       <Analytics {...trackingIds} />
     </div>
