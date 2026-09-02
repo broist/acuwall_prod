@@ -103,7 +103,7 @@ export const de: Dictionary = {
       },
       {
         title: "Wir gehen ans Telefon",
-        description: "Wo auch immer Ihr Grundstück im Land liegt – rufen Sie uns an!",
+        description: "Wo auch immer Ihr Grundstück im Komitat Hajdú-Bihar oder Szabolcs-Szatmár-Bereg liegt – rufen Sie uns an!",
       },
     ],
   },

@@ -101,7 +101,7 @@ export const hu = {
       },
       {
         title: "Felvesszük a telefont",
-        description: "Bárhol is van a telke az országban – hívjon minket!",
+        description: "Bárhol is van a telke Hajdú-Biharban vagy Szabolcs-Szatmár-Beregben – hívjon minket!",
       },
     ],
   },

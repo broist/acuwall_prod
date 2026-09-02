@@ -103,7 +103,7 @@ export const hr: Dictionary = {
       },
       {
         title: "Javljamo se na telefon",
-        description: "Gdje god se u zemlji nalazila vaša parcela – nazovite nas!",
+        description: "Gdje god se u županiji Hajdú-Bihar ili Szabolcs-Szatmár-Bereg nalazila vaša parcela – nazovite nas!",
       },
     ],
   },

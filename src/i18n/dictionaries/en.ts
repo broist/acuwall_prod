@@ -103,7 +103,7 @@ export const en: Dictionary = {
       },
       {
         title: "We answer the phone",
-        description: "Wherever your plot is in the country – give us a call!",
+        description: "Wherever your plot is in Hajdú-Bihar or Szabolcs-Szatmár-Bereg county – give us a call!",
       },
     ],
   },

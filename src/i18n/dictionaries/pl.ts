@@ -103,7 +103,7 @@ export const pl: Dictionary = {
       },
       {
         title: "Odbieramy telefon",
-        description: "Gdziekolwiek w kraju znajduje się Państwa działka – proszę zadzwonić!",
+        description: "Gdziekolwiek w komitacie Hajdú-Bihar lub Szabolcs-Szatmár-Bereg znajduje się Państwa działka – proszę zadzwonić!",
       },
     ],
   },
