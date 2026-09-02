@@ -316,7 +316,7 @@ export const hr: Dictionary = {
       },
       {
         question: "Gdje izvodimo radove?",
-        answer: "Na razini cijele zemlje. Gdje god se nalazila vaša parcela, javite nam se.",
+        answer: "U županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg. Gdje god se nalazila vaša parcela u tim županijama, javite nam se.",
       },
       {
         question: "Kako se plaća?",
@@ -413,17 +413,17 @@ export const hr: Dictionary = {
       responseTime: "Vrijeme odgovora",
       hours: "Radno vrijeme",
     },
-    areaValue: "Izvedba na razini cijele zemlje, bilo gdje u Mađarskoj",
+    areaValue: "Izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     responseTimeValue: "Obično u roku od 24 sata, odgovaramo osobno",
     hoursWeekdays: "Ponedjeljak – petak: 08:00 – 17:00",
     hoursWeekend: "Subota – nedjelja: zatvoreno",
-    mapTitle: "AcuWall — izvedba diljem Mađarske",
+    mapTitle: "AcuWall — izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     mapOpen: "Otvori u Kartama",
   },
 
   footer: {
     description:
-      "Projektiramo i gradimo montažne čelične zgrade, od ideje do primopredaje ključeva. Diljem Mađarske.",
+      "Projektiramo i gradimo montažne čelične zgrade, od ideje do primopredaje ključeva. U županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg.",
     motto: "„Gradimo zajedno”",
     menuHeading: "Izbornik",
     servicesHeading: "Usluge",
@@ -434,7 +434,7 @@ export const hr: Dictionary = {
       model: "3D model",
       turnkey: "Izvedba ključ u ruke",
     },
-    areaValue: "Izvedba na razini cijele zemlje, bilo gdje u Mađarskoj",
+    areaValue: "Izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     rights: "Sva prava pridržana.",
     privacy: "Obavijest o zaštiti podataka",
     facebookAria: "AcuWall na Facebooku",

@@ -314,7 +314,7 @@ export const hu = {
       },
       {
         question: "Hol vállalunk munkát?",
-        answer: "Országos szinten mindenhol. Bárhol is van a telke, keressen minket.",
+        answer: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében. Bárhol is van a telke ezekben a megyékben, keressen minket.",
       },
       {
         question: "Hogyan fizetek?",
@@ -411,17 +411,17 @@ export const hu = {
       responseTime: "Válaszidő",
       hours: "Nyitvatartás",
     },
-    areaValue: "Országos kivitelezés, Magyarország bármely pontján",
+    areaValue: "Kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
     responseTimeValue: "Általában 24 órán belül, személyesen válaszolunk",
     hoursWeekdays: "Hétfő – Péntek: 08:00 – 17:00",
     hoursWeekend: "Szombat – Vasárnap: zárva",
-    mapTitle: "AcuWall — országos kivitelezés Magyarországon",
+    mapTitle: "AcuWall — kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
     mapOpen: "Megnyitás a Térképen",
   },
 
   footer: {
     description:
-      "Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a kulcsátadásig. Egész Magyarországon.",
+      "Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a kulcsátadásig. Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében.",
     motto: "„Építsünk együtt”",
     menuHeading: "Menü",
     servicesHeading: "Szolgáltatások",
@@ -432,7 +432,7 @@ export const hu = {
       model: "3D modell",
       turnkey: "Kulcsrakész kivitelezés",
     },
-    areaValue: "Országos kivitelezés, Magyarország bármely pontján",
+    areaValue: "Kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
     rights: "Minden jog fenntartva.",
     privacy: "Adatkezelési tájékoztató",
     facebookAria: "AcuWall a Facebookon",

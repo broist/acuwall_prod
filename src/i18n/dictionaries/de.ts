@@ -316,7 +316,7 @@ export const de: Dictionary = {
       },
       {
         question: "Wo arbeiten wir?",
-        answer: "Landesweit überall. Wo auch immer Ihr Grundstück liegt, wenden Sie sich an uns.",
+        answer: "In den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg. Wo auch immer Ihr Grundstück in diesen Komitaten liegt, wenden Sie sich an uns.",
       },
       {
         question: "Wie bezahle ich?",
@@ -413,17 +413,17 @@ export const de: Dictionary = {
       responseTime: "Reaktionszeit",
       hours: "Öffnungszeiten",
     },
-    areaValue: "Landesweite Ausführung, überall in Ungarn",
+    areaValue: "Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     responseTimeValue: "In der Regel innerhalb von 24 Stunden, persönliche Antwort",
     hoursWeekdays: "Montag – Freitag: 08:00 – 17:00",
     hoursWeekend: "Samstag – Sonntag: geschlossen",
-    mapTitle: "AcuWall — landesweite Ausführung in Ungarn",
+    mapTitle: "AcuWall — Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     mapOpen: "In Maps öffnen",
   },
 
   footer: {
     description:
-      "Wir planen und bauen Gebäude in Stahlleichtbauweise, von der ersten Idee bis zur Schlüsselübergabe. In ganz Ungarn.",
+      "Wir planen und bauen Gebäude in Stahlleichtbauweise, von der ersten Idee bis zur Schlüsselübergabe. In den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg.",
     motto: "„Bauen wir gemeinsam“",
     menuHeading: "Menü",
     servicesHeading: "Leistungen",
@@ -434,7 +434,7 @@ export const de: Dictionary = {
       model: "3D-Modell",
       turnkey: "Schlüsselfertige Ausführung",
     },
-    areaValue: "Landesweite Ausführung, überall in Ungarn",
+    areaValue: "Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     rights: "Alle Rechte vorbehalten.",
     privacy: "Datenschutzhinweis",
     facebookAria: "AcuWall auf Facebook",
