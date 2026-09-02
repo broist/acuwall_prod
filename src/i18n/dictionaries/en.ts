@@ -103,7 +103,7 @@ export const en: Dictionary = {
       },
       {
         title: "We answer the phone",
-        description: "Wherever your plot is in Hajdú-Bihar or Szabolcs-Szatmár-Bereg county – give us a call!",
+        description: "We build in eastern Hungary. Give us a call and let's talk it through.",
       },
     ],
   },
@@ -316,7 +316,7 @@ export const en: Dictionary = {
       },
       {
         question: "Where do we work?",
-        answer: "In Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties. Wherever your plot is within these counties, get in touch with us.",
+        answer: "We work in Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties. If your plot is in this area, get in touch with us.",
       },
       {
         question: "How do I pay?",
@@ -413,17 +413,17 @@ export const en: Dictionary = {
       responseTime: "Response time",
       hours: "Opening hours",
     },
-    areaValue: "Construction in Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
+    areaValue: "Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
     responseTimeValue: "Usually within 24 hours, with a personal reply",
     hoursWeekdays: "Monday – Friday: 08:00 – 17:00",
     hoursWeekend: "Saturday – Sunday: closed",
-    mapTitle: "AcuWall — construction in Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
+    mapTitle: "AcuWall — Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
     mapOpen: "Open in Maps",
   },
 
   footer: {
     description:
-      "We design and build lightweight steel buildings, from the first idea to handover. In Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties.",
+      "We design and build lightweight steel buildings, from the first idea to handover. In eastern Hungary.",
     motto: "\"Let's build together\"",
     menuHeading: "Menu",
     servicesHeading: "Services",
@@ -434,7 +434,7 @@ export const en: Dictionary = {
       model: "3D model",
       turnkey: "Turnkey construction",
     },
-    areaValue: "Construction in Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
+    areaValue: "Hajdú-Bihar and Szabolcs-Szatmár-Bereg counties",
     rights: "All rights reserved.",
     privacy: "Privacy notice",
     facebookAria: "AcuWall on Facebook",

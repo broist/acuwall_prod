@@ -103,7 +103,7 @@ export const de: Dictionary = {
       },
       {
         title: "Wir gehen ans Telefon",
-        description: "Wo auch immer Ihr Grundstück im Komitat Hajdú-Bihar oder Szabolcs-Szatmár-Bereg liegt – rufen Sie uns an!",
+        description: "Wir bauen in Ostungarn. Rufen Sie uns an, wir besprechen alles.",
       },
     ],
   },
@@ -316,7 +316,7 @@ export const de: Dictionary = {
       },
       {
         question: "Wo arbeiten wir?",
-        answer: "In den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg. Wo auch immer Ihr Grundstück in diesen Komitaten liegt, wenden Sie sich an uns.",
+        answer: "Wir arbeiten in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg. Wenn Ihr Grundstück in dieser Region liegt, wenden Sie sich an uns.",
       },
       {
         question: "Wie bezahle ich?",
@@ -413,17 +413,17 @@ export const de: Dictionary = {
       responseTime: "Reaktionszeit",
       hours: "Öffnungszeiten",
     },
-    areaValue: "Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
+    areaValue: "Komitate Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     responseTimeValue: "In der Regel innerhalb von 24 Stunden, persönliche Antwort",
     hoursWeekdays: "Montag – Freitag: 08:00 – 17:00",
     hoursWeekend: "Samstag – Sonntag: geschlossen",
-    mapTitle: "AcuWall — Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
+    mapTitle: "AcuWall — Komitate Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     mapOpen: "In Maps öffnen",
   },
 
   footer: {
     description:
-      "Wir planen und bauen Gebäude in Stahlleichtbauweise, von der ersten Idee bis zur Schlüsselübergabe. In den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg.",
+      "Wir planen und bauen Gebäude in Stahlleichtbauweise, von der ersten Idee bis zur Schlüsselübergabe. In Ostungarn.",
     motto: "„Bauen wir gemeinsam“",
     menuHeading: "Menü",
     servicesHeading: "Leistungen",
@@ -434,7 +434,7 @@ export const de: Dictionary = {
       model: "3D-Modell",
       turnkey: "Schlüsselfertige Ausführung",
     },
-    areaValue: "Ausführung in den Komitaten Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
+    areaValue: "Komitate Hajdú-Bihar und Szabolcs-Szatmár-Bereg",
     rights: "Alle Rechte vorbehalten.",
     privacy: "Datenschutzhinweis",
     facebookAria: "AcuWall auf Facebook",

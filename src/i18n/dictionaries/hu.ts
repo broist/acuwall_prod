@@ -101,7 +101,7 @@ export const hu = {
       },
       {
         title: "Felvesszük a telefont",
-        description: "Bárhol is van a telke Hajdú-Biharban vagy Szabolcs-Szatmár-Beregben – hívjon minket!",
+        description: "Kelet-Magyarországon építünk. Hívjon minket, és megbeszéljük.",
       },
     ],
   },
@@ -314,7 +314,7 @@ export const hu = {
       },
       {
         question: "Hol vállalunk munkát?",
-        answer: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében. Bárhol is van a telke ezekben a megyékben, keressen minket.",
+        answer: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében dolgozunk. Ha a telke ezen a környéken van, keressen minket.",
       },
       {
         question: "Hogyan fizetek?",
@@ -411,17 +411,17 @@ export const hu = {
       responseTime: "Válaszidő",
       hours: "Nyitvatartás",
     },
-    areaValue: "Kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
+    areaValue: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegye",
     responseTimeValue: "Általában 24 órán belül, személyesen válaszolunk",
     hoursWeekdays: "Hétfő – Péntek: 08:00 – 17:00",
     hoursWeekend: "Szombat – Vasárnap: zárva",
-    mapTitle: "AcuWall — kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
+    mapTitle: "AcuWall — Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegye",
     mapOpen: "Megnyitás a Térképen",
   },
 
   footer: {
     description:
-      "Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a kulcsátadásig. Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében.",
+      "Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a kulcsátadásig. Kelet-Magyarországon.",
     motto: "„Építsünk együtt”",
     menuHeading: "Menü",
     servicesHeading: "Szolgáltatások",
@@ -432,7 +432,7 @@ export const hu = {
       model: "3D modell",
       turnkey: "Kulcsrakész kivitelezés",
     },
-    areaValue: "Kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
+    areaValue: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegye",
     rights: "Minden jog fenntartva.",
     privacy: "Adatkezelési tájékoztató",
     facebookAria: "AcuWall a Facebookon",

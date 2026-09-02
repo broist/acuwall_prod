@@ -103,7 +103,7 @@ export const hr: Dictionary = {
       },
       {
         title: "Javljamo se na telefon",
-        description: "Gdje god se u županiji Hajdú-Bihar ili Szabolcs-Szatmár-Bereg nalazila vaša parcela – nazovite nas!",
+        description: "Gradimo u istočnoj Mađarskoj. Nazovite nas i sve ćemo dogovoriti.",
       },
     ],
   },
@@ -316,7 +316,7 @@ export const hr: Dictionary = {
       },
       {
         question: "Gdje izvodimo radove?",
-        answer: "U županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg. Gdje god se nalazila vaša parcela u tim županijama, javite nam se.",
+        answer: "Radimo u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg. Ako je vaša parcela u toj regiji, javite nam se.",
       },
       {
         question: "Kako se plaća?",
@@ -413,17 +413,17 @@ export const hr: Dictionary = {
       responseTime: "Vrijeme odgovora",
       hours: "Radno vrijeme",
     },
-    areaValue: "Izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    areaValue: "Županije Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     responseTimeValue: "Obično u roku od 24 sata, odgovaramo osobno",
     hoursWeekdays: "Ponedjeljak – petak: 08:00 – 17:00",
     hoursWeekend: "Subota – nedjelja: zatvoreno",
-    mapTitle: "AcuWall — izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    mapTitle: "AcuWall — županije Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     mapOpen: "Otvori u Kartama",
   },
 
   footer: {
     description:
-      "Projektiramo i gradimo montažne čelične zgrade, od ideje do primopredaje ključeva. U županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg.",
+      "Projektiramo i gradimo montažne čelične zgrade, od ideje do primopredaje ključeva. U istočnoj Mađarskoj.",
     motto: "„Gradimo zajedno”",
     menuHeading: "Izbornik",
     servicesHeading: "Usluge",
@@ -434,7 +434,7 @@ export const hr: Dictionary = {
       model: "3D model",
       turnkey: "Izvedba ključ u ruke",
     },
-    areaValue: "Izvedba u županijama Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    areaValue: "Županije Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     rights: "Sva prava pridržana.",
     privacy: "Obavijest o zaštiti podataka",
     facebookAria: "AcuWall na Facebooku",

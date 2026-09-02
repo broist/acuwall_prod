@@ -94,7 +94,7 @@ const STEPS: Step[] = [
     kind: "place",
     id: "location",
     question: "Hol épülne?",
-    help: "Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében dolgozunk, elég a település neve.",
+    help: "Hajdú-Biharban és Szabolcs-Szatmár-Beregben dolgozunk, elég a település neve.",
   },
   {
     kind: "contact",

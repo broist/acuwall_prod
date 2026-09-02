@@ -103,7 +103,7 @@ export const pl: Dictionary = {
       },
       {
         title: "Odbieramy telefon",
-        description: "Gdziekolwiek w komitacie Hajdú-Bihar lub Szabolcs-Szatmár-Bereg znajduje się Państwa działka – proszę zadzwonić!",
+        description: "Budujemy we wschodnich Węgrzech. Proszę zadzwonić, wszystko omówimy.",
       },
     ],
   },
@@ -316,7 +316,7 @@ export const pl: Dictionary = {
       },
       {
         question: "Gdzie prowadzimy prace?",
-        answer: "W komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg. Gdziekolwiek w tych komitatach znajduje się Państwa działka, proszę się z nami skontaktować.",
+        answer: "Pracujemy w komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg. Jeśli Państwa działka leży w tym regionie, proszę się z nami skontaktować.",
       },
       {
         question: "Jak przebiega płatność?",
@@ -413,17 +413,17 @@ export const pl: Dictionary = {
       responseTime: "Czas odpowiedzi",
       hours: "Godziny otwarcia",
     },
-    areaValue: "Realizacja w komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    areaValue: "Komitaty Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     responseTimeValue: "Zwykle w ciągu 24 godzin, odpowiadamy osobiście",
     hoursWeekdays: "Poniedziałek – piątek: 08:00 – 17:00",
     hoursWeekend: "Sobota – niedziela: nieczynne",
-    mapTitle: "AcuWall — realizacja w komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    mapTitle: "AcuWall — komitaty Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     mapOpen: "Otwórz w Mapach",
   },
 
   footer: {
     description:
-      "Projektujemy i budujemy budynki w lekkiej konstrukcji stalowej, od pomysłu po przekazanie kluczy. W komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg.",
+      "Projektujemy i budujemy budynki w lekkiej konstrukcji stalowej, od pomysłu po przekazanie kluczy. We wschodnich Węgrzech.",
     motto: "„Budujmy razem”",
     menuHeading: "Menu",
     servicesHeading: "Usługi",
@@ -434,7 +434,7 @@ export const pl: Dictionary = {
       model: "Model 3D",
       turnkey: "Realizacja pod klucz",
     },
-    areaValue: "Realizacja w komitatach Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
+    areaValue: "Komitaty Hajdú-Bihar i Szabolcs-Szatmár-Bereg",
     rights: "Wszelkie prawa zastrzeżone.",
     privacy: "Informacja o ochronie danych",
     facebookAria: "AcuWall na Facebooku",
