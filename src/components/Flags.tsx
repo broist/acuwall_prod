@@ -39,72 +39,7 @@ function EnFlag({ className }: FlagProps) {
   );
 }
 
-function DeFlag({ className }: FlagProps) {
-  return (
-    <svg viewBox="0 0 60 40" className={className} aria-hidden="true" focusable="false">
-      <rect width="60" height="40" fill="#FFCE00" />
-      <rect width="60" height="26.67" fill="#DD0000" />
-      <rect width="60" height="13.33" fill="#000" />
-    </svg>
-  );
-}
-
-function PlFlag({ className }: FlagProps) {
-  return (
-    <svg viewBox="0 0 60 40" className={className} aria-hidden="true" focusable="false">
-      <rect width="60" height="40" fill="#DC143C" />
-      <rect width="60" height="20" fill="#fff" />
-    </svg>
-  );
-}
-
-function HrFlag({ className }: FlagProps) {
-  // Egyszerűsített címer: a jellegzetes piros-fehér sakktábla pajzs.
-  const squares: JSX.Element[] = [];
-  const cell = 3.2;
-  const startX = 30 - (cell * 5) / 2;
-  const startY = 20 - (cell * 5) / 2;
-  for (let row = 0; row < 5; row++) {
-    for (let col = 0; col < 5; col++) {
-      if ((row + col) % 2 === 0) {
-        squares.push(
-          <rect
-            key={`${row}-${col}`}
-            x={startX + col * cell}
-            y={startY + row * cell}
-            width={cell}
-            height={cell}
-            fill="#D6001C"
-          />
-        );
-      }
-    }
-  }
-
-  return (
-    <svg viewBox="0 0 60 40" className={className} aria-hidden="true" focusable="false">
-      <rect width="60" height="40" fill="#171796" />
-      <rect width="60" height="26.67" fill="#fff" />
-      <rect width="60" height="13.33" fill="#D6001C" />
-      <rect x={startX} y={startY} width={cell * 5} height={cell * 5} fill="#fff" />
-      {squares}
-      <rect
-        x={startX}
-        y={startY}
-        width={cell * 5}
-        height={cell * 5}
-        fill="none"
-        stroke="#0B0B5A"
-        strokeWidth="0.8"
-      />
-    </svg>
-  );
-}
-
 export const FLAGS: Record<Locale, (props: FlagProps) => JSX.Element> = {
   hu: HuFlag,
   en: EnFlag,
-  de: DeFlag,
-  pl: PlFlag,
-  hr: HrFlag,
 };

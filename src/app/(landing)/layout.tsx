@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import "./landing.css";
 
-const TITLE = "Ajánlatkérés – könnyűszerkezetes épület kulcsrakészen | AcuWall";
+const TITLE = "Ajánlatkérés – generálkivitelezés kulcsrakészen | AcuWall";
 const DESCRIPTION =
   "Garázstól a lakóházig: megtervezzük és fel is építjük. Mondja el pár kattintásban, mit tervez — 24 órán belül személyesen válaszolunk. Ingyenes, nem kötelezi semmire.";
 

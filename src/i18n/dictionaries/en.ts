@@ -2,9 +2,9 @@ import type { Dictionary } from "./hu";
 
 export const en: Dictionary = {
   meta: {
-    title: "AcuWall - Turnkey lightweight steel buildings, with a single point of responsibility",
+    title: "AcuWall - Turnkey general contracting, with a single point of responsibility",
     description:
-      "AcuWall delivers lightweight steel buildings as general contractor, from the first idea to handover: design, foundation, steel frame, cladding, mechanical and electrical installation and interior fit-out — all in one contract.",
+      "AcuWall delivers buildings as general contractor, from the first idea to handover: design, foundation, structural works, roof structure, façade, mechanical and electrical installation and interior fit-out — all in one contract.",
   },
 
   nav: {
@@ -21,17 +21,17 @@ export const en: Dictionary = {
   },
 
   hero: {
-    eyebrow: "Lightweight steel general contracting",
-    titleBefore: "A turnkey lightweight steel building,",
+    eyebrow: "General contracting",
+    titleBefore: "A turnkey building,",
     titleAccent: "with one company responsible.",
     subtitleBefore:
-      "From garages and workshops to office buildings, from holiday homes to family houses. We design it and build it too — foundation, plinth, floor slab, steel frame, steel roof structure, cladding, doors and windows, mechanical systems, electrical installation and finishing works. All you need is",
+      "From garages and workshops to office buildings, from holiday homes to family houses. We design it and build it too — foundation, plinth, floor slab, structural works, roof structure, façade, doors and windows, mechanical systems, electrical installation and finishing works. All you need is",
     subtitleStrong: "one partner",
     subtitleAfter: ".",
     cta: "Request a quote",
     scroll: "Scroll",
     scrollAria: "Scroll down",
-    imageAlt: "Lightweight steel house in a natural setting",
+    imageAlt: "Modern house in a natural setting",
   },
 
   trustBar: [
@@ -87,9 +87,9 @@ export const en: Dictionary = {
           "You receive a precise scope list. With us no extra items \"turn up\" later – what we put in writing is what we deliver.",
       },
       {
-        title: "Built quickly",
+        title: "Deadlines kept",
         description:
-          "Lightweight steel construction is significantly faster than traditional building – and we fix the deadline in the contract.",
+          "We work with a detailed schedule and coordinated trades – and we fix the deadline in the contract.",
       },
       {
         title: "We take the paperwork off your hands",
@@ -130,9 +130,9 @@ export const en: Dictionary = {
       {
         title: "Structural calculation",
         description:
-          "Safe, documented dimensioning of the steel structure – with declaration of performance and load values.",
+          "Safe, documented dimensioning of the load-bearing structure – in line with the applicable standards, with load values.",
         items: [
-          "Dimensioning of the steel frame",
+          "Dimensioning of load-bearing structures",
           "Load-bearing and stability analysis",
           "Direct contact with the engineer",
           "Documented structural compliance",
@@ -157,7 +157,7 @@ export const en: Dictionary = {
         items: [
           "Material procurement with declarations of performance",
           "Foundation and site preparation",
-          "Steel frame, roof structure and cladding",
+          "Structural works, roof structure and façade",
           "Electrical and mechanical installation",
           "Interior fit-out works",
           "Handover protocol",
@@ -171,7 +171,7 @@ export const en: Dictionary = {
     titleBefore: "Organised construction",
     titleAccent: "with a LEAN mindset.",
     leadBefore:
-      "On AcuWall projects we bring the organisational and process management mindset used on large-scale developments into lightweight steel construction. Through detailed planning, coordinated workflows and continuous inspection we reduce waiting, errors and unnecessary material use. This makes construction more transparent, more predictable and more efficient —",
+      "On AcuWall projects we bring the organisational and process management mindset used on large-scale developments into general contracting. Through detailed planning, coordinated workflows and continuous inspection we reduce waiting, errors and unnecessary material use. This makes construction more transparent, more predictable and more efficient —",
     leadHighlight: "from the first idea to handover",
     leadAfter: ".",
     howTitle: "How do we do it?",
@@ -248,27 +248,27 @@ export const en: Dictionary = {
     titleBefore: "Whatever you are planning,",
     titleAccent: "we will build it.",
     description:
-      "The technology is the same; the size and the paperwork change. A few typical cases:",
+      "The approach is the same; the size and the paperwork change. A few typical cases:",
     types: [
       {
         title: "Garages and storage buildings",
-        subtitle: "The quickest way in — in a matter of weeks",
-        alt: "Anthracite lightweight steel garage with a sectional door",
+        subtitle: "The quickest way in — with a short construction time",
+        alt: "Anthracite garage with a sectional door",
       },
       {
         title: "Workshops and halls",
         subtitle: "Production or storage — tailored to the right size",
-        alt: "Anthracite sandwich-panel steel hall with an industrial door",
+        alt: "Anthracite panel-clad hall with an industrial door",
       },
       {
         title: "Office buildings",
         subtitle: "Energy-efficient offices — move in sooner",
-        alt: "Lightweight steel office building with panel and timber cladding",
+        alt: "Office building with panel and timber cladding",
       },
       {
         title: "Holiday homes",
         subtitle: "A waterside retreat — in a clean, simple form",
-        alt: "Metal-clad lightweight steel holiday home at sunset",
+        alt: "Metal-roofed holiday home at sunset",
       },
       {
         title: "Residential houses",
@@ -278,7 +278,7 @@ export const en: Dictionary = {
       {
         title: "Own developments",
         subtitle: "Investment — plot, house, garden",
-        alt: "Modern lightweight steel house on a plot close to nature",
+        alt: "Modern house on a plot close to nature",
       },
     ],
   },
@@ -302,7 +302,7 @@ export const en: Dictionary = {
       {
         question: "What does \"turnkey\" mean?",
         answer:
-          "It means we hand the building over ready for use: after foundation, steel frame, façade, mechanical systems, electrical installation and interior fit-out. You don't get a half-finished structure, but a completed building.",
+          "It means we hand the building over ready for use: after foundation, structural works, façade, mechanical systems, electrical installation and interior fit-out. You don't get a half-finished structure, but a completed building.",
       },
       {
         question: "How much does it cost?",
@@ -312,7 +312,7 @@ export const en: Dictionary = {
       {
         question: "How long does it take?",
         answer:
-          "The structure and the façade are prefabricated, and a large part of the on-site work is assembly. We fix the exact deadline in the quote and in the contract.",
+          "It depends on the size and type of the building. We work with a detailed schedule and fix the exact deadline in the quote and in the contract.",
       },
       {
         question: "Where do we work?",
@@ -423,7 +423,7 @@ export const en: Dictionary = {
 
   footer: {
     description:
-      "We design and build lightweight steel buildings, from the first idea to handover. In eastern Hungary.",
+      "As general contractor we design and build, from the first idea to handover. In eastern Hungary.",
     motto: "\"Let's build together\"",
     menuHeading: "Menu",
     servicesHeading: "Services",
@@ -456,7 +456,7 @@ export const en: Dictionary = {
     sections: [
       {
         title: "1. The data controller",
-        body: "AcuWall — general contracting of lightweight steel buildings.",
+        body: "AcuWall — general contracting.",
         contact: "E-mail: acuwall@acuwall.hu · Phone: +36 30 830 5556",
       },
       {

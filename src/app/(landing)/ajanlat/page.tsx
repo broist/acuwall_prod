@@ -46,7 +46,7 @@ export default function AjanlatLandingPage() {
           {/* Egyetlen apró sor: a hirdetésből érkezőnek visszaigazolja, hogy jó
               helyen jár, de nem tolja lejjebb az űrlapot. */}
           <h1 className="mb-3.5 text-center text-[17px] font-semibold leading-snug tracking-tight sm:mb-4 sm:text-xl">
-            Könnyűszerkezetes épület <span className="text-accent">kulcsrakészen</span>
+            Generálkivitelezés <span className="text-accent">kulcsrakészen</span>
           </h1>
 
           <LandingWizard />

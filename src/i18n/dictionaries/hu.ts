@@ -1,8 +1,8 @@
 export const hu = {
   meta: {
-    title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",
+    title: "AcuWall - Generálkivitelezés kulcsrakészen, egy felelőssel",
     description:
-      "Az AcuWall acél könnyűszerkezetes épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, alapozás, acélváz, falburkolás, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
+      "Az AcuWall épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, alapozás, szerkezetépítés, tetőszerkezet, homlokzat, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
   },
 
   nav: {
@@ -19,17 +19,17 @@ export const hu = {
   },
 
   hero: {
-    eyebrow: "Acél könnyűszerkezetes generálkivitelezés",
-    titleBefore: "Könnyűszerkezetes épület kulcsrakészen,",
+    eyebrow: "Generálkivitelezés",
+    titleBefore: "Épület kulcsrakészen,",
     titleAccent: "egy felelőssel.",
     subtitleBefore:
-      "Garázstól és műhelytől az irodaházig, nyaralótól a családi házig. Megtervezzük és fel is építjük — alapozás, lábazat, aljzat, acélváz, acél tetőszerkezet, falburkolás, nyílászárók, gépészet, elektromos szerelés, befejező munkák. Önnek elég csak",
+      "Garázstól és műhelytől az irodaházig, nyaralótól a családi házig. Megtervezzük és fel is építjük — alapozás, lábazat, aljzat, szerkezetépítés, tetőszerkezet, homlokzat, nyílászárók, gépészet, elektromos szerelés, befejező munkák. Önnek elég csak",
     subtitleStrong: "egy partner",
     subtitleAfter: ".",
     cta: "Ajánlatot kérek",
     scroll: "Görgessen",
     scrollAria: "Görgessen lejjebb",
-    imageAlt: "Acél könnyűszerkezetes ház természetes környezetben",
+    imageAlt: "Modern ház természetes környezetben",
   },
 
   trustBar: [
@@ -85,9 +85,9 @@ export const hu = {
           "Pontos tartalomlistát kap. Nálunk nem „kerülnek elő” utólag tételek – amit leírunk, azt visszük végig.",
       },
       {
-        title: "Gyorsan elkészül",
+        title: "Tartott határidők",
         description:
-          "A könnyűszerkezetes kivitelezés jelentősen gyorsabb a hagyományos építésnél – a határidőt szerződésben rögzítjük.",
+          "Részletes ütemtervvel és összehangolt szakágakkal dolgozunk – a határidőt szerződésben rögzítjük.",
       },
       {
         title: "A papírmunkát levesszük a válláról",
@@ -128,9 +128,9 @@ export const hu = {
       {
         title: "Statikai számítás",
         description:
-          "Az acélszerkezet biztonságos, dokumentált méretezése – teljesítménynyilatkozattal és teherértékekkel.",
+          "A tartószerkezet biztonságos, dokumentált méretezése – a vonatkozó szabványok szerint, teherértékekkel.",
         items: [
-          "Acélváz méretezése",
+          "Tartószerkezetek méretezése",
           "Teherbírási és stabilitási vizsgálat",
           "Közvetlen kapcsolat a tervezővel",
           "Dokumentált statikai megfelelőség",
@@ -155,7 +155,7 @@ export const hu = {
         items: [
           "Anyagbeszerzés teljesítménynyilatkozatokkal",
           "Alapozás és terep-előkészítés",
-          "Acélváz, tetőszerkezet és falburkolás",
+          "Szerkezetépítés, tetőszerkezet és homlokzat",
           "Elektromos és gépészeti szerelés",
           "Belsőépítészeti kivitelezések",
           "Átadás-átvételi jegyzőkönyv",
@@ -169,7 +169,7 @@ export const hu = {
     titleBefore: "Szervezett kivitelezés",
     titleAccent: "LEAN szemléletben.",
     leadBefore:
-      "Az AcuWall projektjein a nagyberuházásoknál alkalmazott szervezési és folyamatirányítási szemléletet visszük át a könnyűszerkezetes építésbe. Részletes tervezéssel, összehangolt munkafolyamatokkal és folyamatos ellenőrzéssel csökkentjük a várakozást, a hibákat és a felesleges anyagfelhasználást. Így a kivitelezés átláthatóbbá, kiszámíthatóbbá és hatékonyabbá válik —",
+      "Az AcuWall projektjein a nagyberuházásoknál alkalmazott szervezési és folyamatirányítási szemléletet alkalmazzuk a generálkivitelezésben. Részletes tervezéssel, összehangolt munkafolyamatokkal és folyamatos ellenőrzéssel csökkentjük a várakozást, a hibákat és a felesleges anyagfelhasználást. Így a kivitelezés átláthatóbbá, kiszámíthatóbbá és hatékonyabbá válik —",
     leadHighlight: "az ötlettől a kulcsátadásig",
     leadAfter: ".",
     howTitle: "Hogyan valósítjuk meg?",
@@ -246,27 +246,27 @@ export const hu = {
     titleBefore: "Bármit tervez,",
     titleAccent: "megépítjük.",
     description:
-      "A technológia ugyanaz, a méret és a papírmunka változik. Néhány tipikus eset:",
+      "A megközelítés ugyanaz, a méret és a papírmunka változik. Néhány tipikus eset:",
     types: [
       {
         title: "Garázsok és tárolók",
-        subtitle: "A leggyorsabb belépő — pár hét alatt",
-        alt: "Antracit könnyűszerkezetes garázs szekcionált kapuval",
+        subtitle: "A leggyorsabb belépő — rövid kivitelezési idővel",
+        alt: "Antracit garázs szekcionált kapuval",
       },
       {
         title: "Műhelyek és csarnokok",
         subtitle: "Gyártás vagy tárolás — megfelelő méretre szabva",
-        alt: "Antracit szendvicspanel burkolatú acélcsarnok ipari kapuval",
+        alt: "Antracit panelburkolatú csarnok ipari kapuval",
       },
       {
         title: "Irodaházak",
         subtitle: "Energiatakarékos iroda — hamarabbi beköltözés",
-        alt: "Könnyűszerkezetes irodaház panel- és faburkolattal",
+        alt: "Irodaház panel- és faburkolattal",
       },
       {
         title: "Nyaralók",
         subtitle: "Vízparti pihenőhely — letisztult formában",
-        alt: "Fémlemez fedésű könnyűszerkezetes nyaraló naplementében",
+        alt: "Fémlemez fedésű nyaraló naplementében",
       },
       {
         title: "Lakóházak",
@@ -276,7 +276,7 @@ export const hu = {
       {
         title: "Saját fejlesztések",
         subtitle: "Befektetés — telek, ház, kert",
-        alt: "Modern könnyűszerkezetes ház természetközeli telken",
+        alt: "Modern ház természetközeli telken",
       },
     ],
   },
@@ -300,7 +300,7 @@ export const hu = {
       {
         question: "Mit jelent a „kulcsrakész” kifejezés?",
         answer:
-          "Azt, hogy az épületet használatra készen adjuk át: alapozás, acélváz, homlokzat, gépészet, elektromos szerelés és belsőépítészet után. Nem félkész szerkezetet kap, hanem kész épületet.",
+          "Azt, hogy az épületet használatra készen adjuk át: alapozás, szerkezetépítés, homlokzat, gépészet, elektromos szerelés és belsőépítészet után. Nem félkész szerkezetet kap, hanem kész épületet.",
       },
       {
         question: "Mennyibe kerül?",
@@ -310,7 +310,7 @@ export const hu = {
       {
         question: "Mennyi idő?",
         answer:
-          "A szerkezet és a homlokzat előregyártott, a helyszíni munka jelentős része szerelésből áll. A pontos határidőt az ajánlatban és a szerződésben rögzítjük.",
+          "Az épület méretétől és jellegétől függ. Részletes ütemtervvel dolgozunk, a pontos határidőt az ajánlatban és a szerződésben rögzítjük.",
       },
       {
         question: "Hol vállalunk munkát?",
@@ -421,7 +421,7 @@ export const hu = {
 
   footer: {
     description:
-      "Könnyűszerkezetes épületeket tervezünk és építünk, az ötlettől a kulcsátadásig. Kelet-Magyarországon.",
+      "Generálkivitelezőként tervezünk és építünk, az ötlettől a kulcsátadásig. Kelet-Magyarországon.",
     motto: "„Építsünk együtt”",
     menuHeading: "Menü",
     servicesHeading: "Szolgáltatások",
@@ -454,7 +454,7 @@ export const hu = {
     sections: [
       {
         title: "1. Az adatkezelő",
-        body: "AcuWall — könnyűszerkezetes épületek generálkivitelezése.",
+        body: "AcuWall — generálkivitelezés.",
         contact: "E-mail: acuwall@acuwall.hu · Telefon: +36 30 830 5556",
       },
       {

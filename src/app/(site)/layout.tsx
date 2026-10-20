@@ -5,16 +5,16 @@ import Footer from "@/components/Footer";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 
 export const metadata: Metadata = {
-  title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",
+  title: "AcuWall - Generálkivitelezés kulcsrakészen, egy felelőssel",
   description:
-    "Az AcuWall acél könnyűszerkezetes épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, alapozás, acélváz, falburkolás, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
+    "Az AcuWall épületek generálkivitelezését vállalja az ötlettől a kulcsátadásig: tervezés, alapozás, szerkezetépítés, tetőszerkezet, homlokzat, gépészet, elektromos szerelés és belsőépítészet — egy szerződésben.",
   keywords:
-    "könnyűszerkezetes épület, acél könnyűszerkezet, generálkivitelezés, kulcsrakész garázs, tároló, műhely, csarnok, irodaház, nyaraló, családi ház, acélváz, kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
+    "generálkivitelezés, generálkivitelező, kulcsrakész épület, kulcsrakész garázs, tároló, műhely, csarnok, irodaház, nyaraló, családi ház, kivitelezés Hajdú-Bihar és Szabolcs-Szatmár-Bereg vármegyében",
   authors: [{ name: "AcuWall" }],
   openGraph: {
-    title: "AcuWall - Könnyűszerkezetes épület kulcsrakészen, egy felelőssel",
+    title: "AcuWall - Generálkivitelezés kulcsrakészen, egy felelőssel",
     description:
-      "Építsünk együtt. Acél könnyűszerkezetes épületek kulcsrakészen, egy felelőssel.",
+      "Építsünk együtt. Generálkivitelezés kulcsrakészen, egy felelőssel.",
     locale: "hu_HU",
     type: "website",
   },

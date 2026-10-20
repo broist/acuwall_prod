@@ -1,4 +1,4 @@
-export const LOCALES = ["hu", "en", "de", "pl", "hr"] as const;
+export const LOCALES = ["hu", "en"] as const;
 
 export type Locale = (typeof LOCALES)[number];
 
@@ -19,9 +19,6 @@ type LocaleMeta = {
 export const LOCALE_META: Record<Locale, LocaleMeta> = {
   hu: { htmlLang: "hu", nativeName: "Magyar", label: "Magyar" },
   en: { htmlLang: "en", nativeName: "English", label: "English" },
-  de: { htmlLang: "de", nativeName: "Deutsch", label: "Deutsch" },
-  pl: { htmlLang: "pl", nativeName: "Polski", label: "Polski" },
-  hr: { htmlLang: "hr", nativeName: "Hrvatski", label: "Hrvatski" },
 };
 
 export function isLocale(value: unknown): value is Locale {
