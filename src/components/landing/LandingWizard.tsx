@@ -99,10 +99,21 @@ const STEPS: Step[] = [
   {
     kind: "contact",
     id: "contact",
-    question: "Hova küldjük az ajánlatot?",
+    question: "Hol érjük el?",
     help: "24 órán belül személyesen jelentkezünk. Nem kötelezi semmire.",
   },
 ];
+
+/**
+ * A lépést a böngésző-előzménybe írjuk, de a Next.js saját mezőit (__NA, fa)
+ * megtartjuk: nélkülük a Next.js router vissza gombra az egész oldalt
+ * újratölti, és a látogató kiesik a kérdéssorból.
+ */
+function writeHistory(mode: "push" | "replace", acuStep: number, acuDepth: number) {
+  const state = { ...(window.history.state ?? {}), acuStep, acuDepth };
+  if (mode === "push") window.history.pushState(state, "");
+  else window.history.replaceState(state, "");
+}
 
 const CHOICE_STEP_INDEX: Record<string, number> = Object.fromEntries(
   STEPS.map((step, index) => [step.id, index])
@@ -199,12 +210,16 @@ export default function LandingWizard() {
   const marketing = useRef<Record<string, string>>({});
   const startTracked = useRef(false);
   const stepTracked = useRef<Set<number>>(new Set());
+  // Hány saját history-bejegyzést tettünk a landing fölé. A "Vissza" csak
+  // ezeken belül lép a böngészővel, különben elhagyná az oldalt.
+  const historyDepth = useRef(0);
 
   const current = STEPS[step];
   const isLast = step === STEPS.length - 1;
 
   /* --- Betöltés: korábbi kitöltés + kampányadatok --- */
   useEffect(() => {
+    let initialStep = 0;
     try {
       const saved = window.sessionStorage.getItem(STORAGE_KEY);
       if (saved) {
@@ -214,7 +229,8 @@ export default function LandingWizard() {
         };
         if (parsed.form) setForm((prev) => ({ ...prev, ...parsed.form }));
         if (typeof parsed.step === "number") {
-          setStep(Math.min(Math.max(parsed.step, 0), STEPS.length - 1));
+          initialStep = Math.min(Math.max(parsed.step, 0), STEPS.length - 1);
+          setStep(initialStep);
         }
       }
     } catch {
@@ -239,7 +255,7 @@ export default function LandingWizard() {
     if (document.referrer) collected.referrer = document.referrer.slice(0, 300);
     marketing.current = collected;
 
-    window.history.replaceState({ acuStep: 0 }, "");
+    writeHistory("replace", initialStep, 0);
     setRestored(true);
   }, []);
 
@@ -257,7 +273,9 @@ export default function LandingWizard() {
   useEffect(() => {
     const onPopState = (event: PopStateEvent) => {
       if (status === "done") return;
-      const target = (event.state as { acuStep?: number } | null)?.acuStep;
+      const state = event.state as { acuStep?: number; acuDepth?: number } | null;
+      historyDepth.current = state?.acuDepth ?? 0;
+      const target = state?.acuStep;
       if (typeof target === "number") setStep(Math.min(Math.max(target, 0), STEPS.length - 1));
     };
     window.addEventListener("popstate", onPopState);
@@ -302,8 +320,20 @@ export default function LandingWizard() {
 
   const goTo = useCallback((next: number) => {
     setStep(next);
-    window.history.pushState({ acuStep: next }, "");
+    historyDepth.current += 1;
+    writeHistory("push", next, historyDepth.current);
   }, []);
+
+  const goBack = useCallback(() => {
+    if (historyDepth.current > 0) {
+      window.history.back();
+      return;
+    }
+    // Frissítés után nincs alattunk saját bejegyzés: helyben lépünk vissza.
+    const prev = Math.max(step - 1, 0);
+    setStep(prev);
+    writeHistory("replace", prev, 0);
+  }, [step]);
 
   const submit = useCallback(async (snapshot: FormState) => {
     setStatus("sending");
@@ -474,7 +504,7 @@ export default function LandingWizard() {
           className="btn-primary inline-flex items-center justify-center gap-2"
         >
           <PhoneCall size={18} />
-          Inkább most hívom: {CONTACT.phoneDisplay}
+          Sürgős? Hívjon most: {CONTACT.phoneDisplay}
         </a>
 
         {leadId && (
@@ -624,7 +654,7 @@ export default function LandingWizard() {
 
             {current.kind === "area" && (
               <div>
-                <div className="mb-4 flex flex-wrap gap-2">
+                <div className="mb-4 grid grid-cols-3 gap-2 sm:grid-cols-6">
                   {areaPresets.map((preset) => {
                     const selected = form.floorArea === String(preset);
                     return (
@@ -633,7 +663,7 @@ export default function LandingWizard() {
                         type="button"
                         onClick={() => setValue("floorArea", String(preset))}
                         aria-pressed={selected}
-                        className={`rounded-xl border px-4 py-3 text-sm font-semibold transition-all duration-200 active:scale-[0.98] ${
+                        className={`rounded-xl border px-2 py-3 text-sm font-semibold transition-all duration-200 active:scale-[0.98] ${
                           selected
                             ? "border-accent bg-accent/15 text-white ring-1 ring-accent"
                             : "border-white/10 bg-white/[0.03] text-light-gray hover:border-accent/40 hover:text-white"
@@ -711,7 +741,7 @@ export default function LandingWizard() {
                       data-autofocus
                       value={form.location}
                       onChange={(event) => setValue("location", event.target.value)}
-                      placeholder="Pl. Gödöllő, Pest megye"
+                      placeholder="Pl. Debrecen, Nyíregyháza"
                       aria-invalid={Boolean(errors.location)}
                       aria-describedby={errors.location ? "location-error" : undefined}
                       className="lp-input !pl-11"
@@ -847,6 +877,7 @@ export default function LandingWizard() {
                     }}
                     className="lp-checkbox"
                     aria-invalid={Boolean(errors.consent)}
+                    aria-describedby={errors.consent ? "consent-error" : undefined}
                   />
                   <span>
                     Hozzájárulok, hogy az AcuWall a megadott adatokat az ajánlatkérésem
@@ -887,7 +918,7 @@ export default function LandingWizard() {
           {step > 0 && (
             <button
               type="button"
-              onClick={() => window.history.back()}
+              onClick={goBack}
               className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/12 px-4 text-sm font-medium text-white/80 transition-colors hover:bg-white/5"
               data-testid="landing-back"
             >
@@ -900,7 +931,7 @@ export default function LandingWizard() {
             <button
               type="submit"
               disabled={status === "sending"}
-              className="btn-primary group inline-flex h-12 flex-1 items-center justify-center gap-2 !py-0 disabled:cursor-not-allowed disabled:opacity-60"
+              className="btn-primary group inline-flex h-12 flex-1 items-center justify-center gap-2 whitespace-nowrap !px-4 !py-0 sm:!px-8 disabled:cursor-not-allowed disabled:opacity-60"
               data-testid="landing-next"
             >
               {status === "sending" ? (

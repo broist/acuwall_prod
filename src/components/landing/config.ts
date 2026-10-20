@@ -121,7 +121,7 @@ export const timelineOptions: ChoiceOption[] = [
 ];
 
 /** Gyorsválasztó chipek az alapterület lépéshez (m²). */
-export const areaPresets = [40, 80, 120, 200, 400] as const;
+export const areaPresets = [40, 80, 120, 200, 400, 800] as const;
 
 export const optionLabelMap: Record<string, string> = Object.fromEntries(
   [...projectTypeOptions, ...plotStatusOptions, ...needsPlanningOptions, ...timelineOptions].map(
