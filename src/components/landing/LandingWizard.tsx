@@ -638,14 +638,18 @@ export default function LandingWizard() {
                         className={`flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full border transition-all duration-200 ${
                           selected
                             ? "border-accent bg-accent text-white opacity-100"
-                            : "border-white/15 text-transparent opacity-60"
+                            : "border-white/15 opacity-60"
                         }`}
                       >
-                        <Check size={14} strokeWidth={3} />
+                        {selected ? (
+                          <Check size={14} strokeWidth={3} />
+                        ) : (
+                          // Asztali gépen a kör a gyorsbillentyű számát mutatja
+                          <kbd className="hidden font-sans text-[11px] font-medium text-medium-gray lg:inline">
+                            {index + 1}
+                          </kbd>
+                        )}
                       </span>
-                      <kbd className="pointer-events-none absolute right-3 top-3 hidden rounded border border-white/10 px-1.5 text-[10px] font-medium text-medium-gray lg:block">
-                        {index + 1}
-                      </kbd>
                     </button>
                   );
                 })}
