@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
 import Logo from "./Logo";
 import { useT } from "@/i18n/LanguageProvider";
+import { SEO_PAGES } from "@/content/seoPages";
 
 const menuIds = [
   "fooldal",
@@ -66,7 +67,7 @@ export default function Footer() {
               {menuIds.map((id) => (
                 <li key={id}>
                   <a
-                    href={`#${id}`}
+                    href={`/#${id}`}
                     className="text-light-gray hover:text-white text-sm transition-colors duration-300"
                   >
                     {t.nav[id]}
@@ -82,7 +83,7 @@ export default function Footer() {
               {serviceLinkKeys.map((key) => (
                 <li key={key}>
                   <a
-                    href="#szolgaltatasok"
+                    href="/#szolgaltatasok"
                     className="text-light-gray hover:text-white text-sm transition-colors duration-300"
                   >
                     {t.footer.serviceLinks[key]}
@@ -120,6 +121,24 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+      </div>
+
+      {/* Belső linkek a kereső-aloldalakra: a Google ezeken keresztül is megtalálja őket */}
+      <div className="border-t border-white/[0.06]">
+        <nav
+          aria-label="Kivitelezés"
+          className="container-custom py-6 flex flex-wrap gap-x-6 gap-y-2 text-sm"
+        >
+          {SEO_PAGES.map((page) => (
+            <Link
+              key={page.slug}
+              href={`/${page.slug}`}
+              className="text-light-gray hover:text-white transition-colors"
+            >
+              {page.navLabel}
+            </Link>
+          ))}
+        </nav>
       </div>
 
       <div className="border-t border-white/[0.06]">

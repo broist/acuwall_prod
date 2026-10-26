@@ -14,6 +14,16 @@ const typeImages = [
   "https://images.pexels.com/photos/12932834/pexels-photo-12932834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
 ];
 
+/** Melyik kártya melyik részletes aloldalra visz (null: az ajánlatkérőre). */
+const typeLinks = [
+  "/garazs-tarolo-epites",
+  "/csarnok-muhely-epites",
+  "/irodahaz-epites",
+  "/csaladi-haz-generalkivitelezes",
+  "/csaladi-haz-generalkivitelezes",
+  null,
+];
+
 export default function BuildingTypes() {
   const t = useT();
 
@@ -55,7 +65,7 @@ export default function BuildingTypes() {
           {t.buildingTypes.types.map((type, index) => (
             <motion.a
               key={type.title}
-              href="#ajanlatkeres"
+              href={typeLinks[index] ?? "#ajanlatkeres"}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

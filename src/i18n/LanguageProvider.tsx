@@ -64,6 +64,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const dictionary = dictionaries[locale];
     const isPrivacyPage = pathname === "/adatkezeles";
 
+    // A kereső-aloldalak saját címet és leírást kapnak a szerverről, és csak
+    // magyarul léteznek — azokat nem írjuk felül a főoldal szövegével.
+    if (pathname !== "/" && !isPrivacyPage) return;
+
     document.documentElement.lang = LOCALE_META[locale].htmlLang;
     document.title = isPrivacyPage ? dictionary.privacy.metaTitle : dictionary.meta.title;
 

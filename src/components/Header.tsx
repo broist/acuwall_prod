@@ -28,7 +28,8 @@ export default function Header() {
       setIsScrolled(window.scrollY > 50);
 
       const probe = window.innerHeight * 0.35;
-      let current = "fooldal";
+      // Aloldalon nincs főoldali szekció: ott egyik menüpont sem aktív.
+      let current = document.getElementById("fooldal") ? "fooldal" : "";
       for (const id of navItems) {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= probe) {
@@ -60,7 +61,7 @@ export default function Header() {
             {navItems.map((id) => (
               <a
                 key={id}
-                href={`#${id}`}
+                href={`/#${id}`}
                 className={`relative text-sm font-medium transition-colors duration-300 py-2 whitespace-nowrap ${
                   activeSection === id ? "text-white" : "text-white/70 hover:text-white"
                 }`}
@@ -78,7 +79,7 @@ export default function Header() {
 
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="#ajanlatkeres"
+              href="/#ajanlatkeres"
               className="btn-primary !py-3 !px-6 text-sm inline-flex items-center gap-2 group whitespace-nowrap"
               data-testid="header-cta-button"
             >
@@ -123,7 +124,7 @@ export default function Header() {
                   transition={{ delay: index * 0.06 }}
                 >
                   <a
-                    href={`#${id}`}
+                    href={`/#${id}`}
                     className="block text-white/80 hover:text-white py-2.5 text-lg font-medium transition-colors"
                     onClick={() => setIsMobileMenuOpen(false)}
                     data-testid={`mobile-nav-${id}`}
@@ -139,7 +140,7 @@ export default function Header() {
                 className="pt-4 space-y-4"
               >
                 <a
-                  href="#ajanlatkeres"
+                  href="/#ajanlatkeres"
                   className="btn-primary flex items-center justify-center gap-2"
                   onClick={() => setIsMobileMenuOpen(false)}
                   data-testid="mobile-cta-button"

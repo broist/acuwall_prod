@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Adatkezelési tájékoztató | AcuWall",
   description:
     "Az AcuWall ajánlatkérő űrlapján megadott személyes adatok kezelésének feltételei.",
+  alternates: { canonical: "/adatkezeles" },
 };
 
 export default function AdatkezelesPage() {

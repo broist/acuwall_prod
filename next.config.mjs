@@ -9,6 +9,20 @@ const LANDING_HOST = process.env.LANDING_HOST || 'ajanlat.acuwall.hu';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'standalone',
+  /**
+   * A www-s cím végleges (301) átirányítást kap a fő címre, hogy a Google ne
+   * lásson két külön, azonos tartalmú oldalt.
+   */
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.acuwall.hu' }],
+        destination: 'https://acuwall.hu/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return {
       beforeFiles: [
