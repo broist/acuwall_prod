@@ -9,8 +9,8 @@ import { getReference, type ReferenceImage } from "@/content/references";
 
 /**
  * Egy referencia-projekt oldala: cím, majd a képek szöveg nélkül, fázisonként
- * egymás után. A kép sarkában lévő szám mutatja, melyik fázishoz tartozik.
- * A képekre kattintva nagyban is megnézhetők.
+ * egymás után — elöl a legfrissebb állapot. A képekre kattintva nagyban is
+ * megnézhetők.
  */
 export default function ReferenceDetail({ slug }: { slug: string }) {
   const { t, locale } = useLanguage();
@@ -34,9 +34,8 @@ export default function ReferenceDetail({ slug }: { slug: string }) {
 
   if (!reference) return null;
 
-  const images = reference.phases.flatMap((phase, phaseIndex) =>
-    phase.images.map((image) => ({ image, phase: phaseIndex + 1 }))
-  );
+  // A legfrissebb állapot áll elöl, utána visszafelé a korábbi fázisok.
+  const images = reference.phases.flatMap((phase) => phase.images);
 
   return (
     <>
@@ -55,7 +54,7 @@ export default function ReferenceDetail({ slug }: { slug: string }) {
           </h1>
 
           <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {images.map(({ image, phase }) => (
+            {images.map((image) => (
               <li key={image.src}>
                 <button
                   type="button"
@@ -69,12 +68,6 @@ export default function ReferenceDetail({ slug }: { slug: string }) {
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
-                  <span
-                    aria-hidden="true"
-                    className="absolute left-3 top-3 inline-flex h-8 min-w-8 items-center justify-center rounded-full bg-primary-deep/80 px-2 font-display text-sm font-bold text-white backdrop-blur"
-                  >
-                    {phase}
-                  </span>
                 </button>
               </li>
             ))}
