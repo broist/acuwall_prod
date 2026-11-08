@@ -37,6 +37,7 @@ export type Reference = {
 };
 
 const garageDir = "/images/referenciak/garazs-csaladi-haz-mellett";
+const foundationDir = "/images/referenciak/alapozas-folyamatban";
 
 export const REFERENCES: Reference[] = [
   {
@@ -118,6 +119,58 @@ export const REFERENCES: Reference[] = [
             src: `${garageDir}/06-gipszkarton-1.jpg`,
             alt: { hu: "Gipszkarton burkolat a garázs falán", en: "Plasterboard lining on the garage wall" },
             portrait: true,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "alapozas-folyamatban",
+    title: {
+      hu: "Új épület alapozása",
+      en: "Foundation for a new building",
+    },
+    type: { hu: "Folyamatban", en: "In progress" },
+    cover: {
+      src: `${foundationDir}/01-alaplemez-1.jpg`,
+      alt: {
+        hu: "Frissen kibetonozott vasbeton alaplemez a kertben",
+        en: "Freshly poured reinforced concrete slab in the garden",
+      },
+    },
+    phases: [
+      {
+        images: [
+          {
+            src: `${foundationDir}/01-alaplemez-1.jpg`,
+            alt: {
+              hu: "Kibetonozott alaplemez zsaluzattal és kiálló betonacélokkal",
+              en: "Poured slab with formwork and protruding rebar",
+            },
+          },
+          {
+            src: `${foundationDir}/01-alaplemez-2.jpg`,
+            alt: { hu: "Az alaplemez közelről", en: "The slab up close" },
+            portrait: true,
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${foundationDir}/02-foldmunka-1.jpg`,
+            alt: {
+              hu: "Földkiemelés és talajtömörítés az alaplemez helyén",
+              en: "Excavation and soil compaction where the slab will go",
+            },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${foundationDir}/03-agyazat-1.jpg`,
+            alt: { hu: "Elterített, tömörített ágyazat", en: "Spread and compacted sub-base" },
           },
         ],
       },
