@@ -206,6 +206,17 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
+            src: `${extensionDir}/02-kituzes-1.jpg`,
+            alt: {
+              hu: "Kitűzés: a sarokpontra kötött zsinór az alapárok mentén",
+              en: "Setting out: string line tied at the corner point along the trench",
+            },
+          },
+        ],
+      },
+      {
+        images: [
+          {
             src: `${extensionDir}/02-savalap-1.jpg`,
             alt: { hu: "Kibetonozott sávalap az alapárokban", en: "Strip footing poured in the trench" },
             portrait: true,
