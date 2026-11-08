@@ -128,8 +128,8 @@ export const REFERENCES: Reference[] = [
   {
     slug: "alapozas-folyamatban",
     title: {
-      hu: "Új épület alapozása",
-      en: "Foundation for a new building",
+      hu: "Kerti tároló alapozása",
+      en: "Garden storage foundation",
     },
     type: { hu: "Folyamatban", en: "In progress" },
     cover: {
