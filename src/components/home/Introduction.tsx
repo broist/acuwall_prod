@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { FileSignature, ReceiptText, ShieldCheck } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 
@@ -13,71 +12,36 @@ export default function Introduction() {
   return (
     <section id="bemutatkozas" className="section-spacing relative" data-testid="introduction-section">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
           <div>
-            <motion.span
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="eyebrow mb-6"
-            >
-              {t.intro.eyebrow}
-            </motion.span>
-
-            <motion.h2
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight tracking-tight"
-            >
-              {t.intro.titleBefore} <span className="text-accent">{t.intro.titleAccent}</span>
+            <p className="kicker mb-4">{t.intro.eyebrow}</p>
+            <h2 className="mb-8 text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
+              {t.intro.titleBefore} <span className="text-accent-soft">{t.intro.titleAccent}</span>
               {t.intro.titleAfter}
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-5 text-light-gray text-base md:text-lg leading-relaxed mb-10"
-            >
+            </h2>
+            <div className="mb-10 space-y-5 text-base leading-relaxed text-light-gray md:text-lg">
               <p>{t.intro.paragraph1}</p>
               <p>{t.intro.paragraph2}</p>
-            </motion.div>
+            </div>
 
-            <div className="grid sm:grid-cols-3 gap-4">
+            <div className="grid gap-4 sm:grid-cols-3">
               {t.intro.pillars.map((pillar, index) => {
                 const Icon = pillarIcons[index];
                 return (
-                  <motion.div
-                    key={pillar.title}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: 0.15 + index * 0.1 }}
-                    className="card card-hover p-5"
-                  >
-                    <span className="icon-tile !h-11 !w-11 mb-4">
-                      <Icon size={20} />
+                  <div key={pillar.title} className="tile p-5">
+                    <span className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-accent/[0.14]">
+                      <Icon size={20} className="text-accent-soft" />
                     </span>
-                    <h3 className="text-white font-semibold mb-2 leading-snug">{pillar.title}</h3>
-                    <p className="text-light-gray text-sm leading-relaxed">{pillar.description}</p>
-                  </motion.div>
+                    <h3 className="mb-2 font-bold leading-snug text-white">{pillar.title}</h3>
+                    <p className="text-sm leading-relaxed text-light-gray">{pillar.description}</p>
+                  </div>
                 );
               })}
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="relative rounded-3xl overflow-hidden aspect-[4/5] border border-white/[0.07]">
+          <div className="relative">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[26px] border border-white/[0.07]">
               <Image
                 src="https://images.pexels.com/photos/4792498/pexels-photo-4792498.jpeg?auto=compress&cs=tinysrgb&w=1200&h=1500&fit=crop"
                 alt={t.intro.imageAlt}
@@ -85,16 +49,17 @@ export default function Introduction() {
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/50 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/60 via-transparent to-transparent" />
             </div>
 
-            <div className="absolute -bottom-6 left-6 md:-left-8 accent-gradient rounded-2xl px-7 py-5 shadow-2xl shadow-accent/25">
-              <p className="text-white text-xl md:text-2xl font-bold leading-none">
+            <div className="absolute -bottom-6 left-6 overflow-hidden rounded-[18px] border border-white/[0.08] bg-tile px-7 py-5 shadow-2xl shadow-black/40 md:-left-8">
+              <span className="tile-accent-line left-7 !w-14" aria-hidden="true" />
+              <p className="font-display text-xl font-bold leading-none text-white md:text-2xl">
                 {t.intro.badgeTitle}
               </p>
-              <p className="text-white/85 text-sm mt-1.5">{t.intro.badgeSubtitle}</p>
+              <p className="mt-1.5 text-sm text-light-gray">{t.intro.badgeSubtitle}</p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

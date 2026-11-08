@@ -1,78 +1,56 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { useT } from "@/i18n/LanguageProvider";
-
-const stepNumbers = ["01", "02", "03", "04", "05"];
 
 export default function Process() {
   const t = useT();
+  const steps = t.process.steps;
 
   return (
-    <section id="folyamat" className="section-spacing relative bg-primary-deep/40" data-testid="process-section">
+    <section id="folyamat" className="section-spacing relative" data-testid="process-section">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="eyebrow eyebrow-centered mb-6"
-          >
-            {t.process.eyebrow}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
-          >
-            {t.process.titleBefore}{" "}
-            <span className="text-accent">{t.process.titleAccent}</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-light-gray text-base md:text-lg leading-relaxed"
-          >
-            {t.process.description}
-          </motion.p>
+        <div className="mx-auto mb-16 max-w-[720px] text-center">
+          <p className="kicker mb-4">{t.process.eyebrow}</p>
+          <h2 className="mb-6 text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
+            {t.process.titleBefore} <span className="text-accent-soft">{t.process.titleAccent}</span>
+          </h2>
+          <p className="leading-relaxed text-light-gray md:text-lg">{t.process.description}</p>
         </div>
 
-        <div className="relative">
-          {/* Összekötő vonal (desktop) */}
-          <div className="hidden lg:block absolute top-7 left-[10%] right-[10%] h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-x-6 gap-y-12">
-            {t.process.steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, y: 28 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: index * 0.1 }}
-                className="text-center relative"
-                data-testid={`process-step-${stepNumbers[index]}`}
-              >
-                <div className="relative inline-flex mb-6">
-                  <span className="accent-gradient inline-flex h-14 w-14 items-center justify-center rounded-full text-white font-bold shadow-lg shadow-accent/30">
-                    {stepNumbers[index]}
+        <ol className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+          {steps.map((step, index) => {
+            const isFirst = index === 0;
+            const isLast = index === steps.length - 1;
+            return (
+              <li key={step.title} data-testid={`process-step-0${index + 1}`}>
+                <div className="mb-6 flex items-center gap-3">
+                  <span
+                    className={`inline-flex h-[52px] w-[52px] flex-shrink-0 items-center justify-center rounded-full font-display text-lg font-bold ${
+                      isFirst
+                        ? "bg-accent-deep text-white shadow-[0_0_0_8px_rgba(232,56,13,0.15)]"
+                        : "border border-[#2B4466] bg-[#15273F] text-white"
+                    }`}
+                  >
+                    {index + 1}
                   </span>
+                  {!isLast && (
+                    <span
+                      aria-hidden="true"
+                      className={`hidden h-0.5 flex-1 lg:block ${
+                        isFirst ? "bg-gradient-to-r from-accent-deep to-[#1E3350]" : "bg-[#1E3350]"
+                      }`}
+                    />
+                  )}
                 </div>
-                <h3 className="text-lg font-bold text-white mb-1.5">{step.title}</h3>
-                <p className="text-accent text-[11px] font-semibold uppercase tracking-[0.2em] mb-4">
+                <h3 className="mb-1 text-[21px] font-bold text-white">{step.title}</h3>
+                <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.18em] text-accent-soft">
                   {step.label}
                 </p>
-                <p className="text-light-gray text-sm leading-relaxed max-w-[260px] mx-auto">
-                  {step.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
+                <p className="text-[15px] leading-relaxed text-light-gray">{step.description}</p>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

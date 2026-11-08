@@ -12,14 +12,18 @@ const config: Config = {
         primary: "#0D1B2E",
         "primary-deep": "#0A1424",
         surface: "#122238",
+        tile: "#0F1D31",
         "surface-light": "#17293F",
         accent: "#E8380D",
         "accent-hover": "#FF4B1F",
+        "accent-soft": "#FF6A3D",
+        "accent-deep": "#D42B06",
         "light-gray": "#9BACC3",
         "medium-gray": "#64748B",
       },
       fontFamily: {
         sans: ["Inter", "Helvetica", "system-ui", "sans-serif"],
+        display: ["'Inter Tight'", "Inter", "Helvetica", "system-ui", "sans-serif"],
       },
       animation: {
         "fade-in": "fadeIn 0.8s ease-out forwards",

@@ -29,7 +29,8 @@ export const hu = {
     cta: "Ajánlatot kérek",
     scroll: "Görgessen",
     scrollAria: "Görgessen lejjebb",
-    imageAlt: "Modern ház természetes környezetben",
+    imageAlt: "Modern családi ház kerttel, esti fényekkel, egy nagy fa alatt",
+    badge: "Generálkivitelezés Hajdú-Biharban és Szabolcsban",
   },
 
   trustBar: [
@@ -112,6 +113,8 @@ export const hu = {
     titleAccent: "a többit ránk bízhatja.",
     description:
       "Többen csak egy elképzeléssel keresnek meg minket, és ez teljesen rendben van. Ha kell, mi készítjük el a terveket, a statikai számítást és a 3D modellt is, mielőtt bármit építenénk — így már az elején látja, mit fog kapni. Ha pedig már rendelkezik ezen anyagokkal, akkor tervei alapján a kivitelezést szintén véghez visszük.",
+    modelBadge: "Döntés előtt látja",
+    modelCta: "Kérem a látványtervet",
     services: [
       {
         title: "Tervek",
@@ -271,7 +274,7 @@ export const hu = {
       {
         title: "Lakóházak",
         subtitle: "Otthon kulcsrakészen — 300 m²-ig egyszerűbb út",
-        alt: "Panelburkolatú modern családi ház",
+        alt: "Vakolt, nyeregtetős családi ház cseréptetővel",
       },
       {
         title: "Saját fejlesztések",
@@ -330,6 +333,7 @@ export const hu = {
   },
 
   cta: {
+    eyebrow: "Kezdjük el",
     titleBefore: "Szerintünk itt az ideje elkezdeni átemelni a valóságba",
     titleAccent: "az Ön terveit is!",
     description:
@@ -359,7 +363,7 @@ export const hu = {
       phone: { label: "Telefonszám", placeholder: "+36 30 ..." },
       location: {
         label: "Projekt helyszíne (település)",
-        placeholder: "Pl. Gödöllő, Pest megye",
+        placeholder: "Pl. Debrecen",
       },
       projectType: { label: "Épület típusa" },
       floorArea: { label: "Becsült alapterület (m²)", placeholder: "Pl. 120" },

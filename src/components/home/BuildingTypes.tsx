@@ -1,16 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 
-/** A képek nyelvfüggetlenek — a sorrend a szótár types tömbjével egyezik. */
+/**
+ * A képek és linkek nyelvfüggetlenek — az indexek a szótár types tömbjével
+ * egyeznek (garázs, csarnok, iroda, nyaraló, lakóház, saját fejlesztés).
+ */
 const typeImages = [
   "/images/epulettipusok/garazs-tarolo.jpg",
   "/images/epulettipusok/csarnok.jpg",
   "/images/epulettipusok/irodahaz.jpg",
   "https://images.unsplash.com/photo-1542718610-a1d656d1884c?auto=format&fit=crop&w=1200&q=80",
-  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+  "https://images.pexels.com/photos/30503925/pexels-photo-30503925.jpeg?auto=compress&cs=tinysrgb&w=1200",
   "https://images.pexels.com/photos/12932834/pexels-photo-12932834.jpeg?auto=compress&cs=tinysrgb&w=1200&h=900&fit=crop",
 ];
 
@@ -24,72 +27,60 @@ const typeLinks = [
   null,
 ];
 
+/** Megjelenítési sorrend: a családi ház (lakóház) áll elöl. */
+const displayOrder = [4, 0, 1, 2, 3, 5];
+
 export default function BuildingTypes() {
   const t = useT();
 
   return (
     <section id="epulettipusok" className="section-spacing relative" data-testid="building-types-section">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="eyebrow eyebrow-centered mb-6"
-          >
-            {t.buildingTypes.eyebrow}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
-          >
-            {t.buildingTypes.titleBefore}{" "}
-            <span className="text-accent">{t.buildingTypes.titleAccent}</span>
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-light-gray text-base md:text-lg"
-          >
-            {t.buildingTypes.description}
-          </motion.p>
+        <div className="mb-10 flex flex-wrap items-end justify-between gap-6">
+          <div>
+            <p className="kicker mb-4">{t.buildingTypes.eyebrow}</p>
+            <h2 className="text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
+              {t.buildingTypes.titleBefore}{" "}
+              <span className="text-accent-soft">{t.buildingTypes.titleAccent}</span>
+            </h2>
+          </div>
+          <p className="max-w-[420px] leading-relaxed text-light-gray">{t.buildingTypes.description}</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
-          {t.buildingTypes.types.map((type, index) => (
-            <motion.a
-              key={type.title}
-              href={typeLinks[index] ?? "#ajanlatkeres"}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, delay: (index % 3) * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden aspect-[16/10] border border-white/[0.07] block"
-              data-testid={`building-type-${index}`}
-            >
-              <Image
-                src={typeImages[index]}
-                alt={type.alt}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-deep/95 via-primary-deep/30 to-transparent" />
-              <div className="absolute inset-x-0 bottom-0 p-6">
-                <h3 className="text-white text-lg md:text-xl font-bold mb-1">{type.title}</h3>
-                <p className="text-white/70 text-sm">{type.subtitle}</p>
-              </div>
-              <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-colors duration-300" />
-            </motion.a>
-          ))}
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {displayOrder.map((index) => {
+            const type = t.buildingTypes.types[index];
+            return (
+              <a
+                key={type.title}
+                href={typeLinks[index] ?? "#ajanlatkeres"}
+                className="group relative flex min-h-[360px] flex-col justify-end overflow-hidden rounded-3xl md:min-h-[420px]"
+                data-testid={`building-type-${index}`}
+              >
+                <Image
+                  src={typeImages[index]}
+                  alt={type.alt}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                />
+                <span className="absolute inset-0 bg-[linear-gradient(0deg,rgba(10,20,36,0.92)_8%,rgba(10,20,36,0)_60%)]" />
+                <span className="relative flex items-end justify-between gap-3 p-6">
+                  <span>
+                    <span className="block font-display text-[22px] font-bold text-white">{type.title}</span>
+                    <span className="block text-sm text-[#C9D4E3]">{type.subtitle}</span>
+                  </span>
+                  <span
+                    className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-white/[0.14] transition-colors group-hover:bg-accent"
+                    aria-hidden="true"
+                  >
+                    <ArrowUpRight size={18} className="text-white" />
+                  </span>
+                </span>
+              </a>
+            );
+          })}
         </div>
-
       </div>
     </section>
   );

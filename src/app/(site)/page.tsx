@@ -23,12 +23,12 @@ export default function Home() {
       <Introduction />
       <WhyUs />
       <FullService />
-      <Lean />
-      <Process />
       <BuildingTypes />
+      <Process />
+      <Lean />
       <FAQ />
-      <CTA />
       <QuoteSection />
+      <CTA />
     </>
   );
 }

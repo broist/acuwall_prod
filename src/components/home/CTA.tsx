@@ -1,73 +1,48 @@
 "use client";
 
-import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
+import { LogoMark } from "@/components/Logo";
 import { useT } from "@/i18n/LanguageProvider";
 
 export default function CTA() {
   const t = useT();
 
   return (
-    <section className="relative py-28 md:py-36 overflow-hidden" data-testid="cta-section">
-      <div className="absolute inset-0">
-        <Image
-          src="https://images.pexels.com/photos/17180778/pexels-photo-17180778.jpeg?auto=compress&cs=tinysrgb&w=2000"
-          alt=""
-          fill
-          className="object-cover"
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-primary/90" />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary/80 to-primary" />
-      </div>
-      <div className="absolute inset-0 grid-pattern opacity-20" />
+    <section className="section-spacing relative" data-testid="cta-section">
+      <div className="container-custom">
+        <div className="relative overflow-hidden rounded-[32px] border border-white/[0.08] bg-tile p-8 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] md:p-[72px]">
+          <span className="tile-accent-line left-8 md:left-[72px]" aria-hidden="true" />
+          {/* A teljes logó, halványan, a jobb oldalon */}
+          <LogoMark className="pointer-events-none absolute right-5 top-7 h-24 w-24 opacity-20 md:right-14 md:top-1/2 md:h-[340px] md:w-[340px] md:-translate-y-1/2 md:opacity-[0.22]" />
 
-      <div className="relative container-custom text-center">
-        <motion.h2
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-3xl md:text-5xl lg:text-[3.4rem] font-bold leading-tight tracking-tight mb-7 max-w-5xl mx-auto"
-        >
-          {t.cta.titleBefore} <span className="text-accent">{t.cta.titleAccent}</span>
-        </motion.h2>
-
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
-          className="text-light-gray text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {t.cta.description}
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <a
-            href="#ajanlatkeres"
-            className="btn-primary inline-flex items-center justify-center gap-2 group"
-            data-testid="cta-quote-button"
-          >
-            {t.cta.quote}
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="tel:+36308305556"
-            className="btn-secondary inline-flex items-center justify-center gap-2.5"
-            data-testid="cta-phone-button"
-          >
-            <Phone size={18} />
-            +36 30 830 5556
-          </a>
-        </motion.div>
+          <div className="relative max-w-[640px]">
+            <p className="kicker mb-4">{t.cta.eyebrow}</p>
+            <h2 className="mb-5 text-[30px] font-bold leading-[1.06] tracking-[-0.03em] md:text-[50px]">
+              {t.cta.titleBefore} <span className="text-accent-soft">{t.cta.titleAccent}</span>
+            </h2>
+            <p className="mb-9 max-w-[520px] leading-relaxed text-light-gray md:text-lg">{t.cta.description}</p>
+            <div className="flex flex-col gap-3.5 sm:flex-row">
+              <a
+                href="#ajanlatkeres"
+                className="btn-primary inline-flex min-h-[56px] items-center justify-center gap-3 !py-0 !pl-6 !pr-3.5 text-[17px]"
+                data-testid="cta-quote-button"
+              >
+                {t.cta.quote}
+                <span className="btn-arrow" aria-hidden="true">
+                  <ArrowRight size={15} strokeWidth={2.4} />
+                </span>
+              </a>
+              <a
+                href="tel:+36308305556"
+                className="btn-secondary inline-flex min-h-[56px] items-center justify-center gap-2.5 !py-0 text-[17px]"
+                data-testid="cta-phone-button"
+              >
+                <Phone size={18} className="text-accent-soft" />
+                +36 30 830 5556
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
