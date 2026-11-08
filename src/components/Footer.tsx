@@ -10,6 +10,7 @@ const menuIds = [
   "fooldal",
   "szolgaltatasok",
   "epulettipusok",
+  "referenciak",
   "folyamat",
   "lean",
   "gyik",

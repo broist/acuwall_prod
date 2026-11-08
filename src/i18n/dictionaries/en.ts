@@ -13,6 +13,7 @@ export const en: Dictionary = {
     lean: "LEAN",
     folyamat: "Process",
     epulettipusok: "Building types",
+    referenciak: "References",
     gyik: "FAQ",
     kapcsolat: "Contact",
     quote: "Request a quote",
@@ -284,6 +285,24 @@ export const en: Dictionary = {
         alt: "Modern house on a plot close to nature",
       },
     ],
+  },
+
+  references: {
+    eyebrow: "References",
+    titleBefore: "How a project",
+    titleAccent: "comes together.",
+    description:
+      "We show our work phase by phase — step by step, the way it is actually built.",
+    cardCta: "View the project",
+    phasesLabel: "phases",
+    allProjects: "All references",
+    pageTitle: "References",
+    back: "Back to references",
+    phaseLabel: "Phase",
+    buildTitle: "How it was built",
+    ctaTitle: "Planning something similar?",
+    ctaText: "Tell us in a few words what you would like to build — we usually get back to you personally within 24 hours.",
+    close: "Close",
   },
 
   faq: {

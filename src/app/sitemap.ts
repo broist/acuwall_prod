@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SEO_PAGES, SITE_URL } from "@/content/seoPages";
+import { REFERENCES } from "@/content/references";
 
 /** /sitemap.xml — ezt kell beküldeni a Google Search Console-ba. */
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -9,6 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${SITE_URL}/${page.slug}`,
       changeFrequency: "monthly" as const,
       priority: 0.8,
+    })),
+    { url: `${SITE_URL}/referenciak`, changeFrequency: "monthly" as const, priority: 0.8 },
+    ...REFERENCES.map((reference) => ({
+      url: `${SITE_URL}/referenciak/${reference.slug}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.6,
     })),
     { url: `${SITE_URL}/adatkezeles`, changeFrequency: "yearly", priority: 0.2 },
   ];

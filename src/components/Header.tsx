@@ -11,6 +11,7 @@ const navItems = [
   "fooldal",
   "szolgaltatasok",
   "epulettipusok",
+  "referenciak",
   "folyamat",
   "lean",
   "gyik",
@@ -57,7 +58,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 gap-4">
           <Logo />
 
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 rounded-full border border-white/[0.12] bg-white/[0.07] px-6 py-1 backdrop-blur-md" data-testid="desktop-nav">
+          <nav className="hidden xl:flex items-center gap-6 2xl:gap-7 rounded-full border border-white/[0.12] bg-white/[0.07] px-6 py-1 backdrop-blur-md" data-testid="desktop-nav">
             {navItems.map((id) => (
               <a
                 key={id}
@@ -77,7 +78,7 @@ export default function Header() {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden xl:flex items-center gap-4">
             <a
               href="/#ajanlatkeres"
               className="btn-primary !py-0 !pl-5 !pr-2.5 min-h-[46px] text-sm inline-flex items-center gap-2.5 group whitespace-nowrap"
@@ -94,7 +95,7 @@ export default function Header() {
             <LanguageSwitcher />
           </div>
 
-          <div className="flex items-center gap-3 lg:hidden">
+          <div className="flex items-center gap-3 xl:hidden">
             <LanguageSwitcher />
             <button
               className="text-white p-2"
@@ -114,7 +115,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-primary-deep/[0.98] backdrop-blur-xl border-t border-white/10 overflow-hidden"
+            className="xl:hidden bg-primary-deep/[0.98] backdrop-blur-xl border-t border-white/10 overflow-hidden"
             data-testid="mobile-menu"
           >
             <nav className="container-custom py-6 space-y-1">

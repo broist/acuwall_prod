@@ -7,6 +7,7 @@ import FullService from "@/components/home/FullService";
 import Lean from "@/components/home/Lean";
 import Process from "@/components/home/Process";
 import BuildingTypes from "@/components/home/BuildingTypes";
+import References from "@/components/home/References";
 import FAQ from "@/components/home/FAQ";
 import CTA from "@/components/home/CTA";
 import QuoteSection from "@/components/home/QuoteSection";
@@ -24,6 +25,7 @@ export default function Home() {
       <WhyUs />
       <FullService />
       <BuildingTypes />
+      <References />
       <Process />
       <Lean />
       <FAQ />
