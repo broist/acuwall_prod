@@ -6,7 +6,7 @@
  *     (fázisonként 1–2 kép, ember nélkül, kb. 1600 px szélesre méretezve),
  *  2. ide fel kell venni egy új elemet a REFERENCES tömbbe.
  * Az oldalon szöveg nélkül, csak a képek jelennek meg, fázisonként egymás után.
- * A sorrend: ELÖL a legfrissebb (aktuális) állapot, utána visszafelé a korábbi fázisok.
+ * A sorrend: ELÖL a legfrissebb (kész) állapot, utána a fázisok építési sorrendben.
  */
 
 export type Localized = { hu: string; en: string };
@@ -18,7 +18,7 @@ export type ReferenceImage = {
   portrait?: boolean;
 };
 
-/** Egy építési fázis képei — a tömbben a legfrissebb fázis áll elöl. */
+/** Egy építési fázis képei — elöl a legfrissebb állapot, utána építési sorrendben. */
 export type ReferencePhase = {
   images: ReferenceImage[];
 };
@@ -69,30 +69,12 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
-            src: `${garageDir}/06-gipszkarton-1.jpg`,
-            alt: { hu: "Gipszkarton burkolat a garázs falán", en: "Plasterboard lining on the garage wall" },
-            portrait: true,
-          },
-        ],
-      },
-      {
-        images: [
-          {
-            src: `${garageDir}/05-parazaro-1.jpg`,
-            alt: { hu: "Párazáró fóliával borított garázsbelső", en: "Garage interior covered with vapour barrier foil" },
-            portrait: true,
-          },
-        ],
-      },
-      {
-        images: [
-          {
-            src: `${garageDir}/04-belso-szigeteles-1.jpg`,
-            alt: { hu: "Ásványgyapot a fa vázszerkezetben, tetőszerkezettel", en: "Mineral wool in the timber frame, with the roof structure" },
+            src: `${garageDir}/01-hoszigeteles-1.jpg`,
+            alt: { hu: "Hőszigetelő lapokkal borított garázshomlokzat", en: "Garage façade covered with insulation boards" },
           },
           {
-            src: `${garageDir}/04-belso-szigeteles-2.jpg`,
-            alt: { hu: "Hőszigetelt falak és beépített szekcionált kapu", en: "Insulated walls and the installed sectional door" },
+            src: `${garageDir}/01-hoszigeteles-2.jpg`,
+            alt: { hu: "Hőszigetelés a fedett terasz felőli oldalon", en: "Insulation on the side facing the covered terrace" },
           },
         ],
       },
@@ -112,12 +94,30 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
-            src: `${garageDir}/01-hoszigeteles-1.jpg`,
-            alt: { hu: "Hőszigetelő lapokkal borított garázshomlokzat", en: "Garage façade covered with insulation boards" },
+            src: `${garageDir}/04-belso-szigeteles-1.jpg`,
+            alt: { hu: "Ásványgyapot a fa vázszerkezetben, tetőszerkezettel", en: "Mineral wool in the timber frame, with the roof structure" },
           },
           {
-            src: `${garageDir}/01-hoszigeteles-2.jpg`,
-            alt: { hu: "Hőszigetelés a fedett terasz felőli oldalon", en: "Insulation on the side facing the covered terrace" },
+            src: `${garageDir}/04-belso-szigeteles-2.jpg`,
+            alt: { hu: "Hőszigetelt falak és beépített szekcionált kapu", en: "Insulated walls and the installed sectional door" },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${garageDir}/05-parazaro-1.jpg`,
+            alt: { hu: "Párazáró fóliával borított garázsbelső", en: "Garage interior covered with vapour barrier foil" },
+            portrait: true,
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${garageDir}/06-gipszkarton-1.jpg`,
+            alt: { hu: "Gipszkarton burkolat a garázs falán", en: "Plasterboard lining on the garage wall" },
+            portrait: true,
           },
         ],
       },

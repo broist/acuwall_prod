@@ -9,8 +9,8 @@ import { getReference, type ReferenceImage } from "@/content/references";
 
 /**
  * Egy referencia-projekt oldala: cím, majd a képek szöveg nélkül, fázisonként
- * egymás után — elöl a legfrissebb állapot. A képekre kattintva nagyban is
- * megnézhetők.
+ * egymás után — elöl a kész állapot, utána építési sorrendben. A képekre
+ * kattintva nagyban is megnézhetők.
  */
 export default function ReferenceDetail({ slug }: { slug: string }) {
   const { t, locale } = useLanguage();
@@ -34,7 +34,7 @@ export default function ReferenceDetail({ slug }: { slug: string }) {
 
   if (!reference) return null;
 
-  // A legfrissebb állapot áll elöl, utána visszafelé a korábbi fázisok.
+  // Elöl a legfrissebb (kész) állapot, utána a fázisok építési sorrendben.
   const images = reference.phases.flatMap((phase) => phase.images);
 
   return (
