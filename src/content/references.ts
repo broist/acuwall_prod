@@ -208,9 +208,10 @@ export const REFERENCES: Reference[] = [
           {
             src: `${extensionDir}/02-kituzes-1.jpg`,
             alt: {
-              hu: "Kitűzés: a sarokpontra kötött zsinór az alapárok mentén",
-              en: "Setting out: string line tied at the corner point along the trench",
+              hu: "Kitűzés: mészporral jelölt alapvonalak, kitűző karók és szintezőműszer",
+              en: "Setting out: foundation lines marked with lime, stakes and a levelling instrument",
             },
+            portrait: true,
           },
         ],
       },
