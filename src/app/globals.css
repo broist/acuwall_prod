@@ -64,6 +64,21 @@ h1, h2, h3 {
   font-family: 'Inter Tight', 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica', sans-serif;
 }
 
+/* Nyitókép szövegének beúszása — tisztán CSS, JavaScript nélkül is lefut,
+   és a 'both' miatt a késleltetés alatt sem villan fel a végállapot. */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: none; }
+}
+
+.animate-hero-in {
+  animation: heroIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-in { animation: none; }
+}
+
 /* Section eyebrow: — LABEL */
 .eyebrow {
   @apply inline-flex items-center gap-3 text-accent text-xs md:text-sm font-semibold uppercase;

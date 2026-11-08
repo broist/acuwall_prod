@@ -53,7 +53,7 @@ export default function Header() {
       }`}
       data-testid="header"
     >
-      <div className="container-custom">
+      <div className="mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12">
         <div className="flex items-center justify-between h-20 gap-4">
           <Logo />
 

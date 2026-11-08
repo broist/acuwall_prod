@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 
@@ -27,44 +26,35 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,36,0.7)_0%,rgba(10,20,36,0.82)_45%,#0A1424_100%)] md:bg-[linear-gradient(90deg,rgba(10,20,36,0.94)_0%,rgba(10,20,36,0.78)_45%,rgba(10,20,36,0.25)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-primary-deep to-transparent" />
 
-      <div className="relative z-10 container-custom flex flex-1 flex-col justify-center pt-32 pb-24 md:pt-40 md:pb-32">
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent-soft/35 bg-accent/[0.14] py-1.5 pl-2.5 pr-3.5 text-sm font-medium text-[#FFD3C4]"
+      <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12 flex flex-1 flex-col justify-center pt-32 pb-24 md:pt-40 md:pb-32">
+        <p
+          className="animate-hero-in mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent-soft/35 bg-accent/[0.14] py-1.5 pl-2.5 pr-3.5 text-sm font-medium text-[#FFD3C4]"
         >
           <span className="h-2 w-2 rounded-full bg-accent-soft" aria-hidden="true" />
           {t.hero.badge}
-        </motion.p>
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.08 }}
-          className="mb-7 max-w-[860px] text-[42px] font-bold leading-[1.03] tracking-[-0.035em] sm:text-6xl lg:text-[84px]"
+        <h1
+          style={{ animationDelay: "0.08s" }}
+          className="animate-hero-in mb-7 max-w-[860px] text-[42px] font-bold leading-[1.03] tracking-[-0.035em] sm:text-6xl lg:text-[84px]"
           data-testid="hero-title"
         >
           {t.hero.titleBefore} <span className="text-accent-soft">{t.hero.titleAccent}</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.18 }}
-          className="mb-10 max-w-[620px] text-base leading-relaxed text-[#C9D4E3] md:text-[19px]"
+        <p
+          style={{ animationDelay: "0.18s" }}
+          className="animate-hero-in mb-10 max-w-[620px] text-base leading-relaxed text-[#C9D4E3] md:text-[19px]"
           data-testid="hero-subtitle"
         >
           {t.hero.subtitleBefore}{" "}
           <strong className="font-semibold text-white">{t.hero.subtitleStrong}</strong>
           {t.hero.subtitleAfter}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.28 }}
-          className="flex flex-col gap-3.5 sm:flex-row"
+        <div
+          style={{ animationDelay: "0.28s" }}
+          className="animate-hero-in flex flex-col gap-3.5 sm:flex-row"
         >
           <a
             href="#ajanlatkeres"
@@ -83,7 +73,7 @@ export default function Hero() {
             <Phone size={18} className="text-accent-soft" />
             +36 30 830 5556
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
