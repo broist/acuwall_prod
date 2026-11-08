@@ -10,7 +10,7 @@ export default function Hero() {
   return (
     <section
       id="fooldal"
-      className="relative flex min-h-[760px] md:min-h-[860px] flex-col overflow-hidden"
+      className="relative flex min-h-[680px] md:min-h-[780px] flex-col overflow-hidden"
       data-testid="hero-section"
     >
       <Image
@@ -26,7 +26,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,36,0.7)_0%,rgba(10,20,36,0.82)_45%,#0A1424_100%)] md:bg-[linear-gradient(90deg,rgba(10,20,36,0.94)_0%,rgba(10,20,36,0.78)_45%,rgba(10,20,36,0.25)_100%)]" />
       <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-primary-deep to-transparent" />
 
-      <div className="relative z-10 container-custom flex flex-1 flex-col justify-center pt-32 pb-24 md:pt-40 md:pb-32">
+      <div className="relative z-10 container-custom flex flex-1 flex-col justify-center pt-28 pb-20 md:pt-32 md:pb-28">
         <p
           className="animate-hero-in mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent-soft/35 bg-accent/[0.14] py-1.5 pl-2.5 pr-3.5 text-sm font-medium text-[#FFD3C4]"
         >
