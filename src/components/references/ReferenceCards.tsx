@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Layers } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { REFERENCES } from "@/content/references";
 
@@ -27,10 +27,6 @@ export default function ReferenceCards() {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
             />
-            <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-primary-deep/80 px-3 py-1.5 text-xs font-semibold text-white backdrop-blur">
-              <Layers size={13} className="text-accent-soft" />
-              {reference.phases.length} {t.references.phasesLabel}
-            </span>
           </div>
           <div className="flex flex-1 flex-col p-6 md:p-7">
             <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-accent-soft">
@@ -38,10 +34,7 @@ export default function ReferenceCards() {
               {reference.location ? ` · ${reference.location}` : ""}
               {reference.year ? ` · ${reference.year}` : ""}
             </p>
-            <h3 className="mb-3 text-[22px] font-bold leading-snug text-white">{reference.title[locale]}</h3>
-            <p className="mb-6 line-clamp-3 text-[15px] leading-relaxed text-light-gray">
-              {reference.summary[locale]}
-            </p>
+            <h3 className="mb-5 text-[22px] font-bold leading-snug text-white">{reference.title[locale]}</h3>
             <span className="mt-auto inline-flex items-center gap-2 text-[15px] font-semibold text-white">
               {t.references.cardCta}
               <ArrowUpRight

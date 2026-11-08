@@ -289,17 +289,9 @@ export const hu = {
     eyebrow: "Referenciák",
     titleBefore: "Így épül nálunk",
     titleAccent: "egy projekt.",
-    description:
-      "Munkáinkat fázisonként mutatjuk be — lépésről lépésre, ahogy a valóságban is épülnek.",
     cardCta: "Megnézem a projektet",
-    phasesLabel: "fázis",
     allProjects: "Összes referencia",
-    pageTitle: "Referenciák",
     back: "Vissza a referenciákhoz",
-    phaseLabel: "Fázis",
-    buildTitle: "Így épült",
-    ctaTitle: "Hasonlót tervez?",
-    ctaText: "Mondja el pár szóban, mit építene — jellemzően 24 órán belül személyesen jelentkezünk.",
     close: "Bezárás",
   },
 

@@ -16,7 +16,6 @@ export default function References() {
               {t.references.titleBefore} <span className="text-accent-soft">{t.references.titleAccent}</span>
             </h2>
           </div>
-          <p className="max-w-[460px] leading-relaxed text-light-gray">{t.references.description}</p>
         </div>
         <ReferenceCards />
       </div>

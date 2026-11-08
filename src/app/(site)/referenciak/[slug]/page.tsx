@@ -15,13 +15,14 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   if (!reference) return {};
 
   const title = `${reference.title.hu} — referencia | AcuWall`;
+  const description = `${reference.title.hu}: az AcuWall munkája fázisonként, fotókon.`;
   return {
     title,
-    description: reference.summary.hu,
+    description,
     alternates: { canonical: `/referenciak/${reference.slug}` },
     openGraph: {
       title,
-      description: reference.summary.hu,
+      description,
       url: `/referenciak/${reference.slug}`,
       locale: "hu_HU",
       type: "article",
