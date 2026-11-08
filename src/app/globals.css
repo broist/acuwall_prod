@@ -185,6 +185,27 @@ h1, h2, h3 {
   @apply py-20 md:py-28 lg:py-32;
 }
 
+/*
+ * Menüből ugrásnál a szekció CÍME kerüljön közvetlenül a fejléc (80px) alá,
+ * ne a szekció felső belső térköze. Cél: 80px fejléc + 32px levegő = 112px;
+ * a görgetési margó ebből vonja le az adott méretű felső térközt.
+ */
+.section-spacing[id] {
+  scroll-margin-top: calc(112px - 5rem);
+}
+
+@media (min-width: 768px) {
+  .section-spacing[id] {
+    scroll-margin-top: calc(112px - 7rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-spacing[id] {
+    scroll-margin-top: calc(112px - 8rem);
+  }
+}
+
 /* Container — széles képernyőn is kitölti a teret, a fejléccel egy vonalban */
 .container-custom {
   @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12;
