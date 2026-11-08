@@ -38,6 +38,7 @@ export type Reference = {
 
 const garageDir = "/images/referenciak/garazs-csaladi-haz-mellett";
 const foundationDir = "/images/referenciak/alapozas-folyamatban";
+const extensionDir = "/images/referenciak/hazbovites-alapozas";
 
 export const REFERENCES: Reference[] = [
   {
@@ -171,6 +172,62 @@ export const REFERENCES: Reference[] = [
           {
             src: `${foundationDir}/03-agyazat-1.jpg`,
             alt: { hu: "Elterített, tömörített ágyazat", en: "Spread and compacted sub-base" },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "hazbovites-alapozas",
+    title: {
+      hu: "Családi ház bővítése",
+      en: "Family house extension",
+    },
+    type: { hu: "Folyamatban", en: "In progress" },
+    cover: {
+      src: `${extensionDir}/01-vasalas-1.jpg`,
+      alt: {
+        hu: "Betonozásra kész alaplemez-vasalás a meglévő ház mellett",
+        en: "Slab reinforcement ready for pouring next to the existing house",
+      },
+    },
+    phases: [
+      {
+        images: [
+          {
+            src: `${extensionDir}/01-vasalas-1.jpg`,
+            alt: {
+              hu: "Betonozásra kész alaplemez-vasalás a meglévő ház mellett",
+              en: "Slab reinforcement ready for pouring next to the existing house",
+            },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${extensionDir}/02-savalap-1.jpg`,
+            alt: { hu: "Kibetonozott sávalap az alapárokban", en: "Strip footing poured in the trench" },
+            portrait: true,
+          },
+          {
+            src: `${extensionDir}/02-savalap-2.jpg`,
+            alt: {
+              hu: "Sávalap kiálló betonacélokkal a ház mellett",
+              en: "Strip footing with starter bars next to the house",
+            },
+            portrait: true,
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${extensionDir}/03-labazat-1.jpg`,
+            alt: {
+              hu: "Lábazati fal és tömörített feltöltés a bővítés helyén",
+              en: "Plinth wall and compacted fill where the extension will stand",
+            },
           },
         ],
       },
