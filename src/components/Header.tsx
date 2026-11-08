@@ -10,9 +10,9 @@ import { useT } from "@/i18n/LanguageProvider";
 const navItems = [
   "fooldal",
   "szolgaltatasok",
-  "lean",
-  "folyamat",
   "epulettipusok",
+  "folyamat",
+  "lean",
   "gyik",
   "kapcsolat",
 ] as const;
@@ -48,8 +48,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
         isScrolled
-          ? "bg-primary/95 backdrop-blur-xl shadow-lg shadow-black/20 border-white/[0.06]"
-          : "bg-primary/60 backdrop-blur-md border-transparent"
+          ? "bg-primary-deep/90 backdrop-blur-xl shadow-lg shadow-black/25 border-white/[0.06]"
+          : "bg-transparent border-transparent"
       }`}
       data-testid="header"
     >
@@ -57,7 +57,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-20 gap-4">
           <Logo />
 
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-7" data-testid="desktop-nav">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-7 rounded-full border border-white/[0.12] bg-white/[0.07] px-6 py-1 backdrop-blur-md" data-testid="desktop-nav">
             {navItems.map((id) => (
               <a
                 key={id}
@@ -80,11 +80,13 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href="/#ajanlatkeres"
-              className="btn-primary !py-3 !px-6 text-sm inline-flex items-center gap-2 group whitespace-nowrap"
+              className="btn-primary !py-0 !pl-5 !pr-2.5 min-h-[46px] text-sm inline-flex items-center gap-2.5 group whitespace-nowrap"
               data-testid="header-cta-button"
             >
               {t.nav.quote}
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              <span className="btn-arrow !h-7 !w-7" aria-hidden="true">
+                <ArrowRight size={14} strokeWidth={2.4} />
+              </span>
             </a>
 
             <span className="h-6 w-px bg-white/15" aria-hidden="true" />
@@ -112,7 +114,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-primary/98 backdrop-blur-xl border-t border-white/10 overflow-hidden"
+            className="lg:hidden bg-primary-deep/[0.98] backdrop-blur-xl border-t border-white/10 overflow-hidden"
             data-testid="mobile-menu"
           >
             <nav className="container-custom py-6 space-y-1">

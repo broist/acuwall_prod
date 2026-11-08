@@ -9,9 +9,9 @@ import { SEO_PAGES } from "@/content/seoPages";
 const menuIds = [
   "fooldal",
   "szolgaltatasok",
-  "lean",
-  "folyamat",
   "epulettipusok",
+  "folyamat",
+  "lean",
   "gyik",
   "kapcsolat",
 ] as const;
@@ -23,7 +23,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-deep border-t border-white/[0.06]" data-testid="footer">
+    <footer className="bg-[#08111F] border-t border-white/[0.06]" data-testid="footer">
       <div className="container-custom py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1.2fr] gap-12">
           <div>
@@ -35,9 +35,9 @@ export default function Footer() {
             </p>
 
             {/* Kiemelt mottó-sáv */}
-            <div className="border-l-4 border-accent bg-accent/10 rounded-r-xl px-5 py-4 mb-8 max-w-md">
-              <p className="text-accent font-semibold italic leading-relaxed">{t.footer.motto}</p>
-            </div>
+            <p className="mb-8 max-w-md font-display text-lg font-semibold italic text-accent-soft">
+              {t.footer.motto}
+            </p>
 
             <div className="flex items-center gap-3">
               <a
@@ -97,7 +97,7 @@ export default function Footer() {
             <h3 className="text-white font-bold mb-5">{t.footer.contactHeading}</h3>
             <ul className="space-y-4 text-sm">
               <li className="flex items-center gap-3">
-                <Mail size={16} className="text-accent flex-shrink-0" />
+                <Mail size={16} className="text-accent-soft flex-shrink-0" />
                 <a
                   href="mailto:acuwall@acuwall.hu"
                   className="text-light-gray hover:text-white transition-colors"
@@ -106,7 +106,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={16} className="text-accent flex-shrink-0" />
+                <Phone size={16} className="text-accent-soft flex-shrink-0" />
                 <a
                   href="tel:+36308305556"
                   className="text-light-gray hover:text-white transition-colors"
@@ -115,7 +115,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-accent flex-shrink-0 mt-0.5" />
+                <MapPin size={16} className="text-accent-soft flex-shrink-0 mt-0.5" />
                 <span className="text-light-gray leading-relaxed">{t.footer.areaValue}</span>
               </li>
             </ul>

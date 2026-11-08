@@ -124,35 +124,13 @@ export default function QuoteSection() {
   return (
     <section id="ajanlatkeres" className="section-spacing relative" data-testid="quote-section">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="eyebrow eyebrow-centered mb-6"
-          >
-            {t.quote.eyebrow}
-          </motion.span>
-          <motion.h2
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight mb-6"
-          >
-            {t.quote.titleBefore} <span className="text-accent">{t.quote.titleAccent}</span>{" "}
+        <div className="mb-12 max-w-[760px]">
+          <p className="kicker mb-4">{t.quote.eyebrow}</p>
+          <h2 className="mb-5 text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
+            {t.quote.titleBefore} <span className="text-accent-soft">{t.quote.titleAccent}</span>{" "}
             {t.quote.titleAfter}
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-light-gray text-base md:text-lg leading-relaxed"
-          >
-            {t.quote.description}
-          </motion.p>
+          </h2>
+          <p className="leading-relaxed text-light-gray md:text-lg">{t.quote.description}</p>
         </div>
 
         <div className="grid lg:grid-cols-5 gap-6 items-start">
@@ -162,11 +140,11 @@ export default function QuoteSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-3 card p-7 md:p-10"
+            className="lg:col-span-3 tile p-7 md:p-10"
           >
             {isSubmitted ? (
               <div className="text-center py-14" data-testid="quote-success-message">
-                <CheckCircle className="mx-auto text-accent mb-6" size={64} />
+                <CheckCircle className="mx-auto text-accent-soft mb-6" size={64} />
                 <h3 className="text-2xl font-bold mb-4">{t.quote.successTitle}</h3>
                 <p className="text-light-gray mb-8 max-w-md mx-auto leading-relaxed">
                   {t.quote.successText}
@@ -373,7 +351,7 @@ export default function QuoteSection() {
                   />
                   <span>
                     {t.quote.consentBefore}{" "}
-                    <Link href="/adatkezeles" className="text-accent hover:underline">
+                    <Link href="/adatkezeles" className="text-accent-soft hover:underline">
                       {t.quote.consentLink}
                     </Link>{" "}
                     <span className="text-accent">*</span>
@@ -389,7 +367,7 @@ export default function QuoteSection() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary inline-flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="btn-primary inline-flex w-full min-h-[58px] items-center justify-center gap-3 !py-0 group disabled:opacity-50 disabled:cursor-not-allowed"
                   data-testid="quote-submit-button"
                 >
                   {isSubmitting ? (
@@ -400,7 +378,9 @@ export default function QuoteSection() {
                   ) : (
                     <>
                       {t.quote.submit}
-                      <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      <span className="btn-arrow" aria-hidden="true">
+                        <ArrowRight size={15} strokeWidth={2.4} />
+                      </span>
                     </>
                   )}
                 </button>
@@ -415,7 +395,7 @@ export default function QuoteSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="lg:col-span-2 card p-7 md:p-9"
+            className="lg:col-span-2 rounded-[26px] border border-white/[0.08] bg-surface p-7 md:p-9"
             data-testid="contact-sidebar"
           >
             <h3 className="text-xl md:text-2xl font-bold mb-4 tracking-tight">
@@ -426,15 +406,15 @@ export default function QuoteSection() {
             <div className="space-y-6 mb-8">
               {contactItems.map((item) => (
                 <div key={item.label} className="flex items-start gap-4">
-                  <span className="icon-tile !h-11 !w-11">
-                    <item.icon size={19} />
+                  <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-accent/[0.14]">
+                    <item.icon size={19} className="text-accent-soft" />
                   </span>
                   <span>
                     <span className="block text-light-gray text-[11px] font-semibold uppercase tracking-[0.2em] mb-1">
                       {item.label}
                     </span>
                     {item.href ? (
-                      <a href={item.href} className="text-white font-medium hover:text-accent transition-colors">
+                      <a href={item.href} className="text-white font-semibold hover:text-accent-soft transition-colors">
                         {item.value}
                       </a>
                     ) : (
@@ -445,8 +425,8 @@ export default function QuoteSection() {
               ))}
 
               <div className="flex items-start gap-4">
-                <span className="icon-tile !h-11 !w-11">
-                  <Clock size={19} />
+                <span className="inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-accent/[0.14]">
+                  <Clock size={19} className="text-accent-soft" />
                 </span>
                 <span>
                   <span className="block text-light-gray text-[11px] font-semibold uppercase tracking-[0.2em] mb-1">

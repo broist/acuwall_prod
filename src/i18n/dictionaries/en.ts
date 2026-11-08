@@ -31,7 +31,8 @@ export const en: Dictionary = {
     cta: "Request a quote",
     scroll: "Scroll",
     scrollAria: "Scroll down",
-    imageAlt: "Modern house in a natural setting",
+    imageAlt: "Modern family house with a garden and evening lights, under a large tree",
+    badge: "General contracting in Hajdú-Bihar and Szabolcs",
   },
 
   trustBar: [
@@ -114,6 +115,8 @@ export const en: Dictionary = {
     titleAccent: "leave the rest to us.",
     description:
       "Many people come to us with nothing but a vision, and that is perfectly fine. If needed, we prepare the plans, the structural calculation and the 3D model before we build anything — so you can see from the start what you will get. And if you already have these documents, we will carry out the construction based on your plans.",
+    modelBadge: "See it before you decide",
+    modelCta: "Request a visualisation",
     services: [
       {
         title: "Plans",
@@ -273,7 +276,7 @@ export const en: Dictionary = {
       {
         title: "Residential houses",
         subtitle: "A turnkey home — a simpler route up to 300 m²",
-        alt: "Modern family house with panel cladding",
+        alt: "Rendered family house with a pitched tiled roof",
       },
       {
         title: "Own developments",
@@ -332,6 +335,7 @@ export const en: Dictionary = {
   },
 
   cta: {
+    eyebrow: "Let's get started",
     titleBefore: "We think it is time to start turning",
     titleAccent: "your plans into reality too!",
     description:
@@ -361,7 +365,7 @@ export const en: Dictionary = {
       phone: { label: "Phone number", placeholder: "+44 20 ..." },
       location: {
         label: "Project location (town)",
-        placeholder: "E.g. Gödöllő, Pest county",
+        placeholder: "E.g. Debrecen",
       },
       projectType: { label: "Type of building" },
       floorArea: { label: "Estimated floor area (m²)", placeholder: "E.g. 120" },

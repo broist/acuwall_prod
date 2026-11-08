@@ -1,113 +1,90 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Phone } from "lucide-react";
 import { useT } from "@/i18n/LanguageProvider";
 
 export default function Hero() {
   const t = useT();
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "24%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
     <section
       id="fooldal"
-      ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative flex min-h-[760px] md:min-h-[860px] flex-col overflow-hidden"
       data-testid="hero-section"
     >
-      <motion.div style={{ y, scale }} className="absolute inset-0 z-0">
-        <Image
-          src="https://images.pexels.com/photos/17180778/pexels-photo-17180778.jpeg?auto=compress&cs=tinysrgb&w=2200"
-          alt={t.hero.imageAlt}
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/85 via-primary/70 to-primary" />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/30 to-primary/60" />
-      </motion.div>
+      <Image
+        src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2200&q=80"
+        alt={t.hero.imageAlt}
+        fill
+        priority
+        quality={85}
+        sizes="100vw"
+        className="object-cover object-[62%_50%] md:object-[70%_50%]"
+      />
+      {/* Bal oldalon sötétebb, hogy a szöveg jól olvasható legyen; alul a háttérbe olvad */}
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(10,20,36,0.7)_0%,rgba(10,20,36,0.82)_45%,#0A1424_100%)] md:bg-[linear-gradient(90deg,rgba(10,20,36,0.94)_0%,rgba(10,20,36,0.78)_45%,rgba(10,20,36,0.25)_100%)]" />
+      <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-primary-deep to-transparent" />
 
-      <div className="absolute inset-0 grid-pattern opacity-25 z-10" />
+      <div className="relative z-10 container-custom flex flex-1 flex-col justify-center pt-32 pb-24 md:pt-40 md:pb-32">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-7 inline-flex w-fit items-center gap-2.5 rounded-full border border-accent-soft/35 bg-accent/[0.14] py-1.5 pl-2.5 pr-3.5 text-sm font-medium text-[#FFD3C4]"
+        >
+          <span className="h-2 w-2 rounded-full bg-accent-soft" aria-hidden="true" />
+          {t.hero.badge}
+        </motion.p>
 
-      <motion.div
-        style={{ opacity }}
-        className="relative z-20 container-custom pt-28 pb-24 text-center"
-      >
-        <div className="max-w-4xl mx-auto">
-          <motion.span
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="eyebrow eyebrow-centered mb-7"
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.08 }}
+          className="mb-7 max-w-[860px] text-[42px] font-bold leading-[1.03] tracking-[-0.035em] sm:text-6xl lg:text-[84px]"
+          data-testid="hero-title"
+        >
+          {t.hero.titleBefore} <span className="text-accent-soft">{t.hero.titleAccent}</span>
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.18 }}
+          className="mb-10 max-w-[620px] text-base leading-relaxed text-[#C9D4E3] md:text-[19px]"
+          data-testid="hero-subtitle"
+        >
+          {t.hero.subtitleBefore}{" "}
+          <strong className="font-semibold text-white">{t.hero.subtitleStrong}</strong>
+          {t.hero.subtitleAfter}
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.28 }}
+          className="flex flex-col gap-3.5 sm:flex-row"
+        >
+          <a
+            href="#ajanlatkeres"
+            className="btn-primary inline-flex items-center justify-center gap-3 !py-0 !pl-7 !pr-3.5 min-h-[58px] text-[17px]"
+            data-testid="hero-cta-quote"
           >
-            {t.hero.eyebrow}
-          </motion.span>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-[4.5rem] font-bold mb-8 leading-[1.08] tracking-tight"
-            data-testid="hero-title"
+            {t.hero.cta}
+            <span className="btn-arrow" aria-hidden="true">
+              <ArrowRight size={15} strokeWidth={2.4} />
+            </span>
+          </a>
+          <a
+            href="tel:+36308305556"
+            className="btn-secondary inline-flex items-center justify-center gap-2.5 !py-0 min-h-[58px] text-[17px]"
           >
-            {t.hero.titleBefore}{" "}
-            <span className="text-accent">{t.hero.titleAccent}</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.25 }}
-            className="text-lg md:text-xl text-light-gray max-w-3xl mx-auto mb-10 leading-relaxed"
-            data-testid="hero-subtitle"
-          >
-            {t.hero.subtitleBefore}{" "}
-            <strong className="text-accent font-bold">{t.hero.subtitleStrong}</strong>
-            {t.hero.subtitleAfter}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-          >
-            <a
-              href="#ajanlatkeres"
-              className="btn-primary inline-flex items-center justify-center gap-2 group"
-              data-testid="hero-cta-quote"
-            >
-              {t.hero.cta}
-              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-          </motion.div>
-        </div>
-      </motion.div>
-
-      <motion.a
-        href="#bemutatkozas"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-white/50 hover:text-white/80 transition-colors"
-        aria-label={t.hero.scrollAria}
-      >
-        <span className="text-[11px] font-semibold uppercase tracking-[0.35em]">
-          {t.hero.scroll}
-        </span>
-        <ArrowDown size={16} className="animate-bounce-slow" />
-      </motion.a>
+            <Phone size={18} className="text-accent-soft" />
+            +36 30 830 5556
+          </a>
+        </motion.div>
+      </div>
     </section>
   );
 }
