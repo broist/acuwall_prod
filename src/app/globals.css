@@ -185,9 +185,9 @@ h1, h2, h3 {
   @apply py-20 md:py-28 lg:py-32;
 }
 
-/* Container */
+/* Container — széles képernyőn is kitölti a teret, a fejléccel egy vonalban */
 .container-custom {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  @apply mx-auto w-full max-w-[1600px] px-4 sm:px-6 lg:px-12;
 }
 
 /* Input styles */

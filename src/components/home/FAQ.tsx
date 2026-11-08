@@ -12,12 +12,14 @@ export default function FAQ() {
 
   return (
     <section id="gyik" className="section-spacing relative" data-testid="faq-section">
-      <div className="container-custom max-w-[960px]">
-        <p className="kicker mb-4">{t.faq.eyebrow}</p>
-        <h2 className="mb-10 text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
-          {t.faq.titleBefore} <span className="text-accent-soft">{t.faq.titleAccent}</span>
-          {t.faq.titleAfter}
-        </h2>
+      <div className="container-custom grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.7fr)] lg:gap-16">
+        <div>
+          <p className="kicker mb-4">{t.faq.eyebrow}</p>
+          <h2 className="text-[34px] font-bold leading-[1.05] tracking-[-0.03em] md:text-[54px]">
+            {t.faq.titleBefore} <span className="text-accent-soft">{t.faq.titleAccent}</span>
+            {t.faq.titleAfter}
+          </h2>
+        </div>
 
         <div className="space-y-3">
           {faqs.map((faq, index) => {

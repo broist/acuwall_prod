@@ -441,16 +441,17 @@ export default function QuoteSection() {
             </div>
 
             <div className="relative rounded-2xl overflow-hidden border border-white/[0.07]">
+              {/* A két vármegyére (Hajdú-Bihar, Szabolcs-Szatmár-Bereg) középre állítva, jelölő nélkül */}
               <iframe
-                src="https://www.google.com/maps?q=Magyarorsz%C3%A1g&z=7&output=embed"
-                className="w-full h-64 grayscale-[0.25] contrast-[1.05]"
+                src="https://maps.google.com/maps?ll=47.72,21.85&z=8&t=m&hl=hu&output=embed"
+                className="w-full h-80 grayscale-[0.25] contrast-[1.05]"
                 style={{ border: 0 }}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title={t.quote.mapTitle}
               />
               <a
-                href="https://www.google.com/maps?q=Magyarorsz%C3%A1g"
+                href="https://www.google.com/maps/@47.72,21.85,8z"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="absolute top-3 left-3 inline-flex items-center gap-2 bg-primary/90 backdrop-blur px-4 py-2 rounded-lg text-sm font-medium text-white hover:bg-primary transition-colors"
