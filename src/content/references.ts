@@ -39,6 +39,7 @@ export type Reference = {
 const garageDir = "/images/referenciak/garazs-csaladi-haz-mellett";
 const foundationDir = "/images/referenciak/alapozas-folyamatban";
 const extensionDir = "/images/referenciak/hazbovites-alapozas";
+const outbuildingDir = "/images/referenciak/mellekepulet-kivitelezes";
 
 export const REFERENCES: Reference[] = [
   {
@@ -240,6 +241,60 @@ export const REFERENCES: Reference[] = [
               hu: "Lábazati fal és tömörített feltöltés a bővítés helyén",
               en: "Plinth wall and compacted fill where the extension will stand",
             },
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "mellekepulet-kivitelezes",
+    title: {
+      hu: "Melléképület kivitelezése",
+      en: "Outbuilding construction",
+    },
+    type: { hu: "Alapozás, lábazat", en: "Foundation, plinth" },
+    cover: {
+      src: `${outbuildingDir}/01-labazat-kesz-1.jpg`,
+      alt: {
+        hu: "Elkészült zsalukő lábazat betonnal kitöltve, kiálló betonacélokkal",
+        en: "Finished block plinth filled with concrete, with protruding rebar",
+      },
+    },
+    phases: [
+      {
+        images: [
+          {
+            src: `${outbuildingDir}/01-labazat-kesz-1.jpg`,
+            alt: {
+              hu: "Elkészült zsalukő lábazat betonnal kitöltve, kiálló betonacélokkal",
+              en: "Finished block plinth filled with concrete, with protruding rebar",
+            },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${outbuildingDir}/02-zsaluko-1.jpg`,
+            alt: {
+              hu: "Zsalukő sorok az alapon, betonozásra készen",
+              en: "Formwork blocks laid on the footing, ready for pouring",
+            },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${outbuildingDir}/03-savalap-2.jpg`,
+            alt: {
+              hu: "Kibetonozott sávalap kiálló betonacélokkal",
+              en: "Strip footing poured with starter bars",
+            },
+          },
+          {
+            src: `${outbuildingDir}/03-savalap-1.jpg`,
+            alt: { hu: "Frissen betonozott sávalap az alapárokban", en: "Freshly poured strip footing in the trench" },
           },
         ],
       },
