@@ -708,7 +708,19 @@ export default function LandingWizard() {
                       <button
                         key={preset}
                         type="button"
-                        onClick={() => setValue("floorArea", String(preset))}
+                        onClick={() => {
+                          // Mint a választós kérdéseknél: a kész méretre kattintva
+                          // rögtön tovább is lépünk.
+                          const next = { ...form, floorArea: String(preset) };
+                          setForm(next);
+                          setErrors({});
+                          markStarted();
+                          if (advanceTimer.current) clearTimeout(advanceTimer.current);
+                          advanceTimer.current = setTimeout(
+                            () => advance(next),
+                            reduceMotion ? 0 : 260
+                          );
+                        }}
                         aria-pressed={selected}
                         className={`rounded-xl border px-2 py-3 text-sm font-semibold transition-all duration-200 active:scale-[0.98] ${
                           selected
@@ -739,9 +751,10 @@ export default function LandingWizard() {
                     enterKeyHint="next"
                     data-autofocus
                     value={form.floorArea}
-                    onChange={(event) =>
-                      setValue("floorArea", event.target.value.replace(/[^\d]/g, ""))
-                    }
+                    onChange={(event) => {
+                      if (advanceTimer.current) clearTimeout(advanceTimer.current);
+                      setValue("floorArea", event.target.value.replace(/[^\d]/g, ""));
+                    }}
                     placeholder="Pl. 120"
                     aria-invalid={Boolean(errors.floorArea)}
                     aria-describedby={errors.floorArea ? "floorArea-error" : undefined}
