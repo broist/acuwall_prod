@@ -20,6 +20,7 @@ import {
   User,
 } from "lucide-react";
 import BuildProgress from "./BuildProgress";
+import CallbackRequest from "./CallbackRequest";
 import {
   CONTACT,
   areaPresets,
@@ -969,6 +970,21 @@ export default function LandingWizard() {
           </span>
         </div>
       </form>
+
+      {!isLast && (
+        <CallbackRequest
+          answers={{
+            projectType: form.projectType,
+            floorArea: form.floorArea,
+            plotStatus: form.plotStatus,
+            needsPlanning: form.needsPlanning,
+            timeline: form.timeline,
+            location: form.location,
+          }}
+          startedAt={startedAt}
+          marketing={marketing}
+        />
+      )}
     </div>
   );
 }
