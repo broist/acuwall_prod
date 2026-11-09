@@ -155,7 +155,7 @@ const STORAGE_KEY = "acuwall_landing_form";
 
 type Errors = Partial<Record<FieldKey | "consent", string>>;
 
-function validateStep(index: number, form: FormState, consent: boolean): Errors {
+function validateStep(index: number, form: FormState, consent: boolean, final = false): Errors {
   const step = STEPS[index];
   const errors: Errors = {};
 
@@ -163,10 +163,18 @@ function validateStep(index: number, form: FormState, consent: boolean): Errors 
     errors[step.id] = "Válasszon egy lehetőséget.";
   }
 
-  if (step.kind === "area" && form.floorArea) {
-    const value = Number(form.floorArea);
-    if (!Number.isFinite(value) || value < 1 || value > 100000) {
-      errors.floorArea = "Adjon meg egy értelmes méretet (1–100000 m²).";
+  if (step.kind === "area") {
+    if (!form.floorArea) {
+      // A méret nem kötelező, de a kihagyás tudatos döntés: a „Tovább” üresen nem
+      // lép tovább, csak az „Ezt még nem tudom” (ez a végső ellenőrzésnél nem hiba).
+      if (!final) {
+        errors.floorArea = "Adjon meg egy méretet, vagy válassza az „Ezt még nem tudom” lehetőséget.";
+      }
+    } else {
+      const value = Number(form.floorArea);
+      if (!Number.isFinite(value) || value < 1 || value > 100000) {
+        errors.floorArea = "Adjon meg egy értelmes méretet (1–100000 m²).";
+      }
     }
   }
 
@@ -214,6 +222,9 @@ export default function LandingWizard() {
   // Hány saját history-bejegyzést tettünk a landing fölé. A "Vissza" csak
   // ezeken belül lép a böngészővel, különben elhagyná az oldalt.
   const historyDepth = useRef(0);
+  // Ha az összegzésből javít egy korábbi választ, a javítás után a kapcsolati
+  // lépésre ugrik vissza, nem kell újra végigmennie a közbülső kérdéseken.
+  const returnTo = useRef<number | null>(null);
 
   const current = STEPS[step];
   const isLast = step === STEPS.length - 1;
@@ -274,6 +285,8 @@ export default function LandingWizard() {
   useEffect(() => {
     const onPopState = (event: PopStateEvent) => {
       if (status === "done") return;
+      if (advanceTimer.current) clearTimeout(advanceTimer.current);
+      returnTo.current = null;
       const state = event.state as { acuStep?: number; acuDepth?: number } | null;
       historyDepth.current = state?.acuDepth ?? 0;
       const target = state?.acuStep;
@@ -326,6 +339,10 @@ export default function LandingWizard() {
   }, []);
 
   const goBack = useCallback(() => {
+    // Egy épp esedékes automatikus továbblépés ne ugorjon előre a visszalépés után.
+    if (advanceTimer.current) clearTimeout(advanceTimer.current);
+    returnTo.current = null;
+
     if (historyDepth.current > 0) {
       window.history.back();
       return;
@@ -371,8 +388,8 @@ export default function LandingWizard() {
   }, []);
 
   const advance = useCallback(
-    (snapshot: FormState, consentValue = consent) => {
-      const found = validateStep(step, snapshot, consentValue);
+    (snapshot: FormState, consentValue = consent, skipValidation = false) => {
+      const found = skipValidation ? {} : validateStep(step, snapshot, consentValue);
       if (Object.keys(found).length > 0) {
         setErrors(found);
         return;
@@ -388,8 +405,30 @@ export default function LandingWizard() {
         trackEvent(`lepes_${step + 1}`, { kerdes: current.id });
       }
 
-      if (isLast) void submit(snapshot);
-      else goTo(step + 1);
+      if (isLast) {
+        // Végső ellenőrzés: beküldés előtt minden korábbi kötelező válasznak
+        // meg kell lennie (pl. helyreállított vagy félbehagyott kitöltésnél).
+        for (let index = 0; index < STEPS.length - 1; index += 1) {
+          const missing = validateStep(index, snapshot, consentValue, true);
+          if (Object.keys(missing).length > 0) {
+            returnTo.current = STEPS.length - 1;
+            goTo(index);
+            setErrors(missing);
+            return;
+          }
+        }
+        void submit(snapshot);
+        return;
+      }
+
+      if (returnTo.current !== null && returnTo.current > step) {
+        const target = returnTo.current;
+        returnTo.current = null;
+        goTo(target);
+        return;
+      }
+
+      goTo(step + 1);
     },
     [consent, current.id, goTo, isLast, markStarted, step, submit]
   );
@@ -654,6 +693,9 @@ export default function LandingWizard() {
                     </button>
                   );
                 })}
+                <div className="col-span-full empty:hidden">
+                  <FieldError id="choice-error" message={errors[current.id]} />
+                </div>
               </div>
             )}
 
@@ -716,7 +758,7 @@ export default function LandingWizard() {
                   onClick={() => {
                     const next = { ...form, floorArea: "" };
                     setForm(next);
-                    advance(next);
+                    advance(next, consent, true);
                   }}
                   className="mt-4 text-sm text-light-gray underline-offset-4 transition-colors hover:text-white hover:underline"
                 >
@@ -780,7 +822,10 @@ export default function LandingWizard() {
                       <button
                         key={chip.key}
                         type="button"
-                        onClick={() => goTo(chip.stepIndex)}
+                        onClick={() => {
+                          returnTo.current = STEPS.length - 1;
+                          goTo(chip.stepIndex);
+                        }}
                         className="rounded-lg border border-white/10 bg-primary-deep/60 px-2.5 py-1.5 text-xs text-light-gray transition-colors hover:border-accent/40 hover:text-white"
                         title="Módosítás"
                       >
@@ -932,7 +977,7 @@ export default function LandingWizard() {
             </button>
           )}
 
-          {(current.kind !== "choice" || form[current.id]) && (
+          {(current.kind === "area" ? Boolean(form.floorArea) : current.kind !== "choice" || form[current.id]) && (
             <button
               type="submit"
               disabled={status === "sending"}

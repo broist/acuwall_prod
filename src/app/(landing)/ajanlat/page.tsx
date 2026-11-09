@@ -1,15 +1,12 @@
 import { LogoMark } from "@/components/Logo";
 import Analytics from "@/components/landing/Analytics";
-import LandingHero from "@/components/landing/LandingHero";
-import LandingProof from "@/components/landing/LandingProof";
 import LandingWizard from "@/components/landing/LandingWizard";
 import PhoneCta from "@/components/landing/PhoneCta";
 import { CONTACT } from "@/components/landing/config";
 
 /**
- * Az űrlap az első képernyőn van (mobilon is); alatta egy rövid bizalomépítő
- * rész (hogyan zajlik, referenciák, gyakori kérdések) azoknak, akik még
- * bizonytalanok — ez nem tolja lejjebb a kérdéssort.
+ * Szándékosan csupasz oldal: fejléc, űrlap, lábléc. Nincs alatta marketing
+ * szekció, mert a hirdetésből érkező látogatónak egyetlen dolga van itt.
  *
  * A mérőazonosítókat futásidőben olvassuk a környezetből, hogy egy új
  * Google Ads vagy Meta azonosítóhoz elég legyen a konténer újraindítása —
@@ -28,7 +25,7 @@ export default function AjanlatLandingPage() {
   return (
     <div className="lp-glow flex min-h-screen flex-col">
       <header className="border-b border-white/[0.06]">
-        <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
+        <div className="mx-auto flex h-16 w-full max-w-2xl items-center justify-between gap-4 px-4 sm:px-6">
           <span className="flex items-center gap-2.5">
             <LogoMark className="h-9 w-9" />
             <span className="leading-tight">
@@ -45,22 +42,19 @@ export default function AjanlatLandingPage() {
       </header>
 
       <main className="grid-pattern flex-1">
-        <div className="mx-auto w-full max-w-6xl px-4 pb-10 pt-4 sm:px-6 sm:pt-6 lg:pb-16 lg:pt-12">
-          {/* Mobilon egymás alatt (a kérdéssor az első képernyőn marad), asztali
-              gépen a bevezető a kérdéssor mellett áll, és vele együtt görög. */}
-          <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,580px)] lg:items-start lg:gap-16">
-            <LandingHero />
-            <div className="lg:sticky lg:top-8">
-              <LandingWizard />
-            </div>
-          </div>
-        </div>
+        <div className="mx-auto w-full max-w-2xl px-4 pb-14 pt-4 sm:px-6 sm:pt-6">
+          {/* Egyetlen apró sor: a hirdetésből érkezőnek visszaigazolja, hogy jó
+              helyen jár, de nem tolja lejjebb az űrlapot. */}
+          <h1 className="mb-3.5 text-center text-[17px] font-semibold leading-snug tracking-tight sm:mb-4 sm:text-xl">
+            Generálkivitelezés <span className="text-accent">kulcsrakészen</span>
+          </h1>
 
-        <LandingProof />
+          <LandingWizard />
+        </div>
       </main>
 
       <footer className="border-t border-white/[0.06] bg-primary-deep">
-        <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-4 py-6 text-[13px] text-medium-gray sm:flex-row sm:px-6">
+        <div className="mx-auto flex w-full max-w-2xl flex-col items-center justify-between gap-3 px-4 py-6 text-[13px] text-medium-gray sm:flex-row sm:px-6">
           <p>© {new Date().getFullYear()} AcuWall</p>
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
             <a href={CONTACT.emailHref} className="transition-colors hover:text-white">
