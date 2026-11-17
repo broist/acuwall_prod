@@ -492,6 +492,11 @@ export const hu = {
         body: "Bármikor tájékoztatást kérhet adatai kezeléséről, kérheti azok helyesbítését, törlését vagy kezelésük korlátozását. Panasszal a Nemzeti Adatvédelmi és Információszabadság Hatósághoz (NAIH) fordulhat.",
         contact: "",
       },
+      {
+        title: "6. Sütik és látogatottságmérés",
+        body: "A weboldal működéséhez szükséges adatokon túl csak akkor használunk mérő sütiket (Google Analytics, Google Ads konverziómérés), ha ehhez az oldal alján megjelenő sávban a „Rendben” gombbal hozzájárul. Ezekből összesítve látjuk, hányan érkeznek, melyik hirdetésünk működik, és hány ajánlatkérés vagy telefonhívás lett belőle; a mérési adatokat a Google LLC kezeli adatfeldolgozóként. A „Csak a szükségesek” választásakor semmilyen mérőkód nem töltődik be, és az ajánlatkérés ugyanúgy elküldhető. Döntését a böngésző tárolja; a böngészőadatok törlésével bármikor újra dönthet.",
+        contact: "",
+      },
     ],
   },
 };

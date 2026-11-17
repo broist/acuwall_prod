@@ -494,6 +494,11 @@ export const en: Dictionary = {
         body: "You may at any time request information about the processing of your data, and request its rectification, erasure or the restriction of its processing. You may lodge a complaint with the Hungarian National Authority for Data Protection and Freedom of Information (NAIH).",
         contact: "",
       },
+      {
+        title: "6. Cookies and analytics",
+        body: "Beyond what is needed for the website to work, we only use measurement cookies (Google Analytics, Google Ads conversion tracking) if you consent by clicking “OK” in the bar at the bottom of the page. They show us, in aggregate, how many people visit, which of our ads work and how many quote requests or phone calls result from them; the measurement data is processed by Google LLC as a processor. If you choose “Necessary only”, no measurement code is loaded and the quote request can be sent just the same. Your choice is stored in your browser; you can decide again at any time by clearing your browser data.",
+        contact: "",
+      },
     ],
   },
 };

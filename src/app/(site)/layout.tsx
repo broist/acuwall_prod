@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SiteAnalytics from "@/components/landing/SiteAnalytics";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import { SITE_URL } from "@/content/seoPages";
 
@@ -70,6 +71,7 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </LanguageProvider>
+        <SiteAnalytics />
       </body>
     </html>
   );

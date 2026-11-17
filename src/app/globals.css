@@ -229,3 +229,8 @@ select option {
 label {
   @apply text-white/85 text-sm font-medium mb-2 block;
 }
+
+/* A hozzájárulási sáv (landing + weboldal): iPhone alsó sávja fölé kerüljön. */
+.lp-safe-bottom {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}

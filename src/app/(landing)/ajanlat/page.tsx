@@ -3,6 +3,7 @@ import Analytics from "@/components/landing/Analytics";
 import LandingWizard from "@/components/landing/LandingWizard";
 import PhoneCta from "@/components/landing/PhoneCta";
 import { CONTACT } from "@/components/landing/config";
+import { readTrackingIds } from "@/components/landing/trackingIds";
 
 /**
  * Szándékosan csupasz oldal: fejléc, űrlap, lábléc. Nincs alatta marketing
@@ -15,12 +16,7 @@ import { CONTACT } from "@/components/landing/config";
 export const dynamic = "force-dynamic";
 
 export default function AjanlatLandingPage() {
-  const trackingIds = {
-    ga4Id: process.env.LANDING_GA4_ID,
-    adsId: process.env.LANDING_GOOGLE_ADS_ID,
-    adsLabel: process.env.LANDING_GOOGLE_ADS_LABEL,
-    metaPixelId: process.env.LANDING_META_PIXEL_ID,
-  };
+  const trackingIds = readTrackingIds();
 
   return (
     <div className="lp-glow flex min-h-screen flex-col">

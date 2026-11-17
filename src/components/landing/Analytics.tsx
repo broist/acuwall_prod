@@ -57,6 +57,9 @@ export default function Analytics(ids: TrackingIds) {
               "window.dataLayer = window.dataLayer || [];",
               "function gtag(){dataLayer.push(arguments);}",
               "window.gtag = gtag;",
+              // A kód CSAK a „Rendben” után töltődik be, ezért a Consent Mode v2
+              // jelzései mind megadottak — a Google Ads ezt várja az EGT-ben.
+              "gtag('consent', 'default', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });",
               "gtag('js', new Date());",
               ga4Id ? `gtag('config', '${ga4Id}');` : "",
               adsId ? `gtag('config', '${adsId}');` : "",

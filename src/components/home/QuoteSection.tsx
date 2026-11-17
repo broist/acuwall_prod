@@ -15,6 +15,7 @@ import {
   Timer,
 } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { trackLead } from "@/components/landing/tracking";
 
 const initialFormData = {
   name: "",
@@ -85,6 +86,9 @@ export default function QuoteSection() {
 
       if (data.success) {
         setIsSubmitted(true);
+        // GA4 lead + Google Ads konverzió — csak ha a látogató hozzájárult
+        // (a mérőkód enélkül be sem töltődik, a hívás ilyenkor semmit nem csinál).
+        trackLead({ lead_type: "weboldal", epulet_tipus: formData.projectType });
       } else {
         setError(t.quote.errorText);
       }
