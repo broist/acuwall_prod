@@ -6,7 +6,9 @@
  *     (fázisonként 1–2 kép, ember nélkül, kb. 1600 px szélesre méretezve),
  *  2. ide fel kell venni egy új elemet a REFERENCES tömbbe.
  * Az oldalon szöveg nélkül, csak a képek jelennek meg, fázisonként egymás után.
- * A sorrend: ELÖL a legfrissebb (kész) állapot, utána a fázisok építési sorrendben.
+ * A sorrend: időrendi — a fázisok és a fázison belüli képek is építési
+ * sorrendben, a legfrissebb (kész) állapot a VÉGÉN. A kártya borítóképe
+ * (cover) ettől függetlenül a legfrissebb állapot.
  */
 
 export type Localized = { hu: string; en: string };
@@ -18,7 +20,7 @@ export type ReferenceImage = {
   portrait?: boolean;
 };
 
-/** Egy építési fázis képei — elöl a legfrissebb állapot, utána építési sorrendben. */
+/** Egy építési fázis képei, időrendben. */
 export type ReferencePhase = {
   images: ReferenceImage[];
 };
@@ -57,18 +59,6 @@ export const REFERENCES: Reference[] = [
       },
     },
     phases: [
-      {
-        images: [
-          {
-            src: `${garageDir}/03-homlokzat-kesz-1.jpg`,
-            alt: { hu: "Elkészült, vakolt garázs a ház mellett", en: "Finished rendered garage next to the house" },
-          },
-          {
-            src: `${garageDir}/03-homlokzat-kesz-2.jpg`,
-            alt: { hu: "Vakolt fal a fedett terasz alatt", en: "Rendered wall under the covered terrace" },
-          },
-        ],
-      },
       {
         images: [
           {
@@ -124,6 +114,18 @@ export const REFERENCES: Reference[] = [
           },
         ],
       },
+      {
+        images: [
+          {
+            src: `${garageDir}/03-homlokzat-kesz-1.jpg`,
+            alt: { hu: "Elkészült, vakolt garázs a ház mellett", en: "Finished rendered garage next to the house" },
+          },
+          {
+            src: `${garageDir}/03-homlokzat-kesz-2.jpg`,
+            alt: { hu: "Vakolt fal a fedett terasz alatt", en: "Rendered wall under the covered terrace" },
+          },
+        ],
+      },
     ],
   },
   {
@@ -144,22 +146,6 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
-            src: `${foundationDir}/01-alaplemez-1.jpg`,
-            alt: {
-              hu: "Kibetonozott alaplemez zsaluzattal és kiálló betonacélokkal",
-              en: "Poured slab with formwork and protruding rebar",
-            },
-          },
-          {
-            src: `${foundationDir}/01-alaplemez-2.jpg`,
-            alt: { hu: "Az alaplemez közelről", en: "The slab up close" },
-            portrait: true,
-          },
-        ],
-      },
-      {
-        images: [
-          {
             src: `${foundationDir}/02-foldmunka-1.jpg`,
             alt: {
               hu: "Földkiemelés és talajtömörítés az alaplemez helyén",
@@ -173,6 +159,22 @@ export const REFERENCES: Reference[] = [
           {
             src: `${foundationDir}/03-agyazat-1.jpg`,
             alt: { hu: "Elterített, tömörített ágyazat", en: "Spread and compacted sub-base" },
+          },
+        ],
+      },
+      {
+        images: [
+          {
+            src: `${foundationDir}/01-alaplemez-1.jpg`,
+            alt: {
+              hu: "Kibetonozott alaplemez zsaluzattal és kiálló betonacélokkal",
+              en: "Poured slab with formwork and protruding rebar",
+            },
+          },
+          {
+            src: `${foundationDir}/01-alaplemez-2.jpg`,
+            alt: { hu: "Az alaplemez közelről", en: "The slab up close" },
+            portrait: true,
           },
         ],
       },
@@ -193,17 +195,6 @@ export const REFERENCES: Reference[] = [
       },
     },
     phases: [
-      {
-        images: [
-          {
-            src: `${extensionDir}/01-vasalas-1.jpg`,
-            alt: {
-              hu: "Betonozásra kész alaplemez-vasalás a meglévő ház mellett",
-              en: "Slab reinforcement ready for pouring next to the existing house",
-            },
-          },
-        ],
-      },
       {
         images: [
           {
@@ -244,6 +235,17 @@ export const REFERENCES: Reference[] = [
           },
         ],
       },
+      {
+        images: [
+          {
+            src: `${extensionDir}/01-vasalas-1.jpg`,
+            alt: {
+              hu: "Betonozásra kész alaplemez-vasalás a meglévő ház mellett",
+              en: "Slab reinforcement ready for pouring next to the existing house",
+            },
+          },
+        ],
+      },
     ],
   },
   {
@@ -264,10 +266,14 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
-            src: `${outbuildingDir}/01-labazat-kesz-1.jpg`,
+            src: `${outbuildingDir}/03-savalap-1.jpg`,
+            alt: { hu: "Frissen betonozott sávalap az alapárokban", en: "Freshly poured strip footing in the trench" },
+          },
+          {
+            src: `${outbuildingDir}/03-savalap-2.jpg`,
             alt: {
-              hu: "Elkészült zsalukő lábazat betonnal kitöltve, kiálló betonacélokkal",
-              en: "Finished block plinth filled with concrete, with protruding rebar",
+              hu: "Kibetonozott sávalap kiálló betonacélokkal",
+              en: "Strip footing poured with starter bars",
             },
           },
         ],
@@ -286,15 +292,11 @@ export const REFERENCES: Reference[] = [
       {
         images: [
           {
-            src: `${outbuildingDir}/03-savalap-2.jpg`,
+            src: `${outbuildingDir}/01-labazat-kesz-1.jpg`,
             alt: {
-              hu: "Kibetonozott sávalap kiálló betonacélokkal",
-              en: "Strip footing poured with starter bars",
+              hu: "Elkészült zsalukő lábazat betonnal kitöltve, kiálló betonacélokkal",
+              en: "Finished block plinth filled with concrete, with protruding rebar",
             },
-          },
-          {
-            src: `${outbuildingDir}/03-savalap-1.jpg`,
-            alt: { hu: "Frissen betonozott sávalap az alapárokban", en: "Freshly poured strip footing in the trench" },
           },
         ],
       },

@@ -26,24 +26,31 @@ function WireframeHouse() {
       fill="none"
       className="pointer-events-none absolute right-7 top-[18px] hidden h-[230px] w-[300px] opacity-55 md:block"
     >
-      <g stroke="#FF6A3D" strokeWidth="1.2" strokeLinejoin="round">
-        <path d="M60 120 L150 75 L240 120 L150 165 Z" />
-        <path d="M60 120 V185 L150 230 V165" />
-        <path d="M240 120 V185 L150 230" />
-        <path d="M60 120 L105 52 L195 7 L240 120" opacity="0.9" />
-        <path d="M105 52 L150 75" opacity="0.9" />
-      </g>
+      {/* Rejtett élek (a ház túloldala) */}
       <g stroke="#3A5274" strokeWidth="1" strokeDasharray="3 4">
-        <path d="M60 185 L150 140 L240 185" />
-        <path d="M150 140 V75" />
+        <path d="M50 170 L150 120 L250 170" />
+        <path d="M150 120 V60" />
+        <path d="M50 110 L150 60 L250 110" />
+      </g>
+      <g stroke="#FF6A3D" strokeWidth="1.3" strokeLinejoin="round">
+        {/* Falak */}
+        <path d="M50 110 V170 L150 220 L250 170 V110" />
+        <path d="M150 220 V160" />
+        <path d="M50 110 L150 160 L250 110" />
+        {/* Nyeregtető: oromfal elöl-balra, gerinc hátrafelé */}
+        <path d="M50 110 L100 85 L150 160" />
+        <path d="M100 85 L200 35 L250 110" />
+        {/* Ajtó és ablak */}
+        <path d="M90 190 V155 L110 165 V200" />
+        <path d="M180 180 V160 L220 140 V160 Z" />
       </g>
       <g fill="#FF6A3D">
-        <circle cx="60" cy="120" r="2.5" />
-        <circle cx="150" cy="75" r="2.5" />
-        <circle cx="240" cy="120" r="2.5" />
-        <circle cx="150" cy="165" r="2.5" />
-        <circle cx="195" cy="7" r="2.5" />
-        <circle cx="105" cy="52" r="2.5" />
+        <circle cx="100" cy="85" r="2.5" />
+        <circle cx="200" cy="35" r="2.5" />
+        <circle cx="50" cy="110" r="2.5" />
+        <circle cx="150" cy="160" r="2.5" />
+        <circle cx="250" cy="110" r="2.5" />
+        <circle cx="150" cy="220" r="2.5" />
       </g>
     </svg>
   );
