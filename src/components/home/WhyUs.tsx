@@ -32,7 +32,7 @@ export default function WhyUs() {
                     <Icon size={22} className="text-accent-soft" />
                   </span>
                   <span
-                    className="font-display text-[44px] font-extrabold leading-none tracking-[-0.04em] text-transparent [-webkit-text-stroke:1.5px_#3A5274]"
+                    className="font-display text-[44px] font-extrabold leading-none tracking-[-0.04em] text-tile [-webkit-text-stroke:3px_#3A5274] [paint-order:stroke_fill]"
                     aria-hidden="true"
                   >
                     {String(index + 1).padStart(2, "0")}

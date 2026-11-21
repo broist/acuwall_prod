@@ -9,8 +9,8 @@ function OutlineNumber({ value, stroke }: { value: string; stroke: string }) {
   return (
     <span
       aria-hidden="true"
-      className="font-display text-[64px] font-extrabold leading-none tracking-[-0.04em] text-transparent"
-      style={{ WebkitTextStroke: `1.5px ${stroke}` }}
+      className="font-display text-[64px] font-extrabold leading-none tracking-[-0.04em] text-tile [paint-order:stroke_fill]"
+      style={{ WebkitTextStroke: `3px ${stroke}` }}
     >
       {value}
     </span>
