@@ -214,14 +214,6 @@ export const REFERENCES: Reference[] = [
             alt: { hu: "Kibetonozott sávalap az alapárokban", en: "Strip footing poured in the trench" },
             portrait: true,
           },
-          {
-            src: `${extensionDir}/02-savalap-2.jpg`,
-            alt: {
-              hu: "Sávalap kiálló betonacélokkal a ház mellett",
-              en: "Strip footing with starter bars next to the house",
-            },
-            portrait: true,
-          },
         ],
       },
       {
