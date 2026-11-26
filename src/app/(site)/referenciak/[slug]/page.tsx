@@ -6,12 +6,15 @@ import { REFERENCES, getReference } from "@/content/references";
 /** Csak a felvett referenciák léteznek, minden más 404. */
 export const dynamicParams = false;
 
+type Props = { params: Promise<{ slug: string }> };
+
 export function generateStaticParams() {
   return REFERENCES.map((reference) => ({ slug: reference.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const reference = getReference(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const reference = getReference(slug);
   if (!reference) return {};
 
   const title = `${reference.title.hu} — referencia | AcuWall`;
@@ -31,7 +34,8 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function Page({ params }: { params: { slug: string } }) {
-  if (!getReference(params.slug)) notFound();
-  return <ReferenceDetail slug={params.slug} />;
+export default async function Page({ params }: Props) {
+  const { slug } = await params;
+  if (!getReference(slug)) notFound();
+  return <ReferenceDetail slug={slug} />;
 }

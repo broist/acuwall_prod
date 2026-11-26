@@ -1,0 +1,14 @@
+# A kepbe csak a forras kell; a helyi (Windowsos) node_modules es .next
+# felulirna a kontenerben telepitettet.
+node_modules
+.next
+.git
+acuwall-website
+acuwall_v2-main
+test_reports
+Gmail
+*.bat
+.env
+.env.*
+!.env.example
+tsconfig.tsbuildinfo

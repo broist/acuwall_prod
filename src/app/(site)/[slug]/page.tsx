@@ -12,12 +12,15 @@ import { SEO_PAGES, SITE_URL, DEFAULT_AREA, getSeoPage } from "@/content/seoPage
  */
 export const dynamicParams = false;
 
+type Props = { params: Promise<{ slug: string }> };
+
 export function generateStaticParams() {
   return SEO_PAGES.map((page) => ({ slug: page.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const page = getSeoPage(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const page = getSeoPage(slug);
   if (!page) return {};
 
   const title = `${page.metaTitle} | AcuWall`;
@@ -36,8 +39,9 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
   };
 }
 
-export default function SeoLandingPage({ params }: { params: { slug: string } }) {
-  const page = getSeoPage(params.slug);
+export default async function SeoLandingPage({ params }: Props) {
+  const { slug } = await params;
+  const page = getSeoPage(slug);
   if (!page) notFound();
 
   const pageUrl = `${SITE_URL}/${page.slug}`;

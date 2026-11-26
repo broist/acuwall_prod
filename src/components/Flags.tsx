@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import type { Locale } from "@/i18n/config";
 
 type FlagProps = {
